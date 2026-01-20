@@ -1,0 +1,96 @@
+/* 1. Import the chosen font (Inter) from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+/* =========================================
+   THEME CONFIGURATION (TAILWIND v4)
+   ========================================= */
+@theme {
+  /* --- FONT UNIFORMITY --- */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  /* --- COLOR PALETTE DEFINITIONS --- */
+
+  /* NEUTRALS (Zinc - Clean & Modern) */
+  --color-neutral-50:  #fafafa;
+  --color-neutral-100: #f4f4f5;
+  --color-neutral-200: #e4e4e7;
+  --color-neutral-300: #d4d4d8;
+  --color-neutral-800: #27272a;
+  --color-neutral-900: #18181b;
+  --color-neutral-950: #09090b;
+
+  /* BRAND COLORS (AMBER - Warm & Traditional) */
+  --color-brand-50:  #fffbeb; /* Tertiary Background (Light) */
+  --color-brand-100: #fef3c7; /* Highlight/Wash */
+  --color-brand-200: #fde68a; /* Borders/Accents */
+  --color-brand-500: #f59e0b; /* Primary Action */
+  --color-brand-600: #d97706; /* Primary Hover */
+  --color-brand-900: #78350f; /* Deep Text */
+  --color-brand-950: #451a03; /* Contrast Text */
+}
+
+/* =========================================
+   LIGHT / DARK MODE VARIABLES
+   ========================================= */
+
+/* --- LIGHT MODE --- */
+:root {
+  /* Background Layers */
+  --bg-main:      var(--color-neutral-50); /* Layer 1: Main Page Background */
+  --bg-secondary: white;                   /* Layer 2: Cards / Navbar */
+  --bg-tertiary:  var(--color-brand-50);   /* Layer 3: Hero / Highlight Sections */
+
+  /* Borders */
+  --border-subtle: var(--color-neutral-200);
+  --border-accent: var(--color-brand-200);
+
+  /* Text */
+  --text-main:       var(--color-neutral-900);
+  --text-muted:      var(--color-neutral-800);
+  --text-brand-deep: var(--color-brand-900);
+
+  /* Interactive */
+  --primary:       var(--color-brand-500);
+  --primary-hover: var(--color-brand-600);
+}
+
+/* --- DARK MODE --- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Background Layers */
+    --bg-main:      var(--color-neutral-950); /* Deepest Black */
+    --bg-secondary: var(--color-neutral-900); /* Slightly Lighter (Cards) */
+    --bg-tertiary:  var(--color-neutral-800); /* Highlight Sections */
+
+    /* Borders */
+    --border-subtle: var(--color-neutral-800);
+    --border-accent: var(--color-brand-900);
+
+    /* Text */
+    --text-main:       var(--color-neutral-50);
+    --text-muted:      var(--color-neutral-300);
+    --text-brand-deep: var(--color-brand-200);
+
+    /* Interactive */
+    --primary:       var(--color-brand-500);
+    --primary-hover: var(--color-brand-200);
+  }
+}
+
+/* =========================================
+   BASE STYLES
+   ========================================= */
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+}
+
+body {
+    @apply bg-[var(--bg-main)] text-[var(--text-main)] transition-colors duration-300 font-normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold tracking-tight;
+}
