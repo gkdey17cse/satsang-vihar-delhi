@@ -1,12 +1,12 @@
 const Kendras = () => {
   return (
-    <section id="kendras" className="py-24 bg-[var(--bg-tertiary)] border-t border-[var(--border-subtle)]">
+    <section id="kendras" className="py-24 bg-[var(--bg-secondary)] border-t border-[var(--border-subtle)] ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left: Text Content */}
           <div>
-            <h2 className="text-4xl font-bold text-[var(--text-brand-deep)] mb-6">Upayojna Kendras</h2>
+            <h2 className="text-4xl font-bold text-[var(--text-main)]  mb-6">Upayojna Kendras</h2>
             <div className="prose prose-lg text-[var(--text-muted)]">
               <p className="mb-6 font-medium text-[var(--text-brand-deep)]">
                 "I am as much within me as I am within you. If you do not become fulfilled, I remain unfulfilled to the same extent."
