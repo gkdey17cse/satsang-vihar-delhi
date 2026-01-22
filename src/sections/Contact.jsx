@@ -1,89 +1,10 @@
-// // src/sections/Contact.jsx
-// const Contact = () => {
-//   return (
-//     <section
-//       id="contact"
-//       className="relative min-h-[700px] flex items-center justify-center border-t border-[var(--border-subtle)]"
-//     >
-//       {/* 1. Background Google Maps Iframe */}
-//       <div className="absolute inset-0 w-full h-full z-0">
-//         <iframe
-//           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.066454357626!2d77.1234567890!3d28.6273829123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM3JzM4LjYiTiA3N8KwMDcnMjQuNCJF!5e0!3m2!1sen!2sin!4v1633024000000!5m2!1sen!2sin"
-//           width="100%"
-//           height="100%"
-//           style={{ border: 0, }} // Added filter for a subtler look
-//           allowFullScreen=""
-//           loading="lazy"
-//           referrerPolicy="no-referrer-when-downgrade"
-//         ></iframe>
-//       </div>
-
-//       {/* 2. Foreground Contact Info Card */}
-//       <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-//         <h2 className="text-4xl font-bold text-[var(--text-main)] mb-8 drop-shadow-md">
-//           Contact Us
-//         </h2>
-
-//         {/* Added backdrop-blur and slightly transparent background */}
-//         <div className="bg-[var(--bg-secondary)]/95 backdrop-blur-md p-10 rounded-2xl shadow-2xl border-t-4 border-[var(--primary)]">
-//           <p className="text-xl italic text-[var(--text-muted)] mb-8 leading-relaxed">
-//             "Shout, cheer up—be unquivered and attached by your tendril of
-//             passion to the Ideal, the Beloved—whose love enters unquestionably
-//             top to bottom."
-//           </p>
-
-//           <div className="grid md:grid-cols-2 gap-8 text-left">
-//             <div>
-//               <h3 className="font-bold text-[var(--text-main)] mb-2">
-//                 Visit Us
-//               </h3>
-//               <p className="text-[var(--text-muted)]">
-//                 Satsang Vihar New Delhi
-//                 <br />
-//                 [Insert Actual Address Line 1]
-//                 <br />
-//                 New Delhi, India
-//               </p>
-//             </div>
-//             <div>
-//               <h3 className="font-bold text-[var(--text-main)] mb-2">
-//                 Connect
-//               </h3>
-//               <p className="text-[var(--text-muted)]">
-//                 Email: contact@satsangdelhi.org
-//                 <br />
-//                 Phone: +91 98765 43210
-//               </p>
-//             </div>
-//           </div>
-
-//           <div className="mt-10 pt-8 border-t border-[var(--border-subtle)]">
-//             <h3 className="text-2xl font-bold text-[var(--primary)] uppercase tracking-widest">
-//               Peace, Peace, Peace — Be Ye Peaceful!
-//             </h3>
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-// export default Contact;
-
-
 // src/sections/Contact.jsx
 const Contact = () => {
-  // Address for the location
   const address = "Delhi Satsang Vihar, A-14/15, Delhi Satsang Vihar Marg, Qutab Institutional Area, New Delhi.";
-  
-  // Standard Google Maps Embed URL for the specified area
-  const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.647184714136!2d77.17882297613322!3d28.5503290878031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1df649f874c1%3A0x6a2b8966085a676b!2sSatsang%20Vihar%2C%20Qutab%20Institutional%20Area!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin";
+  const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.666453669886!2d77.18241697528574!3d28.54974397571004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1df6b9b3b3b3%3A0x6b3b3b3b3b3b3b3b!2sSatsang%20Vihar%20New%20Delhi!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin";
 
   return (
-    <section
-      id="contact"
-      className="relative min-h-[750px] flex items-center border-t border-[var(--border-subtle)] overflow-hidden"
-    >
-      {/* Background Google Maps */}
+    <section id="contact" className="relative min-h-[750px] flex items-center border-t border-[var(--border-subtle)] overflow-hidden">
       <div className="absolute inset-0 w-full h-full z-0">
         <iframe
           src={mapEmbedUrl}
@@ -97,10 +18,8 @@ const Contact = () => {
         ></iframe>
       </div>
 
-      {/* Dark Overlay for Readability */}
       <div className="absolute inset-0 bg-black/30 z-10 pointer-events-none"></div>
 
-      {/* Contact Information Card - Positioned to the Right */}
       <div className="relative z-20 w-full mx-auto px-4 sm:px-6 lg:px-8 flex justify-end">
         <div className="w-full max-w-xl bg-[var(--bg-main)] p-8 md:p-10 rounded-lg shadow-2xl border border-[var(--border-subtle)] my-12">
           
@@ -109,7 +28,6 @@ const Contact = () => {
           </h2>
 
           <div className="space-y-6">
-            {/* Location Section */}
             <div>
               <h3 className="text-sm font-bold text-[var(--primary)] uppercase mb-2">Address</h3>
               <p className="text-[var(--text-main)] text-sm leading-relaxed">
@@ -119,14 +37,12 @@ const Contact = () => {
               </p>
             </div>
 
-            {/* Personnel Section */}
             <div>
               <h3 className="text-sm font-bold text-[var(--primary)] uppercase mb-2">Contact Persons</h3>
-              <p className="text-[var(--text-main)] text-sm mb-1">Sri J.N. Mahanty</p>
-              <p className="text-[var(--text-main)] text-sm">Mr. Maheshwar Das</p>
+              <p className="text-[var(--text-main)] text-sm mb-1">Sri J.N. Mahanty (S.P.R) </p>
+              <p className="text-[var(--text-main)] text-sm">Mr. Maheshwar Das (S.P.R) </p>
             </div>
 
-            {/* Communication Section */}
             <div className="pt-4 border-t border-[var(--border-subtle)]">
               <div className="flex justify-between mb-2">
                 <span className="text-sm text-[var(--text-muted)] font-medium">Telephone:</span>
@@ -138,7 +54,6 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Route Section */}
             <div className="bg-[var(--bg-secondary)] p-4 rounded border border-[var(--border-subtle)]">
               <h3 className="text-xs font-bold text-[var(--text-main)] uppercase mb-3 tracking-tighter">
                 Directions from New Delhi Railway Station
@@ -146,18 +61,21 @@ const Contact = () => {
               <div className="text-[12px] text-[var(--text-muted)] leading-relaxed space-y-2">
                 <p>Take Bus Route No. 505 from Ajmeri Gate towards Mehrauli.</p>
                 <p>Alight at Adhchini Bus Stop. Board a bus heading toward Katwaria Sarai.</p>
-                <p>The second stop after Katwaria Sarai is the FAI Stop. The destination is within walking distance from this location.</p>
               </div>
             </div>
 
-            <p className="text-center text-xs lg:text-base font-medium text-[var(--primary)] italic pt-4">
-              Peace, Peace, Peace — Be Ye Peaceful!
-            </p>
+            <div className="pt-4 text-center">
+               <p className="text-xs lg:text-sm font-medium text-[var(--primary)] italic">
+                 "Peace, Peace, Peace — Be Ye Peaceful!"
+               </p>
+               <span className="block mt-1 text-[10px] text-[var(--text-muted)] opacity-70">
+                 — Sree Sree Thakur Anukulchandra, Satyanusaran
+               </span>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
 };
-
 export default Contact;
