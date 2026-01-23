@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const NotificationMarquee = () => {
   return (
-    <div className="bg-[var(--primary)] text-white py-2 text-xs md:text-sm xl:text-base">
+    <div className="bg-[var(--primary)] text-white py-2 text-sm lg:text-base">
       <Marquee gradient={false} speed={20} pauseOnHover={true}>
         <Link
           to="/conference-du-2026"

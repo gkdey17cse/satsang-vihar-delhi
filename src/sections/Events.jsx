@@ -46,7 +46,7 @@ const Events = () => {
           <h2 className="text-3xl md:text-5xl font-bold text-[var(--text-brand-deep)] mb-4">
             Upcoming Events & Conferences
           </h2>
-          <p className="text-[var(--text-muted)]">
+          <p className="text-sm lg:text-base text-[var(--text-muted)]">
             Join our initiatives for spiritual growth and social excellence.
           </p>
         </div>
@@ -75,7 +75,7 @@ const Events = () => {
 
               {/* Text Content */}
               <div className="p-8 flex flex-col h-[calc(100%-13rem)]">
-                <h3 className="text-2xl font-bold text-[var(--text-main)] mb-2">
+                <h3 className="text-xl lg:text-2xl font-bold text-[var(--text-main)] mb-2">
                   {event.title}
                 </h3>
 

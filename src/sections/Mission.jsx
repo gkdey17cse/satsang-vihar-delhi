@@ -26,14 +26,14 @@ const Mission = () => {
 
           {/* Right Side: Ideology Content */}
           <div className="text-justify order-1 lg:order-2">
-            <h2 className="text-sm font-bold tracking-widest text-[var(--primary)] uppercase mb-4">
+            <h2 className="text-xs lg:text-sm font-bold tracking-widest text-[var(--primary)] uppercase mb-4">
               Our Philosophy
             </h2>
             <h3 className="text-3xl md:text-5xl font-bold text-[var(--text-main)] mb-6 leading-tight">
               Being and <span className="text-[var(--primary)]">Becoming</span>
             </h3>
 
-            <div className="space-y-6 text-base lg:text-lg text-[var(--text-muted)] leading-relaxed">
+            <div className="space-y-6 text-sm lg:text-base 2xl:text-lg text-[var(--text-muted)] leading-relaxed">
               <p>
                 The ideology of Satsang is a comprehensive, life-centric
                 philosophy focusing on the balanced development of the
@@ -71,7 +71,7 @@ const Mission = () => {
             </div>
 
             {/* Buttons */}
-            <div className="mt-10 flex flex-wrap justify-center items-center gap-2 lg:gap-4">
+            <div className="mt-10 flex text-sm lg:text-base flex-wrap justify-center items-center gap-2 lg:gap-4">
               <a
                 href="https://www.satsang.org.in"
                 target="_blank"

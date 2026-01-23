@@ -49,14 +49,14 @@ const Hero = () => {
           resist <span className="text-[var(--primary)]">Death to Death</span>
         </h1>
 
-        <p className="tmd:text-xl text-[var(--text-muted)] mb-12 max-w-2xl mx-auto leading-relaxed">
+        <p className="tmd:text-xl text-[var(--text-muted)] mb-6 lg:mb-12 max-w-2xl mx-auto leading-relaxed">
           Nurturing the path of existential upliftment through adherence to the
           Living Ideal.
         </p>
 
-        <div className="mb-14">
+        <div className="mb-8 lg:mb-14">
           <div className="inline-block px-8 py-4 border-y border-[var(--border-subtle)]">
-            <p className="italic text-[var(--text-brand-deep)] text-lg md:text-xl lg:text-2xl font-serif">
+            <p className="italic text-[var(--text-brand-deep)] lg:text-lg 2xl:text-2xl font-serif">
               "Fusional adherence that evolves into being with respective
               becoming—is life."
             </p>
@@ -66,8 +66,8 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="flex flex-col items-center gap-6">
-          <div className="bg-[var(--primary)] text-white px-10 py-2.5 lg:py-4 rounded-full text-lg font-semibold shadow-lg">
+        <div className="flex flex-col items-center gap-4 lg:gap-6">
+          <div className="bg-[var(--primary)] text-white px-10 py-2.5 lg:py-4 rounded-full lg:text-lg font-semibold shadow-lg">
             Install Him with Love
           </div>
           <p className="text-[var(--text-muted)] text-xs lg:text-sm tracking-wide uppercase">

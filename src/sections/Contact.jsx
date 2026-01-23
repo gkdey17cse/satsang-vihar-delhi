@@ -33,10 +33,10 @@ const Contact = () => {
 
           <div className="space-y-6">
             <div>
-              <h3 className="text-sm font-bold text-[var(--primary)] uppercase mb-2">
+              <h3 className="text-xs lg:text-sm font-bold text-[var(--primary)] uppercase mb-2">
                 Address
               </h3>
-              <p className="text-[var(--text-main)] text-sm leading-relaxed">
+              <p className="text-[var(--text-main)] text-xs lg:text-sm leading-relaxed">
                 Delhi Satsang Vihar, A-14/15,
                 <br />
                 Delhi Satsang Vihar Marg,
@@ -46,31 +46,31 @@ const Contact = () => {
             </div>
 
             <div>
-              <h3 className="text-sm font-bold text-[var(--primary)] uppercase mb-2">
+              <h3 className="text-xs lg:text-sm font-bold text-[var(--primary)] uppercase mb-2">
                 Contact Persons
               </h3>
-              <p className="text-[var(--text-main)] text-sm mb-1">
+              <p className="text-[var(--text-main)] text-xs lg:text-sm mb-1">
                 Sri J.N. Mahanty (S.P.R){" "}
               </p>
-              <p className="text-[var(--text-main)] text-sm">
+              <p className="text-[var(--text-main)] text-xs lg:text-sm">
                 Mr. Maheshwar Das (S.P.R){" "}
               </p>
             </div>
 
             <div className="pt-4 border-t border-[var(--border-subtle)]">
               <div className="flex justify-between mb-2">
-                <span className="text-sm text-[var(--text-muted)] font-medium">
+                <span className="text-xs lg:text-sm text-[var(--text-muted)] font-medium">
                   Telephone:
                 </span>
-                <span className="text-sm text-[var(--text-main)] font-semibold">
+                <span className="text-xs lg:text-sm text-[var(--text-main)] font-semibold">
                   011 41830063
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-sm text-[var(--text-muted)] font-medium">
+                <span className="text-xs lg:text-sm text-[var(--text-muted)] font-medium">
                   Mobile:
                 </span>
-                <span className="text-sm text-[var(--text-main)] font-semibold">
+                <span className="text-xs lg:text-sm text-[var(--text-main)] font-semibold">
                   09811148043
                 </span>
               </div>
@@ -90,7 +90,7 @@ const Contact = () => {
             </div>
 
             <div className="pt-4 text-center">
-              <p className="text-xs lg:text-sm font-medium text-[var(--primary)] italic">
+              <p className="text-xs lg:text-xs lg:text-sm font-medium text-[var(--primary)] italic">
                 "Peace, Peace, Peace — Be Ye Peaceful!"
               </p>
               <span className="block mt-1 text-[10px] text-[var(--text-muted)] opacity-70">
