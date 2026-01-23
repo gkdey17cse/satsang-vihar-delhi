@@ -210,8 +210,8 @@ const ConferenceDetailsPage = () => {
                 className="font-bold tracking-tight text-[var(--primary)] 
                   text-base       /* Mobile */
                   sm:text-lg      /* Tablet */
-                  lg:text-xl      /* Desktop */
-                  xl:text-2xl     /* Large Monitor */
+                  lg:text-lg lg:text-xl      /* Desktop */
+                  xl:text-lg lg:text-xl lg:text-2xl     /* Large Monitor */
                 "
               >
                 Satsang Vihar Delhi
@@ -252,10 +252,10 @@ const ConferenceDetailsPage = () => {
               Career Counselling{" "}
               <span className="text-[var(--primary)]">Session</span>
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 font-medium mb-4">
+            <p className="text-lg lg:text-xl md:text-lg lg:text-xl lg:text-2xl text-white/90 font-medium mb-4">
               @ University of Delhi
             </p>
-            <p className="text-xl md:text-2xl text-[var(--primary)] font-medium mb-8">
+            <p className="text-lg lg:text-xl md:text-lg lg:text-xl lg:text-2xl text-[var(--primary)] font-medium mb-8">
               20th February , 2026
             </p>
 
@@ -264,10 +264,10 @@ const ConferenceDetailsPage = () => {
               career choices.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex gap-4 justify-center">
               <a
                 href={REGISTRATION_LINK}
-                className="bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white px-8 py-4 rounded-full text-lg font-bold transition-all shadow-lg hover:shadow-[var(--primary)]/50 transform hover:-translate-y-1"
+                className="bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white px-8 py-2.5 lg:py-3 rounded-full text-lg font-bold transition-all shadow-lg hover:shadow-[var(--primary)]/50 transform hover:-translate-y-1"
               >
                 Register Now (Free)
               </a>
@@ -277,7 +277,7 @@ const ConferenceDetailsPage = () => {
                 to="schedule"
                 smooth={true}
                 duration={800}
-                className="cursor-pointer bg-white/10 backdrop-blur-md border border-white/30 text-white hover:bg-white/20 px-8 py-4 rounded-full text-lg font-bold transition-all"
+                className="cursor-pointer bg-white/10 backdrop-blur-md border border-white/30 text-white hover:bg-white/20 px-8 py-2.5 lg:py-3 rounded-full text-lg font-bold transition-all"
               >
                 View Schedule ↓
               </ScrollLink>
@@ -289,11 +289,11 @@ const ConferenceDetailsPage = () => {
         <section className="py-20 px-4 bg-[var(--bg-main)]">
           <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
             {/* Objectives */}
-            <div className="bg-[var(--bg-secondary)] p-8 rounded-2xl border border-[var(--border-subtle)]">
-              <h3 className="text-2xl font-bold text-[var(--text-main)] mb-6">
+            <div className="bg-[var(--bg-secondary)] p-6 lg:p-8 rounded-2xl border border-[var(--border-subtle)]">
+              <h3 className="text-xl lg:text-2xl font-bold text-[var(--text-main)] mb-6">
                 Objectives of the Session
               </h3>
-              <ul className="space-y-4">
+              <ul className="text-sm lg:text-base space-y-3 lg:space-y-4">
                 {[
                   "To provide structured career counselling across diverse domains",
                   "To enable one-to-one personal interaction with experts",
@@ -312,11 +312,11 @@ const ConferenceDetailsPage = () => {
             </div>
 
             {/* Perks */}
-            <div className="bg-[var(--primary)] text-white p-8 rounded-2xl shadow-xl">
-              <h3 className="text-2xl font-bold mb-6 text-white">
+            <div className="bg-[var(--primary)] text-white p-6 lg:p-8 rounded-2xl shadow-xl">
+              <h3 className="text-xl lg:text-2xl font-bold mb-6 text-white">
                 Perks of Attending
               </h3>
-              <ul className="space-y-4">
+              <ul className="text-sm lg:text-base space-y-3 lg:space-y-4">
                 {[
                   "Certificate of Participation",
                   "Direct interaction with IAS officers, scientists, & leaders",
@@ -338,16 +338,16 @@ const ConferenceDetailsPage = () => {
         </section>
 
         {/* 3. GUESTS OF HONOUR */}
-        <section className="py-20 px-4 bg-[var(--bg-main)]">
+        <section className="py-8 lg:py-20 px-4 bg-[var(--bg-main)]">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold text-[var(--text-main)] mb-4">
+            <div className="text-center mb-8 lg:mb-16">
+              <h2 className="text-2xl lg:text-3xl font-bold text-[var(--text-main)] mb-4">
                 Guests of Honour
               </h2>
               <div className="w-24 h-1 bg-[var(--primary)] mx-auto rounded-full"></div>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-4 lg:gap-8">
               {[
                 {
                   name: "Dr. Jubilee Purkayastha",
@@ -382,7 +382,7 @@ const ConferenceDetailsPage = () => {
                       <circle cx="12" cy="7" r="4" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-[var(--text-main)] mb-2">
+                  <h3 className="text-lg lg:text-xl font-bold text-[var(--text-main)] mb-2">
                     {guest.name}
                   </h3>
                   <p className="text-[var(--primary)] font-medium text-sm mb-1">
@@ -397,12 +397,11 @@ const ConferenceDetailsPage = () => {
           </div>
         </section>
 
-
         {/* 4. KEY SPEAKERS & COUNSELLORS (Categorized) */}
         <section className="py-20 px-4 bg-[var(--bg-secondary)] border-y border-[var(--border-subtle)]">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold text-[var(--text-main)] mb-4">
+              <h2 className="text-2xl lg:text-3xl font-bold text-[var(--text-main)] mb-4">
                 Key Speakers & Counsellors
               </h2>
               <p className="text-[var(--text-muted)] max-w-2xl mx-auto">
@@ -414,10 +413,10 @@ const ConferenceDetailsPage = () => {
             <div className="space-y-16">
               {speakerCategories.map((cat, idx) => (
                 <div key={idx}>
-                  <h3 className="text-xl md:text-2xl font-bold text-[var(--primary)] mb-6 border-l-4 border-[var(--primary)] pl-4">
+                  <h3 className="text-lg lg:text-xl md:text-lg lg:text-xl lg:text-2xl font-bold text-[var(--primary)] mb-6 border-l-4 border-[var(--primary)] pl-4">
                     {cat.title}
                   </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
                     {cat.speakers.map((speaker, sIdx) => (
                       <div
                         key={sIdx}
@@ -425,10 +424,10 @@ const ConferenceDetailsPage = () => {
                       >
                         <div className="mt-1 min-w-[10px] h-[10px] rounded-full bg-[var(--primary)]"></div>
                         <div>
-                          <h4 className="font-bold text-[var(--text-main)] text-lg leading-tight mb-1">
+                          <h4 className="font-bold text-[var(--text-main)] text-base lg:text-lg leading-tight mb-1.5 lg:mb-1">
                             {speaker.name}
                           </h4>
-                          <p className="text-sm font-semibold text-[var(--text-muted)] opacity-80 mb-1">
+                          <p className="text-sm font-semibold text-[var(--text-muted)] opacity-80 mb-1.5 lg:mb-1">
                             {speaker.role}
                           </p>
                           <p className="text-xs text-[var(--text-muted)] italic">
@@ -451,7 +450,7 @@ const ConferenceDetailsPage = () => {
         >
           <div className="max-w-5xl mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold text-[var(--text-main)] mb-4">
+              <h2 className="text-2xl lg:text-3xl font-bold text-[var(--text-main)] mb-4">
                 Programme Schedule
               </h2>
               <p className="text-[var(--text-muted)]">
@@ -515,7 +514,7 @@ const ConferenceDetailsPage = () => {
                 ].map((item, index) => (
                   <div
                     key={index}
-                    className="grid grid-cols-1 md:grid-cols-[180px_auto] gap-6 group relative pb-10 last:pb-0"
+                    className="px-2 grid grid-cols-1 md:grid-cols-[180px_auto] gap-6 group relative pb-10 last:pb-0"
                   >
                     <div className="md:text-right">
                       <span className="inline-block md:block text-sm font-bold text-[var(--primary)] bg-[var(--bg-tertiary)] md:bg-transparent px-3 py-1 md:p-0 rounded-full md:rounded-none">
@@ -532,7 +531,7 @@ const ConferenceDetailsPage = () => {
                       ></div>
                       <div
                         className={`
-                        p-6 rounded-xl border transition-all duration-300
+                        p-4 lg:p-6 rounded-xl border transition-all duration-300
                         ${
                           item.type === "session"
                             ? "bg-[var(--bg-main)] border-[var(--border-subtle)] shadow-sm hover:shadow-md border-l-4 border-l-[var(--primary)]"
@@ -542,7 +541,7 @@ const ConferenceDetailsPage = () => {
                         }
                       `}
                       >
-                        <h3 className="text-xl font-bold text-[var(--text-main)] mb-1">
+                        <h3 className="text-lg lg:text-xl font-bold text-[var(--text-main)] mb-1">
                           {item.title}
                         </h3>
                         <p className="text-[var(--text-muted)] text-sm leading-relaxed">
@@ -558,18 +557,18 @@ const ConferenceDetailsPage = () => {
         </section>
 
         {/* 6. BOTTOM CTA */}
-        <section className="py-24 bg-[var(--primary)] text-white text-center px-4">
+        <section className="py-12 lg:py-24 bg-[var(--primary)] text-white text-center px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            <h2 className="text-2xl lg:text-3xl md:text-5xl font-bold mb-6">
               Empowering students to shape meaningful careers.
             </h2>
-            <p className="text-lg text-white/90 mb-10 max-w-2xl mx-auto">
+            <p className="lg:text-lg text-white/90 mb-10 max-w-2xl mx-auto">
               Registration opens 2 days prior to the event. Secure your spot
               early.
             </p>
             <a
               href={REGISTRATION_LINK}
-              className="inline-block bg-white text-[var(--primary)] px-10 py-5 rounded-full text-xl font-bold hover:bg-[var(--bg-secondary)] hover:scale-105 transition-all shadow-xl"
+              className="inline-block bg-white text-[var(--primary)] px-10 py-3 rounded-full text-lg lg:text-xl font-bold hover:bg-[var(--bg-secondary)] hover:scale-105 transition-all shadow-xl"
             >
               Register for Conference
             </a>
@@ -581,11 +580,11 @@ const ConferenceDetailsPage = () => {
       </main>
 
       {/* --- CUSTOM FOOTER FOR EDUCATION PAGE --- */}
-      <footer className="bg-[var(--color-neutral-900)] text-white py-12">
+      <footer className="bg-[var(--color-neutral-900)] text-white py-8 lg:py-12">
         <div className="max-w-7xl mx-auto px-4 text-center">
           {/* Specific Education Quote */}
-          <div className="mb-8">
-            <p className="text-lg font-medium text-[var(--color-brand-200)] italic leading-relaxed whitespace-pre-line">
+          <div className="mb-6 lg:mb-8">
+            <p className="text-sm lg:text-lg font-medium text-[var(--color-brand-200)] italic leading-relaxed whitespace-pre-line">
               "To bring out and materialise <br />
               a congruity <br />
               from among varieties <br />
@@ -601,7 +600,7 @@ const ConferenceDetailsPage = () => {
           </div>
 
           {/* Social Media Links (Reused from global footer) */}
-          <div className="flex justify-center gap-8 mt-8 border-t border-[var(--color-neutral-800)] pt-8">
+          <div className="flex justify-center gap-8 mt-2 mt-8 border-t border-[var(--color-neutral-800)] lg:pt-8">
             <a
               href="https://www.facebook.com/SatsangViharDelhi"
               target="_blank"

@@ -7,13 +7,14 @@ import ConferenceDetailsPage from "./pages/ConferenceDetailsPage"; // <--- Impor
 function App() {
   return (
     <Router basename="/satsang-vihar-delhi">
+    {/* <Router basename={import.meta.env.BASE_URL}> */}
       <Routes>
         {/* The Main Single Page Application Route */}
         <Route path="/" element={<HomeSPA />} />
 
         {/* Separate detailed pages */}
         <Route path="/history" element={<HistoryPage />} />
-        
+
         {/* NEW ROUTE ADDED HERE */}
         <Route path="/conference-du-2026" element={<ConferenceDetailsPage />} />
 

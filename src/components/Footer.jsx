@@ -5,10 +5,10 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 text-center">
         {/* Quote Section */}
         <div className="mb-4">
-          <p className="text-lg font-medium text-[var(--color-brand-200)] italic">
+          <p className="text-sm md:text-base lg:text-lg font-medium pb-2 text-[var(--color-brand-200)] italic">
             "God is for all, Prophets are for all, no compartment... to create ism is the Satanic dissuasion of people from unity."
           </p>
-          <span className="block mt-2 text-xs text-[var(--color-neutral-400)]">
+          <span className="block mt-2 text-xs lg:text-sm text-[var(--color-neutral-400)]">
              — Sree Sree Thakur Anukulchandra, Satyanusaran
           </span>
         </div>

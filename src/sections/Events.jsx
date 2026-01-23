@@ -43,7 +43,7 @@ const Events = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-[var(--text-brand-deep)] mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-[var(--text-brand-deep)] mb-4">
             Upcoming Events & Conferences
           </h2>
           <p className="text-[var(--text-muted)]">
@@ -100,13 +100,13 @@ const Events = () => {
                 {event.link ? (
                   <Link
                     to={event.link}
-                    className="block w-full text-center py-3 bg-[var(--primary)] text-white rounded-xl font-bold hover:bg-[var(--primary-hover)] transition-all shadow-md"
+                    className="block w-full text-center text-sm lg:text-base py-3 bg-[var(--primary)] text-white rounded-xl font-bold hover:bg-[var(--primary-hover)] transition-all shadow-md"
                   >
                     {event.buttonText}
                   </Link>
                 ) : (
                   <div className="pt-4 border-t border-[var(--border-subtle)] text-center">
-                    <span className="text-xs font-bold text-[var(--text-muted)] uppercase tracking-widest">
+                    <span className="text-xs lg:text-sm font-bold text-[var(--text-muted)] uppercase tracking-widest">
                       Open to All
                     </span>
                   </div>
