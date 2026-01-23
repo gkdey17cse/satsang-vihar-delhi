@@ -14,7 +14,7 @@ const Events = () => {
       quote: "Knowledge that does not know to apply is no knowledge at all.",
       desc: "A national-level conference focusing on Government Services (UPSC/SSC), Corporate Internships, and Global Higher Education opportunities.",
       buttonText: "View Full Agenda & Details",
-      link: "/conference-details", // The separate page we will create
+      link: "/conference-du-2026", // The separate page we will create
       isFeatured: true,
     },
     {

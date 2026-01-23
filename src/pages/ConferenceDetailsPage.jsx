@@ -285,7 +285,59 @@ const ConferenceDetailsPage = () => {
           </div>
         </section>
 
-        {/* 2. GUESTS OF HONOUR */}
+        {/* 2. OBJECTIVES & PERKS */}
+        <section className="py-20 px-4 bg-[var(--bg-main)]">
+          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+            {/* Objectives */}
+            <div className="bg-[var(--bg-secondary)] p-8 rounded-2xl border border-[var(--border-subtle)]">
+              <h3 className="text-2xl font-bold text-[var(--text-main)] mb-6">
+                Objectives of the Session
+              </h3>
+              <ul className="space-y-4">
+                {[
+                  "To provide structured career counselling across diverse domains",
+                  "To enable one-to-one personal interaction with experts",
+                  "To support mental well-being, stress management, and academic confidence",
+                  "To help students overcome procrastination and improve focus",
+                  "To share effective study techniques and career strategies",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="text-[var(--primary)] font-bold text-lg">
+                      •
+                    </span>
+                    <span className="text-[var(--text-muted)]">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Perks */}
+            <div className="bg-[var(--primary)] text-white p-8 rounded-2xl shadow-xl">
+              <h3 className="text-2xl font-bold mb-6 text-white">
+                Perks of Attending
+              </h3>
+              <ul className="space-y-4">
+                {[
+                  "Certificate of Participation",
+                  "Direct interaction with IAS officers, scientists, & leaders",
+                  "Expert-led masterclasses on AI & Emerging Careers",
+                  "CV vetting and career profiling",
+                  "LinkedIn professional branding guidance",
+                  "Free entry for Delhi University students",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="bg-white/20 p-1 rounded-full text-xs">
+                      ✓
+                    </span>
+                    <span className="text-white/90 font-medium">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* 3. GUESTS OF HONOUR */}
         <section className="py-20 px-4 bg-[var(--bg-main)]">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
@@ -345,7 +397,8 @@ const ConferenceDetailsPage = () => {
           </div>
         </section>
 
-        {/* 3. KEY SPEAKERS & COUNSELLORS (Categorized) */}
+
+        {/* 4. KEY SPEAKERS & COUNSELLORS (Categorized) */}
         <section className="py-20 px-4 bg-[var(--bg-secondary)] border-y border-[var(--border-subtle)]">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
@@ -387,58 +440,6 @@ const ConferenceDetailsPage = () => {
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* 4. OBJECTIVES & PERKS */}
-        <section className="py-20 px-4 bg-[var(--bg-main)]">
-          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
-            {/* Objectives */}
-            <div className="bg-[var(--bg-secondary)] p-8 rounded-2xl border border-[var(--border-subtle)]">
-              <h3 className="text-2xl font-bold text-[var(--text-main)] mb-6">
-                Objectives of the Session
-              </h3>
-              <ul className="space-y-4">
-                {[
-                  "To provide structured career counselling across diverse domains",
-                  "To enable one-to-one personal interaction with experts",
-                  "To support mental well-being, stress management, and academic confidence",
-                  "To help students overcome procrastination and improve focus",
-                  "To share effective study techniques and career strategies",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="text-[var(--primary)] font-bold text-lg">
-                      •
-                    </span>
-                    <span className="text-[var(--text-muted)]">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Perks */}
-            <div className="bg-[var(--primary)] text-white p-8 rounded-2xl shadow-xl">
-              <h3 className="text-2xl font-bold mb-6 text-white">
-                Perks of Attending
-              </h3>
-              <ul className="space-y-4">
-                {[
-                  "Certificate of Participation",
-                  "Direct interaction with IAS officers, scientists, & leaders",
-                  "Expert-led masterclasses on AI & Emerging Careers",
-                  "CV vetting and career profiling",
-                  "LinkedIn professional branding guidance",
-                  "Free entry for Delhi University students",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="bg-white/20 p-1 rounded-full text-xs">
-                      ✓
-                    </span>
-                    <span className="text-white/90 font-medium">{item}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
         </section>

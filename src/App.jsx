@@ -6,7 +6,7 @@ import ConferenceDetailsPage from "./pages/ConferenceDetailsPage"; // <--- Impor
 
 function App() {
   return (
-    <Router>
+    <Router basename="/satsang-vihar-delhi">
       <Routes>
         {/* The Main Single Page Application Route */}
         <Route path="/" element={<HomeSPA />} />
@@ -15,7 +15,7 @@ function App() {
         <Route path="/history" element={<HistoryPage />} />
         
         {/* NEW ROUTE ADDED HERE */}
-        <Route path="/conference-details" element={<ConferenceDetailsPage />} />
+        <Route path="/conference-du-2026" element={<ConferenceDetailsPage />} />
 
         {/* Fallback route */}
         <Route path="*" element={<div>404 Not Found</div>} />
