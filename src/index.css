@@ -1,9 +1,8 @@
-/* 1. Import font from Google Fonts */
+/* src/index.css */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
-
 
 @import "tailwindcss";
 
@@ -26,23 +25,24 @@
   --color-brand-50:  #fffbeb;
   --color-brand-100: #fef3c7;
   --color-brand-200: #fde68a;
+  --color-brand-400: #fbbf24; /* Added for smoother dark mode hover */
   --color-brand-500: #f59e0b;
   --color-brand-600: #d97706;
   --color-brand-900: #78350f;
   --color-brand-950: #451a03;
 
-  /* --- NEW: EASY SHORTHAND MAPPINGS --- */
+  /* MAPPINGS */
   --color-main: var(--bg-main);
   --color-secondary: var(--bg-secondary);
   --color-tertiary: var(--bg-tertiary);
-  
+   
   --color-text-main: var(--text-main);
   --color-muted: var(--text-muted);
   --color-brand-deep: var(--text-brand-deep);
-  
+   
   --color-accent: var(--border-accent);
   --color-subtle: var(--border-subtle);
-  
+   
   --color-primary-base: var(--primary);
   --color-primary-hover-base: var(--primary-hover);
 }
@@ -57,7 +57,7 @@
   --text-muted: var(--color-neutral-800);
   --text-brand-deep: var(--color-brand-900);
   --primary: var(--color-brand-500);
-  --primary-hover: var(--color-brand-600);
+  --primary-hover: var(--color-brand-600); /* Darkens slightly in light mode */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -71,7 +71,8 @@
     --text-muted: var(--color-neutral-300);
     --text-brand-deep: var(--color-brand-200);
     --primary: var(--color-brand-500);
-    --primary-hover: var(--color-brand-200);
+    /* CHANGED: Used brand-400 instead of 200 to prevent eye pain */
+    --primary-hover: var(--color-brand-400); 
   }
 }
 

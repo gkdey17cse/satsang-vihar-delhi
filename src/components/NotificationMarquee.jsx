@@ -5,7 +5,7 @@ const NotificationMarquee = () => {
   return (
     <div className="bg-[var(--primary)] text-white py-2">
       <Marquee gradient={false} speed={20} pauseOnHover={true}>
-        <Link to="/conference-details" className="hover:underline flex items-center">
+        <Link to="/conference-du-2026" className="hover:underline flex items-center">
           <span className="mx-12 font-medium">
             Upcoming Event: Career Excellence Conference @ University of Delhi — 20 February 2026
             <span className="ml-3 text-white/90 underline decoration-amber-200/60">
@@ -15,7 +15,7 @@ const NotificationMarquee = () => {
         </Link>
         
         {/* Repeating for a seamless loop */}
-        <Link to="/conference-details" className="hover:underline flex items-center">
+        <Link to="/conference-du-2026" className="hover:underline flex items-center">
           <span className="mx-12 font-medium">
             Career Excellence Conference at University of Delhi — 20 February 2026
             <span className="ml-3 text-white/90 underline decoration-amber-200/60">

@@ -14,7 +14,7 @@ const Events = () => {
       quote: "Knowledge that does not know to apply is no knowledge at all.",
       desc: "A national-level conference focusing on Government Services (UPSC/SSC), Corporate Internships, and Global Higher Education opportunities.",
       buttonText: "View Full Agenda & Details",
-      link: "/conference-details", // The separate page we will create
+      link: "/conference-du-2026", // The separate page we will create
       isFeatured: true,
     },
     {
@@ -29,7 +29,8 @@ const Events = () => {
       title: "Monthly Satsang",
       image: Satsang,
       date: "First Sunday / Monthly",
-      quote: "When the Ideal is awake in man, he is active, agile, inquisitive...",
+      quote:
+        "When the Ideal is awake in man, he is active, agile, inquisitive...",
       desc: "Nourish the soul through collective prayer and spiritual discourse on the first Sunday of every month.",
       isFeatured: false,
     },
@@ -55,9 +56,9 @@ const Events = () => {
             <div
               key={idx}
               className={`relative bg-[var(--bg-main)] rounded-2xl shadow-md overflow-hidden border transition-all duration-300 ${
-                event.isFeatured 
-                ? 'border-[var(--primary)] ring-1 ring-[var(--primary)]/20 shadow-lg' 
-                : 'border-[var(--border-subtle)] hover:shadow-xl'
+                event.isFeatured
+                  ? "border-[var(--primary)] ring-1 ring-[var(--primary)]/20 shadow-lg"
+                  : "border-[var(--border-subtle)] hover:shadow-xl"
               }`}
             >
               {/* Image Section */}
@@ -77,17 +78,20 @@ const Events = () => {
                 <h3 className="text-2xl font-bold text-[var(--text-main)] mb-2">
                   {event.title}
                 </h3>
-                
+
                 {event.location && (
-                   <p className="text-xs font-semibold text-[var(--text-muted)] mb-4 uppercase tracking-widest">
+                  <p className="text-xs font-semibold text-[var(--text-muted)] mb-4 uppercase tracking-widest">
                     📍 {event.location}
-                   </p>
+                  </p>
                 )}
 
                 <p className="text-sm text-[var(--primary)] italic mb-4 font-medium leading-relaxed">
                   "{event.quote}"
+                  <span className="block mt-1 text-[10px] text-[var(--text-muted)] opacity-70">
+                    — Sree Sree Thakur Anukulchandra, Satyanusaran
+                  </span>
                 </p>
-                
+
                 <p className="text-[var(--text-muted)] text-sm leading-relaxed mb-6 flex-grow">
                   {event.desc}
                 </p>
