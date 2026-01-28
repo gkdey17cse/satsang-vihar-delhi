@@ -1,20 +1,22 @@
 // src/App.jsx
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// 1. Change BrowserRouter to HashRouter
+import { HashRouter as Router, Routes, Route } from "react-router-dom"; 
 import HomeSPA from "./pages/HomeSPA";
 import HistoryPage from "./pages/HistoryPage";
-import ConferenceDetailsPage from "./pages/ConferenceDetailsPage"; // <--- Import logic
+import ConferenceDetailsPage from "./pages/ConferenceDetailsPage";
 
 function App() {
   return (
-    <Router basename="/satsang-vihar-delhi">
+    // 2. REMOVE the basename prop. HashRouter handles sub-folders automatically.
+    <Router>
       <Routes>
         {/* The Main Single Page Application Route */}
         <Route path="/" element={<HomeSPA />} />
 
         {/* Separate detailed pages */}
         <Route path="/history" element={<HistoryPage />} />
-        
-        {/* NEW ROUTE ADDED HERE */}
+
+        {/* Conference Page */}
         <Route path="/conference-du-2026" element={<ConferenceDetailsPage />} />
 
         {/* Fallback route */}

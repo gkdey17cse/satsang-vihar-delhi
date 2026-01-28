@@ -193,25 +193,25 @@ const ConferenceDetailsPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-4">
-              <div className="relative h-10 w-10 lg:h-12 lg:w-12 ">
+            <Link to="/" className="flex items-center gap-3 lg:gap-4">
+              <div className="relative h-10 w-10 md:h-11 md:w-11 lg:h-14 lg:w-14">
                 <img
                   src={logo_light}
                   alt="Logo"
-                  className="h-full rounded-full  w-full object-contain block dark:hidden"
+                  className="h-full rounded-full w-full object-contain block dark:hidden"
                 />
                 <img
                   src={logo_dark}
                   alt="Logo"
-                  className="h-full  rounded-full w-full object-contain hidden dark:block"
+                  className="h-full rounded-full w-full object-contain hidden dark:block"
                 />
               </div>
               <span
                 className="font-bold tracking-tight text-[var(--primary)] 
                   text-base       /* Mobile */
-                  sm:text-lg      /* Tablet */
-                  lg:text-xl      /* Desktop */
-                  xl:text-2xl     /* Large Monitor */
+                  md:text-lg      /* Tablet/Zoomed 150% */
+                  lg:text-xl      /* Laptop/Zoomed 125% */
+                  xl:text-2xl     /* Desktop */
                 "
               >
                 Satsang Vihar Delhi
@@ -221,7 +221,9 @@ const ConferenceDetailsPage = () => {
             {/* 1. Official Website Redirects to Homepage */}
             <Link
               to="/"
-              className="font-semibold text-[var(--text-muted)] hover:text-[var(--primary)] transition-colors text-sm lg:text-base border border-[var(--border-subtle)] px-4 py-2 rounded-full hover:bg-[var(--bg-tertiary)]"
+              className="font-semibold text-[var(--text-muted)] hover:text-[var(--primary)] transition-colors 
+              text-xs sm:text-sm md:text-base lg:text-lg
+              border border-[var(--border-subtle)] px-3 py-1.5 md:px-4 md:py-2 lg:px-5 lg:py-2.5 rounded-full hover:bg-[var(--bg-tertiary)]"
             >
               Official Website ↗
             </Link>
@@ -231,7 +233,7 @@ const ConferenceDetailsPage = () => {
 
       <main className="flex-grow">
         {/* 1. HERO SECTION */}
-        <section className="relative w-full h-[60vh] md:h-[70vh] flex items-center justify-center overflow-hidden">
+        <section className="relative w-full h-[70vh] md:h-[80vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 z-0">
             <img
               src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2070&auto=format&fit=crop"
@@ -241,33 +243,36 @@ const ConferenceDetailsPage = () => {
             <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-[var(--bg-main)]"></div>
           </div>
 
-          <div className="relative z-10 text-center px-4 max-w-5xl mx-auto mt-10">
+          <div className="relative z-10 text-center px-4 max-w-5xl mx-auto lg:mt-10">
             <div className="inline-block px-4 py-1.5 mb-6 rounded-full border border-[var(--primary)] bg-black/40 backdrop-blur-sm">
-              <span className="text-[var(--primary)] font-bold text-xs md:text-sm uppercase tracking-widest">
+              <span className="text-[var(--primary)] font-bold text-xs md:text-sm lg:text-base uppercase tracking-widest">
                 By Satsang Vihar, Delhi
               </span>
             </div>
 
-            <h1 className="text-3xl md:text-6xl font-extrabold text-white mb-4 leading-tight tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white mb-4 leading-tight tracking-tight">
               Career Counselling{" "}
               <span className="text-[var(--primary)]">Session</span>
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 font-medium mb-4">
+            <p className="text-lg md:text-xl lg:text-2xl xl:text-3xl text-white/90 font-medium mb-4">
               @ University of Delhi
             </p>
-            <p className="text-xl md:text-2xl text-[var(--primary)] font-medium mb-8">
+            <p className="text-lg md:text-xl lg:text-2xl xl:text-3xl text-[var(--primary)] font-medium mb-8">
               20th February , 2026
             </p>
 
-            <p className="text-base md:text-lg text-gray-200 mb-8 font-light max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 font-light max-w-3xl mx-auto leading-relaxed">
               Guiding students toward informed, confident, and future-ready
               career choices.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col md:flex-row gap-4 justify-center">
               <a
                 href={REGISTRATION_LINK}
-                className="bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white px-8 py-4 rounded-full text-lg font-bold transition-all shadow-lg hover:shadow-[var(--primary)]/50 transform hover:-translate-y-1"
+                className="bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white 
+                px-8 py-3 lg:px-10 lg:py-4
+                text-sm md:text-base lg:text-lg xl:text-xl 
+                font-bold transition-all shadow-lg hover:shadow-[var(--primary)]/50 transform hover:-translate-y-1 rounded-full"
               >
                 Register Now (Free)
               </a>
@@ -277,7 +282,10 @@ const ConferenceDetailsPage = () => {
                 to="schedule"
                 smooth={true}
                 duration={800}
-                className="cursor-pointer bg-white/10 backdrop-blur-md border border-white/30 text-white hover:bg-white/20 px-8 py-4 rounded-full text-lg font-bold transition-all"
+                className="cursor-pointer bg-white/10 backdrop-blur-md border border-white/30 text-white hover:bg-white/20 
+                px-8 py-3 lg:px-10 lg:py-4
+                text-sm md:text-base lg:text-lg xl:text-xl 
+                font-bold transition-all rounded-full"
               >
                 View Schedule ↓
               </ScrollLink>
@@ -289,11 +297,11 @@ const ConferenceDetailsPage = () => {
         <section className="py-20 px-4 bg-[var(--bg-main)]">
           <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
             {/* Objectives */}
-            <div className="bg-[var(--bg-secondary)] p-8 rounded-2xl border border-[var(--border-subtle)]">
-              <h3 className="text-2xl font-bold text-[var(--text-main)] mb-6">
+            <div className="bg-[var(--bg-secondary)] p-6 md:p-8 lg:p-10 rounded-2xl border border-[var(--border-subtle)]">
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-[var(--text-main)] mb-6">
                 Objectives of the Session
               </h3>
-              <ul className="space-y-4">
+              <ul className="text-sm md:text-base lg:text-lg space-y-3 lg:space-y-5">
                 {[
                   "To provide structured career counselling across diverse domains",
                   "To enable one-to-one personal interaction with experts",
@@ -302,21 +310,23 @@ const ConferenceDetailsPage = () => {
                   "To share effective study techniques and career strategies",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="text-[var(--primary)] font-bold text-lg">
+                    <span className="text-[var(--primary)] font-bold text-lg lg:text-xl">
                       •
                     </span>
-                    <span className="text-[var(--text-muted)]">{item}</span>
+                    <span className="text-[var(--text-muted)] leading-relaxed">
+                      {item}
+                    </span>
                   </li>
                 ))}
               </ul>
             </div>
 
             {/* Perks */}
-            <div className="bg-[var(--primary)] text-white p-8 rounded-2xl shadow-xl">
-              <h3 className="text-2xl font-bold mb-6 text-white">
+            <div className="bg-[var(--primary)] text-white p-6 md:p-8 lg:p-10 rounded-2xl shadow-xl">
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold mb-6 text-white">
                 Perks of Attending
               </h3>
-              <ul className="space-y-4">
+              <ul className="text-sm md:text-base lg:text-lg space-y-3 lg:space-y-5">
                 {[
                   "Certificate of Participation",
                   "Direct interaction with IAS officers, scientists, & leaders",
@@ -326,10 +336,12 @@ const ConferenceDetailsPage = () => {
                   "Free entry for Delhi University students",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="bg-white/20 p-1 rounded-full text-xs">
+                    <span className="bg-white/20 p-1 rounded-full text-xs lg:text-sm">
                       ✓
                     </span>
-                    <span className="text-white/90 font-medium">{item}</span>
+                    <span className="text-white/90 font-medium leading-relaxed">
+                      {item}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -338,16 +350,16 @@ const ConferenceDetailsPage = () => {
         </section>
 
         {/* 3. GUESTS OF HONOUR */}
-        <section className="py-20 px-4 bg-[var(--bg-main)]">
+        <section className="py-8 lg:py-20 px-4 bg-[var(--bg-main)]">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold text-[var(--text-main)] mb-4">
+            <div className="text-center mb-8 lg:mb-16">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[var(--text-main)] mb-4">
                 Guests of Honour
               </h2>
               <div className="w-24 h-1 bg-[var(--primary)] mx-auto rounded-full"></div>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-6 lg:gap-10">
               {[
                 {
                   name: "Dr. Jubilee Purkayastha",
@@ -369,7 +381,7 @@ const ConferenceDetailsPage = () => {
                   key={i}
                   className="bg-[var(--bg-secondary)] p-8 rounded-2xl shadow-lg border border-[var(--border-subtle)] hover:-translate-y-2 transition-transform duration-300 text-center"
                 >
-                  <div className="w-20 h-20 bg-[var(--bg-tertiary)] rounded-full mx-auto mb-6 flex items-center justify-center text-[var(--primary)]">
+                  <div className="w-20 h-20 lg:w-24 lg:h-24 bg-[var(--bg-tertiary)] rounded-full mx-auto mb-6 flex items-center justify-center text-[var(--primary)]">
                     <svg
                       width="32"
                       height="32"
@@ -377,18 +389,19 @@ const ConferenceDetailsPage = () => {
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="2"
+                      className="w-8 h-8 lg:w-10 lg:h-10"
                     >
                       <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
                       <circle cx="12" cy="7" r="4" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-[var(--text-main)] mb-2">
+                  <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-[var(--text-main)] mb-2">
                     {guest.name}
                   </h3>
-                  <p className="text-[var(--primary)] font-medium text-sm mb-1">
+                  <p className="text-[var(--primary)] font-medium text-sm md:text-base lg:text-lg mb-1">
                     {guest.role}
                   </p>
-                  <p className="text-[var(--text-muted)] text-xs">
+                  <p className="text-[var(--text-muted)] text-xs md:text-sm lg:text-base">
                     {guest.sub}
                   </p>
                 </div>
@@ -397,15 +410,14 @@ const ConferenceDetailsPage = () => {
           </div>
         </section>
 
-
         {/* 4. KEY SPEAKERS & COUNSELLORS (Categorized) */}
         <section className="py-20 px-4 bg-[var(--bg-secondary)] border-y border-[var(--border-subtle)]">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold text-[var(--text-main)] mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[var(--text-main)] mb-4">
                 Key Speakers & Counsellors
               </h2>
-              <p className="text-[var(--text-muted)] max-w-2xl mx-auto">
+              <p className="text-[var(--text-muted)] text-sm md:text-base lg:text-lg max-w-2xl mx-auto">
                 Eminent scientists, civil servants, academicians, industry
                 leaders, and subject experts from India and abroad.
               </p>
@@ -414,24 +426,24 @@ const ConferenceDetailsPage = () => {
             <div className="space-y-16">
               {speakerCategories.map((cat, idx) => (
                 <div key={idx}>
-                  <h3 className="text-xl md:text-2xl font-bold text-[var(--primary)] mb-6 border-l-4 border-[var(--primary)] pl-4">
+                  <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-[var(--primary)] mb-6 border-l-4 border-[var(--primary)] pl-4">
                     {cat.title}
                   </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                     {cat.speakers.map((speaker, sIdx) => (
                       <div
                         key={sIdx}
-                        className="bg-[var(--bg-main)] p-5 rounded-xl border border-[var(--border-subtle)] hover:shadow-md transition-shadow flex items-start gap-4"
+                        className="bg-[var(--bg-main)] p-5 lg:p-6 rounded-xl border border-[var(--border-subtle)] hover:shadow-md transition-shadow flex items-start gap-4"
                       >
-                        <div className="mt-1 min-w-[10px] h-[10px] rounded-full bg-[var(--primary)]"></div>
+                        <div className="mt-1.5 min-w-[10px] h-[10px] rounded-full bg-[var(--primary)]"></div>
                         <div>
-                          <h4 className="font-bold text-[var(--text-main)] text-lg leading-tight mb-1">
+                          <h4 className="font-bold text-[var(--text-main)] text-base md:text-lg lg:text-xl leading-tight mb-1.5 lg:mb-2">
                             {speaker.name}
                           </h4>
-                          <p className="text-sm font-semibold text-[var(--text-muted)] opacity-80 mb-1">
+                          <p className="text-sm md:text-base font-semibold text-[var(--text-muted)] opacity-80 mb-1">
                             {speaker.role}
                           </p>
-                          <p className="text-xs text-[var(--text-muted)] italic">
+                          <p className="text-xs md:text-sm text-[var(--text-muted)] italic">
                             {speaker.inst}
                           </p>
                         </div>
@@ -451,10 +463,10 @@ const ConferenceDetailsPage = () => {
         >
           <div className="max-w-5xl mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold text-[var(--text-main)] mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[var(--text-main)] mb-4">
                 Programme Schedule
               </h2>
-              <p className="text-[var(--text-muted)]">
+              <p className="text-[var(--text-muted)] text-sm md:text-base lg:text-lg">
                 A packed day of learning, interaction, and growth.
               </p>
             </div>
@@ -515,10 +527,10 @@ const ConferenceDetailsPage = () => {
                 ].map((item, index) => (
                   <div
                     key={index}
-                    className="grid grid-cols-1 md:grid-cols-[180px_auto] gap-6 group relative pb-10 last:pb-0"
+                    className="px-2 grid grid-cols-1 md:grid-cols-[180px_auto] gap-6 group relative pb-10 last:pb-0"
                   >
                     <div className="md:text-right">
-                      <span className="inline-block md:block text-sm font-bold text-[var(--primary)] bg-[var(--bg-tertiary)] md:bg-transparent px-3 py-1 md:p-0 rounded-full md:rounded-none">
+                      <span className="inline-block md:block text-sm md:text-base font-bold text-[var(--primary)] bg-[var(--bg-tertiary)] md:bg-transparent px-3 py-1 md:p-0 rounded-full md:rounded-none">
                         {item.time}
                       </span>
                     </div>
@@ -532,7 +544,7 @@ const ConferenceDetailsPage = () => {
                       ></div>
                       <div
                         className={`
-                        p-6 rounded-xl border transition-all duration-300
+                        p-4 lg:p-6 rounded-xl border transition-all duration-300
                         ${
                           item.type === "session"
                             ? "bg-[var(--bg-main)] border-[var(--border-subtle)] shadow-sm hover:shadow-md border-l-4 border-l-[var(--primary)]"
@@ -542,10 +554,10 @@ const ConferenceDetailsPage = () => {
                         }
                       `}
                       >
-                        <h3 className="text-xl font-bold text-[var(--text-main)] mb-1">
+                        <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-[var(--text-main)] mb-2">
                           {item.title}
                         </h3>
-                        <p className="text-[var(--text-muted)] text-sm leading-relaxed">
+                        <p className="text-[var(--text-muted)] text-sm md:text-base leading-relaxed">
                           {item.desc}
                         </p>
                       </div>
@@ -558,34 +570,37 @@ const ConferenceDetailsPage = () => {
         </section>
 
         {/* 6. BOTTOM CTA */}
-        <section className="py-24 bg-[var(--primary)] text-white text-center px-4">
+        <section className="py-12 lg:py-24 bg-[var(--primary)] text-white text-center px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
               Empowering students to shape meaningful careers.
             </h2>
-            <p className="text-lg text-white/90 mb-10 max-w-2xl mx-auto">
+            <p className="text-base md:text-lg lg:text-xl text-white/90 mb-10 max-w-2xl mx-auto">
               Registration opens 2 days prior to the event. Secure your spot
               early.
             </p>
             <a
               href={REGISTRATION_LINK}
-              className="inline-block bg-white text-[var(--primary)] px-10 py-5 rounded-full text-xl font-bold hover:bg-[var(--bg-secondary)] hover:scale-105 transition-all shadow-xl"
+              className="inline-block bg-white text-[var(--primary)] 
+              px-8 py-3 lg:px-12 lg:py-4
+              text-lg md:text-xl lg:text-2xl 
+              font-bold rounded-full hover:bg-[var(--bg-secondary)] hover:scale-105 transition-all shadow-xl"
             >
               Register for Conference
             </a>
-            <p className="mt-6 text-sm opacity-80">
+            <p className="mt-6 text-sm md:text-base opacity-80">
               Free for Delhi University Students • Certificate Provided
             </p>
           </div>
         </section>
       </main>
 
-      {/* --- CUSTOM FOOTER FOR EDUCATION PAGE --- */}
-      <footer className="bg-[var(--color-neutral-900)] text-white py-12">
+      {/* --- CUSTOM FOOTER --- */}
+      <footer className="bg-[var(--color-neutral-900)] text-white py-8 lg:py-12">
         <div className="max-w-7xl mx-auto px-4 text-center">
           {/* Specific Education Quote */}
-          <div className="mb-8">
-            <p className="text-lg font-medium text-[var(--color-brand-200)] italic leading-relaxed whitespace-pre-line">
+          <div className="mb-6 lg:mb-8">
+            <p className="text-base md:text-lg lg:text-xl font-medium text-[var(--color-brand-200)] italic leading-relaxed whitespace-pre-line">
               "To bring out and materialise <br />
               a congruity <br />
               from among varieties <br />
@@ -594,14 +609,14 @@ const ConferenceDetailsPage = () => {
               to existence— <br />
               is the essence of education."
             </p>
-            <span className="block mt-4 text-xs text-[var(--color-neutral-400)]">
+            <span className="block mt-4 text-xs md:text-sm text-[var(--color-neutral-400)]">
               — Sree Sree Thakur Anukulchandra, ESSENCE OF EDUCATION, The
               Message-8
             </span>
           </div>
 
-          {/* Social Media Links (Reused from global footer) */}
-          <div className="flex justify-center gap-8 mt-8 border-t border-[var(--color-neutral-800)] pt-8">
+          {/* Social Media Links */}
+          <div className="flex justify-center gap-8 mt-2 mt-8 border-t border-[var(--color-neutral-800)] lg:pt-8">
             <a
               href="https://www.facebook.com/SatsangViharDelhi"
               target="_blank"
@@ -609,7 +624,11 @@ const ConferenceDetailsPage = () => {
               className="text-[var(--color-neutral-400)] hover:text-[#1877F2] transition-colors transform hover:scale-110 duration-300"
               aria-label="Facebook"
             >
-              <svg fill="currentColor" viewBox="0 0 24 24" className="w-6 h-6">
+              <svg
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                className="w-6 h-6 lg:w-8 lg:h-8"
+              >
                 <path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036c-2.148 0-2.971.956-2.971 3.594v.376h5.36l-.729 3.667h-4.631v7.98h-4.843Z" />
               </svg>
             </a>
@@ -620,7 +639,11 @@ const ConferenceDetailsPage = () => {
               className="text-[var(--color-neutral-400)] hover:text-[#FF0000] transition-colors transform hover:scale-110 duration-300"
               aria-label="YouTube"
             >
-              <svg fill="currentColor" viewBox="0 0 24 24" className="w-6 h-6">
+              <svg
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                className="w-6 h-6 lg:w-8 lg:h-8"
+              >
                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
               </svg>
             </a>
@@ -631,13 +654,17 @@ const ConferenceDetailsPage = () => {
               className="text-[var(--color-neutral-400)] hover:text-[#25D366] transition-colors transform hover:scale-110 duration-300"
               aria-label="WhatsApp"
             >
-              <svg fill="currentColor" viewBox="0 0 24 24" className="w-6 h-6">
+              <svg
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                className="w-6 h-6 lg:w-8 lg:h-8"
+              >
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
               </svg>
             </a>
           </div>
 
-          <p className="text-xs text-[var(--color-neutral-500)] mt-8">
+          <p className="text-xs md:text-sm text-[var(--color-neutral-500)] mt-8">
             © 2026 Satsang Vihar New Delhi. All rights reserved.
           </p>
         </div>
