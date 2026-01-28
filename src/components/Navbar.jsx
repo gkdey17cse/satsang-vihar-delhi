@@ -3,14 +3,30 @@ import { useState } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 import PrayerTimesModal from "./PrayerTimesModal"; // Import the modal
-import logo_light from "../assets/Photos/logo_light.png";
-import logo_dark from "../assets/Photos/logo_dark.png";
+
+// Cloudinary URLs with optimization
+const logo_dark =
+  "https://res.cloudinary.com/dk3sj0t4u/image/upload/w_400,f_auto,q_auto/v1769624130/logo_dark_b7axue.png";
+const logo_light =
+  "https://res.cloudinary.com/dk3sj0t4u/image/upload/w_400,f_auto,q_auto/v1769624131/logo_light_smzzit.png";
+
+// Local image fallbacks
+const localFallbacks = {
+  "logo_dark_b7axue.png": "/assets/Photos/logo_dark.png",
+  "logo_light_smzzit.png": "/assets/Photos/logo_light.png",
+};
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isPrayerModalOpen, setIsPrayerModalOpen] = useState(false); // State for Modal
   const location = useLocation();
   const isHomePage = location.pathname === "/";
+
+  // Function to get fallback image URL
+  const getFallbackImage = (cloudinaryUrl) => {
+    const filename = cloudinaryUrl.split("/").pop();
+    return localFallbacks[filename] || cloudinaryUrl;
+  };
 
   const navLinks = [
     { name: "Home", to: "hero" },
@@ -33,11 +49,31 @@ const Navbar = () => {
                     src={logo_light}
                     alt="Logo"
                     className="h-full rounded-full  w-full object-contain block dark:hidden"
+                    onError={(e) => {
+                      // Prevent infinite error loop
+                      e.target.onerror = null;
+
+                      // Switch to local fallback image
+                      const fallbackSrc = getFallbackImage(logo_light);
+                      if (fallbackSrc !== logo_light) {
+                        e.target.src = fallbackSrc;
+                      }
+                    }}
                   />
                   <img
                     src={logo_dark}
                     alt="Logo"
                     className="h-full  rounded-full w-full object-contain hidden dark:block"
+                    onError={(e) => {
+                      // Prevent infinite error loop
+                      e.target.onerror = null;
+
+                      // Switch to local fallback image
+                      const fallbackSrc = getFallbackImage(logo_dark);
+                      if (fallbackSrc !== logo_dark) {
+                        e.target.src = fallbackSrc;
+                      }
+                    }}
                   />
                 </div>
                 <span

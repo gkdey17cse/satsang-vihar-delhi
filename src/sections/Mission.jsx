@@ -1,9 +1,25 @@
 // src/sections/Mission.jsx
 import { Link } from "react-router-dom";
-// Ensure you have this image in your assets or use a placeholder
-import DeogharAshram from "../assets/Photos/SatsangDeoghar.png";
+
+// Cloudinary URL with optimization
+const DeogharAshram = "https://res.cloudinary.com/dk3sj0t4u/image/upload/w_1200,q_auto,f_auto/v1769624148/SatsangDeoghar_luujnf.png";
+
+// Local image fallback
+const localFallback = "/assets/Photos/SatsangDeoghar.png";
 
 const Mission = () => {
+  // Function to get fallback image URL
+  const getFallbackImage = (cloudinaryUrl) => {
+    const filename = cloudinaryUrl.split('/').pop();
+    
+    // Map Cloudinary filenames to local images
+    const fallbackMap = {
+      "SatsangDeoghar_luujnf.png": localFallback
+    };
+    
+    return fallbackMap[filename] || cloudinaryUrl;
+  };
+
   return (
     <section id="mission" className="py-24 bg-[var(--bg-main)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -15,7 +31,17 @@ const Mission = () => {
               <img
                 src={DeogharAshram}
                 alt="Satsang Ashram Deoghar"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-700 scale-105  group-hover:scale-110"
+                onError={(e) => {
+                  // Prevent infinite error loop
+                  e.target.onerror = null;
+                  
+                  // Switch to local fallback image
+                  const fallbackSrc = getFallbackImage(DeogharAshram);
+                  if (fallbackSrc !== DeogharAshram) {
+                    e.target.src = fallbackSrc;
+                  }
+                }}
               />
             </div>
             {/* Subtle Label */}

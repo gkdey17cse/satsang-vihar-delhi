@@ -4,12 +4,30 @@ import { Autoplay, EffectFade } from "swiper/modules";
 import NotificationMarquee from "../components/NotificationMarquee";
 import "swiper/css";
 import "swiper/css/effect-fade";
-import Image1 from "../assets/Photos/Caraousel_1.png";
-import Image2 from "../assets/Photos/Caraousel_2.png";
-import Image3 from "../assets/Photos/Caraousel_3.png";
+
+// Cloudinary URLs with optimization
+const Image1 =
+  "https://res.cloudinary.com/dk3sj0t4u/image/upload/w_1080,q_auto,f_auto/v1769624145/Caraousel_1_xz1ja7.png";
+const Image2 =
+  "https://res.cloudinary.com/dk3sj0t4u/image/upload/w_1200,q_auto,f_auto/v1769624150/Caraousel_2_s7ht0n.png";
+const Image3 =
+  "https://res.cloudinary.com/dk3sj0t4u/image/upload/w_1200,q_auto,f_auto/v1769624143/Caraousel_3_iofohx.png";
+
+// Local image fallbacks
+const localFallbacks = {
+  "Caraousel_1_xz1ja7.png": "/assets/Photos/Caraousel_1.png",
+  "Caraousel_2_s7ht0n.png": "/assets/Photos/Caraousel_2.png",
+  "Caraousel_3_iofohx.png": "/assets/Photos/Caraousel_3.png",
+};
 
 const Hero = () => {
   const carouselImages = [Image1, Image2, Image3];
+
+  // Function to get fallback image URL
+  const getFallbackImage = (cloudinaryUrl) => {
+    const filename = cloudinaryUrl.split("/").pop();
+    return localFallbacks[filename] || cloudinaryUrl;
+  };
 
   return (
     <section id="hero" className="bg-[var(--bg-main)]">
@@ -34,6 +52,16 @@ const Hero = () => {
                   src={src}
                   alt={`Slide ${index + 1}`}
                   className="w-full h-full object-cover"
+                  onError={(e) => {
+                    // Prevent infinite error loop
+                    e.target.onerror = null;
+
+                    // Switch to local fallback image
+                    const fallbackSrc = getFallbackImage(src);
+                    if (fallbackSrc !== src) {
+                      e.target.src = fallbackSrc;
+                    }
+                  }}
                 />
                 <div className="absolute inset-0 bg-black/10"></div>
               </div>
@@ -78,4 +106,5 @@ const Hero = () => {
     </section>
   );
 };
+
 export default Hero;
