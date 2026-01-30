@@ -21,23 +21,23 @@ const ConferenceDetailsPage = () => {
       speakers: [
         {
           name: "Shantanu Singh, IAS",
-          role: "Civil Services",
+          role: "UPSC Civil Services",
           inst: "Government of India",
         },
         {
           name: "Shantanu Singh, IFS",
-          role: "Foreign Service",
+          role: "UPSC Civil Service",
           inst: "Government of India",
         },
         {
           name: "Saptaraj Das, IES",
-          role: "Engineering Services",
+          role: "UPSC Engineering Services",
           inst: "Government of India",
         },
         {
           name: "Lt. Raj Kumar Thakur",
           role: "UPSC CDS",
-          inst: "Defence Services",
+          inst: "Government of India",
         },
         {
           name: "Sachidanand Choudhury",
@@ -47,7 +47,7 @@ const ConferenceDetailsPage = () => {
         {
           name: "Ashish Sutar",
           role: "Armed Forces",
-          inst: "NSG (National Security Guard)",
+          inst: "CRPF & SPG (Special Protection Group)",
         },
       ],
     },
@@ -87,12 +87,21 @@ const ConferenceDetailsPage = () => {
       title: "Academia, Research & Policy",
       speakers: [
         {
-          name: "Dr. Aitree Choudhury",
+          name: "Dr. Atrayee Choudhury",
           role: "Asst. Professor (Economics)",
           inst: "NIPFP, New Delhi",
         },
+        {
+          name: "Dr. SK Md. Azharuddin",
+          role: "Economist",
+          inst: "NIPFP, New Delhi",
+        },
         { name: "Dr. Sourav Saha", role: "Faculty", inst: "Ashoka University" },
-        { name: "Sajal Sarkar", role: "PhD Scholar", inst: "IGIB New Delhi" },
+        {
+          name: "Sajal Sarkar",
+          role: "CSIR-Institute of Genomics & Integrative Biology",
+          inst: "IGIB New Delhi",
+        },
         { name: "Karan Barman", role: "PhD Scholar", inst: "IIT Delhi" },
         { name: "Tanay Malick", role: "Researcher", inst: "TERISAS, BHU" },
       ],
@@ -152,7 +161,7 @@ const ConferenceDetailsPage = () => {
       speakers: [
         {
           name: "Arpita Das",
-          role: "Alumna",
+          role: "Dept. of Political Science",
           inst: "Lady Shri Ram College, DU",
         },
         {
@@ -181,7 +190,11 @@ const ConferenceDetailsPage = () => {
           role: "Singing / PhD Scholar",
           inst: "University of Delhi",
         },
-        { name: "Sadhana Ghosh", role: "Dance", inst: "Hindu College" },
+        {
+          name: "Sadhana Ghosh",
+          role: "Dept. of Commerce & National Level Dancer",
+          inst: "Hindu College , University of Delhi",
+        },
       ],
     },
   ];
@@ -233,59 +246,76 @@ const ConferenceDetailsPage = () => {
 
       <main className="flex-grow">
         {/* 1. HERO SECTION */}
-        <section className="relative w-full h-[70vh] md:h-[80vh] flex items-center justify-center overflow-hidden">
+        <section className="relative w-full h-[75vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+          {/* Background Image & Gradient Overlay */}
           <div className="absolute inset-0 z-0">
             <img
               src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2070&auto=format&fit=crop"
-              alt="University of Delhi"
+              alt="University of Delhi - North Campus"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-[var(--bg-main)]"></div>
+            {/* Darker gradient at bottom for better text readability */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[var(--bg-main)]"></div>
           </div>
 
-          <div className="relative z-10 text-center px-4 max-w-5xl mx-auto lg:mt-10">
-            <div className="inline-block px-4 py-1.5 mb-6 rounded-full border border-[var(--primary)] bg-black/40 backdrop-blur-sm">
-              <span className="text-[var(--primary)] font-bold text-xs md:text-sm lg:text-base uppercase tracking-widest">
-                By Satsang Vihar, Delhi
+          <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
+            {/* Organizer Badge */}
+            <div className="inline-block px-4 py-1.5 mb-4 lg:mb-6 rounded-full border border-[var(--primary)] bg-black/40 backdrop-blur-md shadow-lg">
+              <span className="text-[var(--primary)] font-bold text-xs md:text-sm uppercase tracking-widest">
+                Organised By Satsang Vihar, Delhi
               </span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white mb-4 leading-tight tracking-tight">
+            {/* Main Headline */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-3 lg:mb-4 leading-tight tracking-tight drop-shadow-xl">
+              Comprehensive <br className="hidden sm:block" />
               Career Counselling{" "}
-              <span className="text-[var(--primary)]">Session</span>
+              <span className="text-[var(--primary)]">Event 2026</span>
             </h1>
-            <p className="text-lg md:text-xl lg:text-2xl xl:text-3xl text-white/90 font-medium mb-4">
-              @ University of Delhi
-            </p>
-            <p className="text-lg md:text-xl lg:text-2xl xl:text-3xl text-[var(--primary)] font-medium mb-8">
-              20th February , 2026
-            </p>
 
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 font-light max-w-3xl mx-auto leading-relaxed">
+            {/* Date & Venue - Clean Row Layout */}
+            <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-6 text-white/95 mb-6 font-medium">
+              <p className="flex items-center gap-2 text-sm md:text-lg lg:text-xl bg-black/20 md:bg-transparent px-3 py-1 rounded-lg backdrop-blur-sm md:backdrop-blur-none">
+                <span>📍</span> Tagore Hall, University of Delhi
+              </p>
+              <span className="hidden md:inline text-[var(--primary)] opacity-80 text-xl">
+                •
+              </span>
+              <p className="flex items-center gap-2 text-sm md:text-lg lg:text-xl bg-black/20 md:bg-transparent px-3 py-1 rounded-lg backdrop-blur-sm md:backdrop-blur-none text-[var(--primary)]">
+                <span>📅</span> 20th February 2026 (Friday)
+              </p>
+            </div>
+
+            {/* Description */}
+            <p className="text-sm sm:text-base md:text-lg text-gray-200 mb-8 font-light max-w-2xl mx-auto leading-relaxed drop-shadow-md hidden sm:block">
               Guiding students toward informed, confident, and future-ready
-              career choices.
+              career decisions through expert mentorship and global networking.
             </p>
 
-            <div className="flex flex-col md:flex-row gap-4 justify-center">
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center w-full max-w-xs mx-auto sm:max-w-none">
               <a
-                href={REGISTRATION_LINK}
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeaRX9gnEe5JhTZdh4538XpxiB86_jdsGAi4_Rs_7uNOXpWrg/viewform?usp=header"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white 
-                px-8 py-3 lg:px-10 lg:py-4
-                text-sm md:text-base lg:text-lg xl:text-xl 
-                font-bold transition-all shadow-lg hover:shadow-[var(--primary)]/50 transform hover:-translate-y-1 rounded-full"
+                px-6 py-3 md:px-8 md:py-3 rounded-full
+                text-sm md:text-base font-bold 
+                transition-all shadow-lg hover:shadow-[var(--primary)]/50 transform hover:-translate-y-1 text-center"
               >
                 Register Now (Free)
               </a>
 
-              {/* 2. ScrollSpy Button */}
+              {/* ScrollSpy Button */}
               <ScrollLink
                 to="schedule"
                 smooth={true}
                 duration={800}
+                offset={-50}
                 className="cursor-pointer bg-white/10 backdrop-blur-md border border-white/30 text-white hover:bg-white/20 
-                px-8 py-3 lg:px-10 lg:py-4
-                text-sm md:text-base lg:text-lg xl:text-xl 
-                font-bold transition-all rounded-full"
+                px-6 py-3 md:px-8 md:py-3 rounded-full
+                text-sm md:text-base font-bold 
+                transition-all text-center"
               >
                 View Schedule ↓
               </ScrollLink>
@@ -294,23 +324,28 @@ const ConferenceDetailsPage = () => {
         </section>
 
         {/* 2. OBJECTIVES & PERKS */}
-        <section className="py-20 px-4 bg-[var(--bg-main)]">
-          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+        <section className="py-16 px-4 bg-[var(--bg-secondary)]">
+          {" "}
+          {/* Reduced padding-y from 20 to 16 */}
+          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 lg:gap-12">
             {/* Objectives */}
-            <div className="bg-[var(--bg-secondary)] p-6 md:p-8 lg:p-10 rounded-2xl border border-[var(--border-subtle)]">
-              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-[var(--text-main)] mb-6">
+            <div className="bg-[var(--bg-secondary)] p-6 md:p-8 rounded-2xl border border-[var(--border-subtle)]">
+              {/* Headings: Reduced from xl/2xl/3xl to lg/xl/2xl */}
+              <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-[var(--text-main)] mb-5">
                 Objectives of the Session
               </h3>
-              <ul className="text-sm md:text-base lg:text-lg space-y-3 lg:space-y-5">
+              {/* List Text: Reduced from sm/base/lg to xs/sm/base */}
+              <ul className="text-xs md:text-sm lg:text-base space-y-3 lg:space-y-4">
                 {[
-                  "To provide structured career counselling across diverse domains",
-                  "To enable one-to-one personal interaction with experts",
-                  "To support mental well-being, stress management, and academic confidence",
-                  "To help students overcome procrastination and improve focus",
-                  "To share effective study techniques and career strategies",
+                  "Providing expert roadmaps across Government, Corporate, and Research domains",
+                  "Facilitating direct one-to-one mentorship with bureaucrats and industry leaders",
+                  "Equipping students with strategies for competitive exams and global placements",
+                  "Enhancing employability through professional CV vetting and LinkedIn branding",
+                  "Fostering mental resilience, focus, and effective stress management techniques",
+                  "Building a diverse professional network for long-term career growth",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="text-[var(--primary)] font-bold text-lg lg:text-xl">
+                    <span className="text-[var(--primary)] font-bold text-base lg:text-lg">
                       •
                     </span>
                     <span className="text-[var(--text-muted)] leading-relaxed">
@@ -322,21 +357,24 @@ const ConferenceDetailsPage = () => {
             </div>
 
             {/* Perks */}
-            <div className="bg-[var(--primary)] text-white p-6 md:p-8 lg:p-10 rounded-2xl shadow-xl">
-              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold mb-6 text-white">
+            <div className="bg-[var(--primary)] text-white p-6 md:p-8 rounded-2xl shadow-xl">
+              {/* Headings: Reduced from xl/2xl/3xl to lg/xl/2xl */}
+              <h3 className="text-lg md:text-xl lg:text-2xl font-bold mb-5 text-white">
                 Perks of Attending
               </h3>
-              <ul className="text-sm md:text-base lg:text-lg space-y-3 lg:space-y-5">
+              {/* List Text: Reduced from sm/base/lg to xs/sm/base */}
+              <ul className="text-xs md:text-sm lg:text-base space-y-3 lg:space-y-4">
                 {[
-                  "Certificate of Participation",
-                  "Direct interaction with IAS officers, scientists, & leaders",
-                  "Expert-led masterclasses on AI & Emerging Careers",
-                  "CV vetting and career profiling",
-                  "LinkedIn professional branding guidance",
-                  "Free entry for Delhi University students",
+                  "Official Certificate of Participation for all attendees",
+                  "Exclusive Delegate Kit & Resource Materials",
+                  "Personalized Resume Review & Career Profiling",
+                  "Expert-led Masterclasses on AI and Emerging Technologies",
+                  "Direct Q&A with IAS, IES officers, and Global Scientists",
+                  "Complimentary Lunch & Refreshments for registered participants",
+                  "Full Access: 100% Free Entry (Priority for DU Students)",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="bg-white/20 p-1 rounded-full text-xs lg:text-sm">
+                    <span className="bg-white/20 p-1 rounded-full text-[10px] lg:text-xs">
                       ✓
                     </span>
                     <span className="text-white/90 font-medium leading-relaxed">
@@ -350,7 +388,7 @@ const ConferenceDetailsPage = () => {
         </section>
 
         {/* 3. GUESTS OF HONOUR */}
-        <section className="py-8 lg:py-20 px-4 bg-[var(--bg-main)]">
+        <section className="py-8 lg:py-20 px-4 bg-[var(--bg-tertiary)]">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-8 lg:mb-16">
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[var(--text-main)] mb-4">
@@ -404,52 +442,6 @@ const ConferenceDetailsPage = () => {
                   <p className="text-[var(--text-muted)] text-xs md:text-sm lg:text-base">
                     {guest.sub}
                   </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* 4. KEY SPEAKERS & COUNSELLORS (Categorized) */}
-        <section className="py-20 px-4 bg-[var(--bg-secondary)] border-y border-[var(--border-subtle)]">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[var(--text-main)] mb-4">
-                Key Speakers & Counsellors
-              </h2>
-              <p className="text-[var(--text-muted)] text-sm md:text-base lg:text-lg max-w-2xl mx-auto">
-                Eminent scientists, civil servants, academicians, industry
-                leaders, and subject experts from India and abroad.
-              </p>
-            </div>
-
-            <div className="space-y-16">
-              {speakerCategories.map((cat, idx) => (
-                <div key={idx}>
-                  <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-[var(--primary)] mb-6 border-l-4 border-[var(--primary)] pl-4">
-                    {cat.title}
-                  </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                    {cat.speakers.map((speaker, sIdx) => (
-                      <div
-                        key={sIdx}
-                        className="bg-[var(--bg-main)] p-5 lg:p-6 rounded-xl border border-[var(--border-subtle)] hover:shadow-md transition-shadow flex items-start gap-4"
-                      >
-                        <div className="mt-1.5 min-w-[10px] h-[10px] rounded-full bg-[var(--primary)]"></div>
-                        <div>
-                          <h4 className="font-bold text-[var(--text-main)] text-base md:text-lg lg:text-xl leading-tight mb-1.5 lg:mb-2">
-                            {speaker.name}
-                          </h4>
-                          <p className="text-sm md:text-base font-semibold text-[var(--text-muted)] opacity-80 mb-1">
-                            {speaker.role}
-                          </p>
-                          <p className="text-xs md:text-sm text-[var(--text-muted)] italic">
-                            {speaker.inst}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
                 </div>
               ))}
             </div>
@@ -569,18 +561,66 @@ const ConferenceDetailsPage = () => {
           </div>
         </section>
 
+        {/* 4. KEY SPEAKERS & COUNSELLORS (Categorized) */}
+        <section className="py-20 px-4 bg-[var(--bg-tertiary)] border-y border-[var(--border-subtle)]">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[var(--text-main)] mb-4">
+                Key Speakers & Counsellors
+              </h2>
+              <p className="text-[var(--text-muted)] text-sm md:text-base lg:text-lg max-w-2xl mx-auto">
+                Eminent scientists, civil servants, academicians, industry
+                leaders, and subject experts from India and abroad.
+              </p>
+            </div>
+
+            <div className="space-y-16">
+              {speakerCategories.map((cat, idx) => (
+                <div key={idx}>
+                  <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-[var(--primary)] mb-6 border-l-4 border-[var(--primary)] pl-4">
+                    {cat.title}
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                    {cat.speakers.map((speaker, sIdx) => (
+                      <div
+                        key={sIdx}
+                        className="bg-[var(--bg-main)] p-5 lg:p-6 rounded-xl border border-[var(--border-subtle)] hover:shadow-md transition-shadow flex items-start gap-4"
+                      >
+                        <div className="mt-1.5 min-w-[10px] h-[10px] rounded-full bg-[var(--primary)]"></div>
+                        <div>
+                          <h4 className="font-bold text-[var(--text-main)] text-base md:text-lg lg:text-xl leading-tight mb-1.5 lg:mb-2">
+                            {speaker.name}
+                          </h4>
+                          <p className="text-sm md:text-base font-semibold text-[var(--text-muted)] opacity-80 mb-1">
+                            {speaker.role}
+                          </p>
+                          <p className="text-xs md:text-sm text-[var(--text-muted)] italic">
+                            {speaker.inst}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* 6. BOTTOM CTA */}
         <section className="py-12 lg:py-24 bg-[var(--primary)] text-white text-center px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
               Empowering students to shape meaningful careers.
             </h2>
-            <p className="text-base md:text-lg lg:text-xl text-white/90 mb-10 max-w-2xl mx-auto">
-              Registration opens 2 days prior to the event. Secure your spot
-              early.
+            <p className="text-sm md:text-base lg:text-lg text-white/90 mb-6 max-w-2xl mx-auto">
+              Registration is now open. Seats are limited and will be filled on
+              a first-come, first-served basis. Register as soon as possible.
             </p>
+
             <a
-              href={REGISTRATION_LINK}
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeaRX9gnEe5JhTZdh4538XpxiB86_jdsGAi4_Rs_7uNOXpWrg/viewform?usp=header"
+              target="_blank"
               className="inline-block bg-white text-[var(--primary)] 
               px-8 py-3 lg:px-12 lg:py-4
               text-lg md:text-xl lg:text-2xl 
@@ -600,7 +640,7 @@ const ConferenceDetailsPage = () => {
         <div className="max-w-7xl mx-auto px-4 text-center">
           {/* Specific Education Quote */}
           <div className="mb-6 lg:mb-8">
-            <p className="text-base md:text-lg lg:text-xl font-medium text-[var(--color-brand-200)] italic leading-relaxed whitespace-pre-line">
+            <p className="text-sm lg:text-base font-medium text-[var(--color-brand-200)] italic leading-relaxed whitespace-pre-line">
               "To bring out and materialise <br />
               a congruity <br />
               from among varieties <br />
