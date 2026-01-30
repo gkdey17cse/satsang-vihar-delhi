@@ -1,16 +1,10 @@
 /* src/index.css */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
 
 @import "tailwindcss";
 
 @theme {
-  /* --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif; */
-/* --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif; */
---font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
-/* --font-sans: "Open Sans", "Calibri", ui-sans-serif, system-ui, sans-serif; */
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
 
   /* NEUTRALS */
   --color-neutral-50:  #fafafa;
@@ -21,33 +15,34 @@
   --color-neutral-900: #18181b;
   --color-neutral-950: #09090b;
 
-  /* BRAND COLORS */
+  /* BRAND COLORS (AMBER PALETTE) */
   --color-brand-50:  #fffbeb;
   --color-brand-100: #fef3c7;
   --color-brand-200: #fde68a;
-  --color-brand-400: #fbbf24; /* Added for smoother dark mode hover */
+  --color-brand-400: #fbbf24; 
   --color-brand-500: #f59e0b;
   --color-brand-600: #d97706;
   --color-brand-900: #78350f;
   --color-brand-950: #451a03;
 
   /* MAPPINGS */
-  --color-main: var(--bg-main);
-  --color-secondary: var(--bg-secondary);
-  --color-tertiary: var(--bg-tertiary);
+  --color-bg-main: var(--bg-main);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-tertiary: var(--bg-tertiary);
    
   --color-text-main: var(--text-main);
-  --color-muted: var(--text-muted);
-  --color-brand-deep: var(--text-brand-deep);
+  --color-text-muted: var(--text-muted);
+  --color-text-brand-deep: var(--text-brand-deep);
    
-  --color-accent: var(--border-accent);
-  --color-subtle: var(--border-subtle);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-accent: var(--border-accent);
    
-  --color-primary-base: var(--primary);
-  --color-primary-hover-base: var(--primary-hover);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
 }
 
 :root {
+  /* LIGHT MODE */
   --bg-main: var(--color-neutral-50);
   --bg-secondary: white;
   --bg-tertiary: var(--color-brand-50);
@@ -56,12 +51,15 @@
   --text-main: var(--color-neutral-900);
   --text-muted: var(--color-neutral-800);
   --text-brand-deep: var(--color-brand-900);
+  
+  /* Primary Button - Solid Amber */
   --primary: var(--color-brand-500);
-  --primary-hover: var(--color-brand-600); /* Darkens slightly in light mode */
+  --primary-hover: var(--color-brand-600); 
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
+    /* DARK MODE */
     --bg-main: var(--color-neutral-950);
     --bg-secondary: var(--color-neutral-900);
     --bg-tertiary: var(--color-neutral-800);
@@ -70,12 +68,14 @@
     --text-main: var(--color-neutral-50);
     --text-muted: var(--color-neutral-300);
     --text-brand-deep: var(--color-brand-200);
+    
+    /* Ensure primary stays Amber even in dark mode */
     --primary: var(--color-brand-500);
-    /* CHANGED: Used brand-400 instead of 200 to prevent eye pain */
+    /* Hover becomes a brighter amber to glow against the dark bg */
     --primary-hover: var(--color-brand-400); 
   }
 }
 
 html { scroll-behavior: smooth; font-family: var(--font-sans); }
-body { @apply bg-main text-text-main transition-colors duration-300 font-normal; }
+body { @apply bg-[var(--bg-main)] text-[var(--text-main)] transition-colors duration-300 font-normal; }
 h1, h2, h3, h4, h5, h6 { @apply font-bold tracking-tight; }
