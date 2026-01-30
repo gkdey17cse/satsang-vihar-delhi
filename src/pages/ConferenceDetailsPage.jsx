@@ -1,7 +1,7 @@
 // src/pages/ConferenceDetailsPage.jsx
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Link as ScrollLink } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll"; // Using alias for clarity
 // Import logos
 import logo_light from "../assets/Photos/logo_light.png";
 import logo_dark from "../assets/Photos/logo_dark.png";
@@ -13,6 +13,7 @@ const ConferenceDetailsPage = () => {
   }, []);
 
   const REGISTRATION_LINK = "#";
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Data for Speakers grouped by category
   const speakerCategories = [
@@ -99,8 +100,8 @@ const ConferenceDetailsPage = () => {
         { name: "Dr. Sourav Saha", role: "Faculty", inst: "Ashoka University" },
         {
           name: "Sajal Sarkar",
-          role: "CSIR-Institute of Genomics & Integrative Biology",
-          inst: "IGIB New Delhi",
+          role: "PhD Scholar" ,
+          inst: "CSIR Institute of Genomics and Integrative Biology, New Delhi",
         },
         { name: "Karan Barman", role: "PhD Scholar", inst: "IIT Delhi" },
         { name: "Tanay Malick", role: "Researcher", inst: "TERISAS, BHU" },
@@ -199,6 +200,14 @@ const ConferenceDetailsPage = () => {
     },
   ];
 
+  // Navigation Links Configuration
+  const navLinks = [
+    { name: "Objectives", to: "objectives" },
+    { name: "Guests", to: "guests" },
+    { name: "Schedule", to: "schedule" },
+    { name: "Speakers", to: "speakers" },
+  ];
+
   return (
     <div className="flex flex-col min-h-screen bg-[var(--bg-main)]">
       {/* --- CUSTOM NAVBAR --- */}
@@ -206,7 +215,7 @@ const ConferenceDetailsPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 lg:gap-4">
+            <Link to="/" className="flex items-center gap-3 lg:gap-4 shrink-0">
               <div className="relative h-10 w-10 md:h-11 md:w-11 lg:h-14 lg:w-14">
                 <img
                   src={logo_light}
@@ -219,34 +228,108 @@ const ConferenceDetailsPage = () => {
                   className="h-full rounded-full w-full object-contain hidden dark:block"
                 />
               </div>
-              <span
-                className="font-bold tracking-tight text-[var(--primary)] 
-                  text-base       /* Mobile */
-                  md:text-lg      /* Tablet/Zoomed 150% */
-                  lg:text-xl      /* Laptop/Zoomed 125% */
-                  xl:text-2xl     /* Desktop */
-                "
-              >
+              <span className="font-bold tracking-tight text-[var(--primary)] text-base md:text-lg lg:text-xl xl:text-2xl">
                 Satsang Vihar Delhi
               </span>
             </Link>
 
-            {/* 1. Official Website Redirects to Homepage */}
+            {/* --- Desktop ScrollSpy Navigation (Hidden on Mobile) --- */}
+            <div className="hidden lg:flex items-center gap-6 xl:gap-8">
+              {navLinks.map((link) => (
+                <ScrollLink
+                  key={link.name}
+                  to={link.to}
+                  spy={true}
+                  smooth={true}
+                  offset={-80}
+                  duration={800}
+                  activeClass="text-[var(--primary)] font-bold bg-[var(--bg-tertiary)]"
+                  className="cursor-pointer px-3 py-1.5 rounded-lg text-sm xl:text-base font-medium text-[var(--text-muted)] hover:text-[var(--primary)] transition-all"
+                >
+                  {link.name}
+                </ScrollLink>
+              ))}
+            </div>
+
+            <div className="flex items-center gap-4">
+              {/* Official Website Button (Hidden on very small screens to save space, or kept) */}
+              <Link
+                to="/"
+                className="hidden sm:block shrink-0 font-semibold text-[var(--text-muted)] hover:text-[var(--primary)] transition-colors text-xs md:text-sm border border-[var(--border-subtle)] px-3 py-1.5 md:px-4 md:py-2 rounded-full hover:bg-[var(--bg-tertiary)]"
+              >
+                Official Website ↗
+              </Link>
+
+              {/* --- THREE BARS MOBILE TOGGLE --- */}
+              <div className="lg:hidden flex items-center">
+                <button
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  className="relative z-50 p-2 text-[var(--text-main)] transition-colors focus:outline-none"
+                >
+                  <div className="flex flex-col justify-around w-6 h-5">
+                    <span
+                      className={`h-0.5 w-full bg-current transform transition duration-300 ${isMenuOpen ? "rotate-45 translate-y-2" : ""}`}
+                    />
+                    <span
+                      className={`h-0.5 w-full bg-current transition duration-300 ${isMenuOpen ? "opacity-0" : ""}`}
+                    />
+                    <span
+                      className={`h-0.5 w-full bg-current transform transition duration-300 ${isMenuOpen ? "-rotate-45 -translate-y-2" : ""}`}
+                    />
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* --- MOBILE OVERLAY MENU --- */}
+        <div
+          className={`
+      absolute top-full right-4 mt-2 w-52 rounded-2xl shadow-2xl border border-[var(--border-subtle)]
+      bg-[var(--bg-main)] transform transition-all duration-300 ease-in-out z-50
+      lg:hidden 
+      ${isMenuOpen ? "scale-100 opacity-100 translate-y-0" : "scale-95 opacity-0 -translate-y-4 pointer-events-none"}
+    `}
+        >
+          <div className="flex flex-col p-4 space-y-3">
+            {navLinks.map((link) => (
+              <ScrollLink
+                key={link.name}
+                to={link.to}
+                spy={true}
+                smooth={true}
+                offset={-70}
+                onClick={() => setIsMenuOpen(false)}
+                className="text-sm font-semibold cursor-pointer text-[var(--text-main)] hover:text-[var(--primary)] transition-colors border-b border-[var(--border-subtle)]/50 pb-2"
+              >
+                {link.name}
+              </ScrollLink>
+            ))}
             <Link
               to="/"
-              className="font-semibold text-[var(--text-muted)] hover:text-[var(--primary)] transition-colors 
-              text-xs sm:text-sm md:text-base lg:text-lg
-              border border-[var(--border-subtle)] px-3 py-1.5 md:px-4 md:py-2 lg:px-5 lg:py-2.5 rounded-full hover:bg-[var(--bg-tertiary)]"
+              className="text-sm font-semibold text-[var(--primary)] pt-1"
+              onClick={() => setIsMenuOpen(false)}
             >
               Official Website ↗
             </Link>
           </div>
         </div>
-      </nav>
 
+        {/* Click-out overlay to close menu */}
+        {isMenuOpen && (
+          <div
+            className="fixed inset-0 h-screen w-screen lg:hidden z-40 bg-black/5"
+            onClick={() => setIsMenuOpen(false)}
+          />
+        )}
+      </nav>
       <main className="flex-grow">
         {/* 1. HERO SECTION */}
-        <section className="relative w-full h-[75vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+        <section
+          id="hero" // Added ID (Optional, for top scroll)
+          className="relative w-full h-[75vh] min-h-[500px] flex items-center justify-center overflow-hidden"
+        >
           {/* Background Image & Gradient Overlay */}
           <div className="absolute inset-0 z-0">
             <img
@@ -324,17 +407,16 @@ const ConferenceDetailsPage = () => {
         </section>
 
         {/* 2. OBJECTIVES & PERKS */}
-        <section className="py-16 px-4 bg-[var(--bg-secondary)]">
-          {" "}
-          {/* Reduced padding-y from 20 to 16 */}
+        <section
+          id="objectives" // --- ADDED ID HERE ---
+          className="py-16 px-4 bg-[var(--bg-secondary)]"
+        >
           <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 lg:gap-12">
             {/* Objectives */}
             <div className="bg-[var(--bg-secondary)] p-6 md:p-8 rounded-2xl border border-[var(--border-subtle)]">
-              {/* Headings: Reduced from xl/2xl/3xl to lg/xl/2xl */}
               <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-[var(--text-main)] mb-5">
                 Objectives of the Session
               </h3>
-              {/* List Text: Reduced from sm/base/lg to xs/sm/base */}
               <ul className="text-xs md:text-sm lg:text-base space-y-3 lg:space-y-4">
                 {[
                   "Providing expert roadmaps across Government, Corporate, and Research domains",
@@ -358,11 +440,9 @@ const ConferenceDetailsPage = () => {
 
             {/* Perks */}
             <div className="bg-[var(--primary)] text-white p-6 md:p-8 rounded-2xl shadow-xl">
-              {/* Headings: Reduced from xl/2xl/3xl to lg/xl/2xl */}
               <h3 className="text-lg md:text-xl lg:text-2xl font-bold mb-5 text-white">
                 Perks of Attending
               </h3>
-              {/* List Text: Reduced from sm/base/lg to xs/sm/base */}
               <ul className="text-xs md:text-sm lg:text-base space-y-3 lg:space-y-4">
                 {[
                   "Official Certificate of Participation for all attendees",
@@ -388,16 +468,20 @@ const ConferenceDetailsPage = () => {
         </section>
 
         {/* 3. GUESTS OF HONOUR */}
-        <section className="py-8 lg:py-20 px-4 bg-[var(--bg-tertiary)]">
+        <section
+          id="guests"
+          className="py-8 lg:py-16 px-4 bg-[var(--bg-tertiary)]"
+        >
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-8 lg:mb-16">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[var(--text-main)] mb-4">
+            <div className="text-center mb-8 lg:mb-12">
+              {/* Reduced heading size from 2xl-4xl to xl-3xl */}
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[var(--text-main)] mb-3">
                 Guests of Honour
               </h2>
-              <div className="w-24 h-1 bg-[var(--primary)] mx-auto rounded-full"></div>
+              <div className="w-16 h-1 bg-[var(--primary)] mx-auto rounded-full"></div>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6 lg:gap-10">
+            <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
               {[
                 {
                   name: "Dr. Jubilee Purkayastha",
@@ -417,29 +501,33 @@ const ConferenceDetailsPage = () => {
               ].map((guest, i) => (
                 <div
                   key={i}
-                  className="bg-[var(--bg-secondary)] p-8 rounded-2xl shadow-lg border border-[var(--border-subtle)] hover:-translate-y-2 transition-transform duration-300 text-center"
+                  className="bg-[var(--bg-secondary)] p-6 lg:p-8 rounded-2xl shadow-lg border border-[var(--border-subtle)] hover:-translate-y-2 transition-transform duration-300 text-center"
                 >
-                  <div className="w-20 h-20 lg:w-24 lg:h-24 bg-[var(--bg-tertiary)] rounded-full mx-auto mb-6 flex items-center justify-center text-[var(--primary)]">
+                  <div className="w-16 h-16 lg:w-20 lg:h-20 bg-[var(--bg-tertiary)] rounded-full mx-auto mb-5 flex items-center justify-center text-[var(--primary)]">
                     <svg
-                      width="32"
-                      height="32"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="2"
-                      className="w-8 h-8 lg:w-10 lg:h-10"
+                      className="w-7 h-7 lg:w-9 lg:h-9"
                     >
                       <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
                       <circle cx="12" cy="7" r="4" />
                     </svg>
                   </div>
-                  <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-[var(--text-main)] mb-2">
+
+                  {/* Reduced Name size: text-lg instead of text-xl/2xl */}
+                  <h3 className="text-base md:text-lg lg:text-xl font-bold text-[var(--text-main)] mb-1">
                     {guest.name}
                   </h3>
-                  <p className="text-[var(--primary)] font-medium text-sm md:text-base lg:text-lg mb-1">
+
+                  {/* Reduced Role size: text-xs/sm instead of text-sm/base */}
+                  <p className="text-[var(--primary)] font-semibold text-xs md:text-sm lg:text-base mb-1">
                     {guest.role}
                   </p>
-                  <p className="text-[var(--text-muted)] text-xs md:text-sm lg:text-base">
+
+                  {/* Reduced Subtext size: text-[10px]/xs instead of text-xs/sm */}
+                  <p className="text-[var(--text-muted)] text-[11px] md:text-xs lg:text-sm leading-relaxed">
                     {guest.sub}
                   </p>
                 </div>
@@ -448,25 +536,28 @@ const ConferenceDetailsPage = () => {
           </div>
         </section>
 
-        {/* 5. SCHEDULE (Target for ScrollSpy) */}
+        {/* 4. SCHEDULE (Target for ScrollSpy) */}
         <section
           id="schedule"
-          className="py-20 bg-[var(--bg-secondary)] border-t border-[var(--border-subtle)]"
+          className="py-12 lg:py-20 bg-[var(--bg-secondary)] border-t border-[var(--border-subtle)]"
         >
           <div className="max-w-5xl mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[var(--text-main)] mb-4">
+            <div className="text-center mb-10 lg:mb-16">
+              {/* Heading reduced for consistency */}
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[var(--text-main)] mb-3">
                 Programme Schedule
               </h2>
-              <p className="text-[var(--text-muted)] text-sm md:text-base lg:text-lg">
-                A packed day of learning, interaction, and growth.
+              <p className="text-[var(--text-muted)] text-xs md:text-sm lg:text-base max-w-2xl mx-auto">
+                A packed day of learning, interaction, and growth designed to
+                accelerate your career.
               </p>
             </div>
 
             <div className="relative">
-              <div className="hidden md:block absolute left-[180px] top-4 bottom-4 w-[2px] bg-[var(--border-subtle)]"></div>
+              {/* Vertical line hidden on smallest screens or kept subtle */}
+              <div className="hidden md:block absolute left-[160px] top-2 bottom-2 w-[1px] bg-[var(--border-subtle)]"></div>
 
-              <div className="space-y-0">
+              <div className="space-y-4 md:space-y-0">
                 {[
                   {
                     time: "09:30 - 10:00",
@@ -519,37 +610,47 @@ const ConferenceDetailsPage = () => {
                 ].map((item, index) => (
                   <div
                     key={index}
-                    className="px-2 grid grid-cols-1 md:grid-cols-[180px_auto] gap-6 group relative pb-10 last:pb-0"
+                    className="grid grid-cols-1 md:grid-cols-[160px_auto] gap-2 md:gap-10 group relative pb-6 md:pb-10 last:pb-0"
                   >
+                    {/* Time Column */}
                     <div className="md:text-right">
-                      <span className="inline-block md:block text-sm md:text-base font-bold text-[var(--primary)] bg-[var(--bg-tertiary)] md:bg-transparent px-3 py-1 md:p-0 rounded-full md:rounded-none">
+                      <span className="inline-block text-[11px] md:text-sm font-bold uppercase tracking-wider text-[var(--primary)] bg-[var(--primary)]/5 md:bg-transparent px-2 py-0.5 rounded md:rounded-none">
                         {item.time}
                       </span>
                     </div>
-                    <div className="relative pl-8 md:pl-10">
+
+                    {/* Content Column */}
+                    <div className="relative pl-6 md:pl-0">
+                      {/* Timeline Dot (Desktop only) */}
                       <div
                         className={`
-                        absolute left-0 top-1.5 w-4 h-4 rounded-full border-2 z-10
-                        ${item.type === "break" ? "bg-[var(--bg-secondary)] border-[var(--text-muted)]" : "bg-[var(--primary)] border-[var(--primary)]"}
-                        md:-left-[9px]
+                        hidden md:block absolute -left-[45px] top-1.5 w-3 h-3 rounded-full border-2 z-10
+                        ${
+                          item.type === "break"
+                            ? "bg-[var(--bg-secondary)] border-[var(--text-muted)]"
+                            : "bg-[var(--primary)] border-[var(--primary)]"
+                        }
                       `}
                       ></div>
+
                       <div
                         className={`
-                        p-4 lg:p-6 rounded-xl border transition-all duration-300
+                        p-4 md:p-5 rounded-xl border transition-all duration-300
                         ${
                           item.type === "session"
-                            ? "bg-[var(--bg-main)] border-[var(--border-subtle)] shadow-sm hover:shadow-md border-l-4 border-l-[var(--primary)]"
+                            ? "bg-[var(--bg-main)] border-[var(--border-subtle)] shadow-sm border-l-4 border-l-[var(--primary)]"
                             : item.type === "break"
-                              ? "bg-[var(--bg-tertiary)] border-transparent border-dashed border-[var(--border-subtle)] opacity-80"
+                              ? "bg-[var(--bg-tertiary)] border-dashed border-[var(--border-subtle)] opacity-90"
                               : "bg-[var(--bg-secondary)] border-[var(--border-subtle)]"
                         }
                       `}
                       >
-                        <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-[var(--text-main)] mb-2">
+                        {/* Session Title - Reduced from text-lg/xl/2xl to text-sm/base/lg */}
+                        <h3 className="text-sm md:text-base lg:text-lg font-bold text-[var(--text-main)] mb-1">
                           {item.title}
                         </h3>
-                        <p className="text-[var(--text-muted)] text-sm md:text-base leading-relaxed">
+                        {/* Description - Reduced from text-sm/base to text-xs/sm */}
+                        <p className="text-[var(--text-muted)] text-xs md:text-sm leading-relaxed">
                           {item.desc}
                         </p>
                       </div>
@@ -561,40 +662,53 @@ const ConferenceDetailsPage = () => {
           </div>
         </section>
 
-        {/* 4. KEY SPEAKERS & COUNSELLORS (Categorized) */}
-        <section className="py-20 px-4 bg-[var(--bg-tertiary)] border-y border-[var(--border-subtle)]">
+        {/* 5. KEY SPEAKERS & COUNSELLORS (Categorized) */}
+        <section
+          id="speakers"
+          className="py-12 lg:py-20 px-4 bg-[var(--bg-tertiary)] border-y border-[var(--border-subtle)]"
+        >
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[var(--text-main)] mb-4">
+            <div className="text-center mb-10 lg:mb-16">
+              {/* Reduced Main Title: 2xl on mobile, 3xl on desktop */}
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[var(--text-main)] mb-3">
                 Key Speakers & Counsellors
               </h2>
-              <p className="text-[var(--text-muted)] text-sm md:text-base lg:text-lg max-w-2xl mx-auto">
+              <p className="text-[var(--text-muted)] text-xs md:text-sm lg:text-base max-w-2xl mx-auto">
                 Eminent scientists, civil servants, academicians, industry
                 leaders, and subject experts from India and abroad.
               </p>
             </div>
 
-            <div className="space-y-16">
+            <div className="space-y-12 lg:space-y-16">
               {speakerCategories.map((cat, idx) => (
                 <div key={idx}>
-                  <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-[var(--primary)] mb-6 border-l-4 border-[var(--primary)] pl-4">
+                  {/* Category Title: Reduced for better mobile fit */}
+                  <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-[var(--primary)] mb-5 border-l-4 border-[var(--primary)] pl-3 lg:pl-4">
                     {cat.title}
                   </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
                     {cat.speakers.map((speaker, sIdx) => (
                       <div
                         key={sIdx}
-                        className="bg-[var(--bg-main)] p-5 lg:p-6 rounded-xl border border-[var(--border-subtle)] hover:shadow-md transition-shadow flex items-start gap-4"
+                        className="bg-[var(--bg-main)] p-4 lg:p-6 rounded-xl border border-[var(--border-subtle)] hover:shadow-md transition-shadow flex items-start gap-3 lg:gap-4"
                       >
-                        <div className="mt-1.5 min-w-[10px] h-[10px] rounded-full bg-[var(--primary)]"></div>
+                        {/* Smaller bullet point for mobile */}
+                        <div className="mt-1.5 min-w-[8px] h-[8px] lg:min-w-[10px] lg:h-[10px] rounded-full bg-[var(--primary)]"></div>
+
                         <div>
-                          <h4 className="font-bold text-[var(--text-main)] text-base md:text-lg lg:text-xl leading-tight mb-1.5 lg:mb-2">
+                          {/* Speaker Name: text-sm/base on mobile, text-lg/xl on desktop */}
+                          <h4 className="font-bold text-[var(--text-main)] text-sm md:text-base lg:text-lg leading-tight mb-1 lg:mb-1.5">
                             {speaker.name}
                           </h4>
-                          <p className="text-sm md:text-base font-semibold text-[var(--text-muted)] opacity-80 mb-1">
+
+                          {/* Speaker Role: text-[11px] on mobile, text-sm on desktop */}
+                          <p className="text-[11px] md:text-xs lg:text-sm font-semibold text-[var(--text-muted)] opacity-90 mb-1">
                             {speaker.role}
                           </p>
-                          <p className="text-xs md:text-sm text-[var(--text-muted)] italic">
+
+                          {/* Institution: text-[10px] on mobile, text-xs on desktop */}
+                          <p className="text-[10px] md:text-[11px] lg:text-xs text-[var(--text-muted)] italic leading-tight">
                             {speaker.inst}
                           </p>
                         </div>
@@ -606,41 +720,44 @@ const ConferenceDetailsPage = () => {
             </div>
           </div>
         </section>
-
         {/* 6. BOTTOM CTA */}
-        <section className="py-12 lg:py-24 bg-[var(--primary)] text-white text-center px-4">
+        <section className="py-12 lg:py-20 bg-[var(--primary)] text-white text-center px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+            {/* Reduced Title: text-xl on mobile, text-4xl on desktop */}
+            <h2 className="text-xl md:text-3xl lg:text-4xl font-bold mb-4 lg:mb-6 leading-tight">
               Empowering students to shape meaningful careers.
             </h2>
-            <p className="text-sm md:text-base lg:text-lg text-white/90 mb-6 max-w-2xl mx-auto">
+
+            {/* Reduced Description: text-xs on mobile, text-base on desktop */}
+            <p className="text-xs md:text-base lg:text-lg text-white/90 mb-8 max-w-xl mx-auto leading-relaxed">
               Registration is now open. Seats are limited and will be filled on
-              a first-come, first-served basis. Register as soon as possible.
+              a first-come, first-served basis. Secure your spot today.
             </p>
 
             <a
               href="https://docs.google.com/forms/d/e/1FAIpQLSeaRX9gnEe5JhTZdh4538XpxiB86_jdsGAi4_Rs_7uNOXpWrg/viewform?usp=header"
               target="_blank"
               className="inline-block bg-white text-[var(--primary)] 
-              px-8 py-3 lg:px-12 lg:py-4
-              text-lg md:text-xl lg:text-2xl 
-              font-bold rounded-full hover:bg-[var(--bg-secondary)] hover:scale-105 transition-all shadow-xl"
+              px-8 py-3 lg:px-10 lg:py-4
+              text-base md:text-lg lg:text-xl 
+              font-extrabold rounded-full hover:bg-[var(--bg-secondary)] hover:scale-105 transition-all shadow-xl active:scale-95"
             >
               Register for Conference
             </a>
-            <p className="mt-6 text-sm md:text-base opacity-80">
+
+            {/* Sub-text: text-[10px] on mobile, text-sm on desktop */}
+            <p className="mt-6 text-[10px] md:text-sm lg:text-base font-medium opacity-90 tracking-wide uppercase">
               Free for Delhi University Students • Certificate Provided
             </p>
           </div>
         </section>
       </main>
-
       {/* --- CUSTOM FOOTER --- */}
-      <footer className="bg-[var(--color-neutral-900)] text-white py-8 lg:py-12">
+      <footer className="bg-[var(--color-neutral-900)] text-white py-10 lg:py-16">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          {/* Specific Education Quote */}
-          <div className="mb-6 lg:mb-8">
-            <p className="text-sm lg:text-base font-medium text-[var(--color-brand-200)] italic leading-relaxed whitespace-pre-line">
+          {/* Specific Education Quote - Preserving exact line breaks */}
+          <div className="mb-8 lg:mb-12">
+            <p className="text-[13px] md:text-sm lg:text-base font-medium text-[var(--color-brand-200)] italic leading-relaxed">
               "To bring out and materialise <br />
               a congruity <br />
               from among varieties <br />
@@ -649,14 +766,14 @@ const ConferenceDetailsPage = () => {
               to existence— <br />
               is the essence of education."
             </p>
-            <span className="block mt-4 text-xs md:text-sm text-[var(--color-neutral-400)]">
-              — Sree Sree Thakur Anukulchandra, ESSENCE OF EDUCATION, The
-              Message-8
+            <span className="block mt-4 text-[10px] md:text-xs lg:text-sm text-[var(--color-neutral-400)] uppercase tracking-wider">
+              — Sree Sree Thakur Anukulchandra, <br className="md:hidden" />
+              ESSENCE OF EDUCATION, The Message-8
             </span>
           </div>
 
           {/* Social Media Links */}
-          <div className="flex justify-center gap-8 mt-2 mt-8 border-t border-[var(--color-neutral-800)] lg:pt-8">
+          <div className="flex justify-center gap-6 md:gap-8 pt-8 border-t border-[var(--color-neutral-800)]">
             <a
               href="https://www.facebook.com/SatsangViharDelhi"
               target="_blank"
@@ -667,7 +784,7 @@ const ConferenceDetailsPage = () => {
               <svg
                 fill="currentColor"
                 viewBox="0 0 24 24"
-                className="w-6 h-6 lg:w-8 lg:h-8"
+                className="w-5 h-5 lg:w-7 lg:h-7"
               >
                 <path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036c-2.148 0-2.971.956-2.971 3.594v.376h5.36l-.729 3.667h-4.631v7.98h-4.843Z" />
               </svg>
@@ -682,7 +799,7 @@ const ConferenceDetailsPage = () => {
               <svg
                 fill="currentColor"
                 viewBox="0 0 24 24"
-                className="w-6 h-6 lg:w-8 lg:h-8"
+                className="w-5 h-5 lg:w-7 lg:h-7"
               >
                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
               </svg>
@@ -697,15 +814,15 @@ const ConferenceDetailsPage = () => {
               <svg
                 fill="currentColor"
                 viewBox="0 0 24 24"
-                className="w-6 h-6 lg:w-8 lg:h-8"
+                className="w-5 h-5 lg:w-7 lg:h-7"
               >
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
               </svg>
             </a>
           </div>
 
-          <p className="text-xs md:text-sm text-[var(--color-neutral-500)] mt-8">
-            © 2026 Satsang Vihar New Delhi. All rights reserved.
+          <p className="text-[10px] md:text-xs text-[var(--color-neutral-500)] mt-8 tracking-widest uppercase">
+            © 2026 Satsang Vihar New Delhi • All rights reserved.
           </p>
         </div>
       </footer>

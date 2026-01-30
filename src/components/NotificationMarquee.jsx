@@ -10,8 +10,7 @@ const NotificationMarquee = () => {
           className="hover:underline flex items-center"
         >
           <span className="mx-12 font-medium">
-            Upcoming Event: Career Excellence Conference @ University of Delhi —
-            20 February 2026
+            Upcoming Event: Career Excellence Conference @ Tagore Hall ,University of Delhi — 20 February 2026
             <span className="ml-3 text-white/90 underline decoration-amber-200/60">
               Click for Full Agenda & Registration
             </span>
