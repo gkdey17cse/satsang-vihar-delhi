@@ -1,7 +1,3 @@
-Here is a professionally formatted `README.md` for your project. I have structured it to be clean, scannable, and standard for modern web development repositories, incorporating your specific tech stack and deployment workflows.
-
----
-
 # Satsang Vihar Delhi - Official Website
 
 A modern, high-performance, and responsive website built for **Satsang Vihar New Delhi**. This platform is dedicated to spreading the ideology of **Sree Sree Thakur Anukulchandra**, featuring real-time prayer schedules, event management, and a comprehensive educational portal.
