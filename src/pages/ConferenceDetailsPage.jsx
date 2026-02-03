@@ -97,7 +97,7 @@ const ConferenceDetailsPage = () => {
           role: "Economist",
           inst: "NIPFP, New Delhi",
         },
-        { name: "Dr. Sourav Saha", role: "Faculty", inst: "Ashoka University" },
+        { name: "Sourav Saha", role: "Faculty", inst: "Ashoka University" },
         {
           name: "Sajal Sarkar",
           role: "PhD Scholar" ,
