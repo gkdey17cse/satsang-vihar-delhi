@@ -5,7 +5,14 @@ import { Link as ScrollLink } from "react-scroll"; // Using alias for clarity
 // Import logos
 import logo_light from "../assets/Photos/logo_light.png";
 import logo_dark from "../assets/Photos/logo_dark.png";
-
+import ias_ishitaroy from "../assets/Photos/conference-du-2026/IAS_IshitaRoy.jpg";
+import guest_jubilee from "../assets/Photos/conference-du-2026/Guest_JubileePurakayastha.jpg";
+import guest_debo from "../assets/Photos/conference-du-2026/Guest_DebojyotiChakraborty.jpg";
+import guest_deepak from "../assets/Photos/conference-du-2026/Guest_DeepakBhardwaj.jpg";
+import guest_pravakar from "../assets/Photos/conference-du-2026/Guest_ProvakarMohanty.png";
+import guest_surya from "../assets/Photos/conference-du-2026/Guest_Surya.jpg";
+import guest_sutanu from "../assets/Photos/conference-du-2026/Guest_SutaniChakraborti.jpg";
+import guest_rabindra from "../assets/Photos/conference-du-2026/Guest_RabindraKumarJena.png";
 const ConferenceDetailsPage = () => {
   // Scroll to top on mount
   useEffect(() => {
@@ -14,6 +21,46 @@ const ConferenceDetailsPage = () => {
 
   const REGISTRATION_LINK = "#";
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Guests
+  const guestsOfHonour = [
+    {
+      name: "Dr. Jubilee Purkayastha",
+      role: "Scientist 'F' & Joint Director, INMAS (DRDO)",
+      sub: "Ministry of Defence, Government of India",
+      image: guest_jubilee, // Replace with: dr_jubilee
+    },
+    {
+      name: "Dr. Pravakar Mohanty",
+      role: "Scientist ‘E’ and Joint Director (R&D)",
+      sub: "Ministry of Science & Tech, Govt. of India",
+      image: guest_pravakar, // Replace with: dr_pravakar
+    },
+    {
+      name: "Dr. Debojyoti Chakraborty",
+      role: "Senior Principal Scientist",
+      sub: "CSIR - Institute of Genomics and Integrative Biology , New Delhi",
+      // image: guest_debo, // Replace with: rabindra_jena
+    },
+    {
+      name: "Surya Prakash Mohapatra",
+      role: "Global Talent Skilling Head , AI (WIPRO)",
+      sub: "Wipro Technologies",
+      image: guest_surya, // Replace with: surya_prakash
+    },
+    {
+      name: "Sutanu Chakraborti",
+      role: "Professor, Dept. of Computer Science & Engineering",
+      sub: "IIT Madras",
+      image: guest_sutanu, // Replace with: sutanu_chakraborti
+    },
+    {
+      name: "Dr. Deepak Bhardwaj",
+      role: "Associate Professor , Dept. of Botany",
+      sub: "University of Delhi",
+      image: guest_deepak, // Replace with: rabindra_jena
+    },
+  ];
 
   // Data for Speakers grouped by category
   const speakerCategories = [
@@ -47,8 +94,8 @@ const ConferenceDetailsPage = () => {
         },
         {
           name: "Ashish Sutar",
-          role: "Armed Forces",
-          inst: "CRPF & SPG (Special Protection Group)",
+          role: "Ministry of Home Affairs",
+          inst: "Government of India",
         },
       ],
     },
@@ -66,11 +113,20 @@ const ConferenceDetailsPage = () => {
           inst: "IIM Amritsar",
         },
         {
-          name: "Subhrangsu Sinha",
-          role: "MBA / Management",
-          inst: "IIM Raipur",
+          name: "Ritabrata Gogoi",
+          role: "MBA/Management",
+          inst: "University of Sussex , US",
         },
-        { name: "Prasanta Das", role: "Manager", inst: "GAP" },
+        {
+          name: "Shubhrangshu Sinha",
+          role: "Deputy General Manager ( Sales & Mktg.)",
+          inst: "IIM Kashipur",
+        },
+        {
+          name: "Prashant Das",
+          role: "ESG & Sustainability Professional",
+          inst: "",
+        },
         { name: "Ashim Ganguly", role: "Technology Consulting", inst: "KPMG" },
         {
           name: "Soumendra Nath Mukherjee",
@@ -90,20 +146,35 @@ const ConferenceDetailsPage = () => {
         {
           name: "Dr. Atrayee Choudhury",
           role: "Asst. Professor (Economics)",
-          inst: "NIPFP, New Delhi",
+          inst: "National Institute of Public Finance and Policy, New Delhi",
         },
         {
           name: "Dr. SK Md. Azharuddin",
           role: "Economist",
-          inst: "NIPFP, New Delhi",
+          inst: "National Institute of Public Finance and Policy, New Delhi",
         },
         { name: "Sourav Saha", role: "Faculty", inst: "Ashoka University" },
         {
           name: "Sajal Sarkar",
-          role: "PhD Scholar" ,
+          role: "PhD Scholar",
           inst: "CSIR Institute of Genomics and Integrative Biology, New Delhi",
         },
+        {
+          name: "Abheek Ghosh",
+          role: "Post Doctoral Fellow",
+          inst: "Oxford University , UK",
+        },
         { name: "Karan Barman", role: "PhD Scholar", inst: "IIT Delhi" },
+        {
+          name: "Sanchari Kundu",
+          role: "PhD Student",
+          inst: "Virginia Tech , USA",
+        },
+        {
+          name: "Hadungra Narzary",
+          role: "PhD Scholar , Dept of Political Science",
+          inst: "University of Delhi",
+        },
         { name: "Tanay Malick", role: "Researcher", inst: "TERISAS, BHU" },
       ],
     },
@@ -147,11 +218,11 @@ const ConferenceDetailsPage = () => {
         },
         {
           name: "Gour Krishna Dey",
-          role: "Data Scientist",
-          inst: "MTech AI Specialization, IIIT Delhi",
+          role: "AI / ML Enthusiast",
+          inst: "IIIT Delhi",
         },
         {
-          name: "Sunetra Das",
+          name: "Sunetra Maity",
           role: "UI/UX Design",
           inst: "Amity University, Noida",
         },
@@ -353,7 +424,7 @@ const ConferenceDetailsPage = () => {
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-3 lg:mb-4 leading-tight tracking-tight drop-shadow-xl">
               Comprehensive <br className="hidden sm:block" />
               Career Counselling{" "}
-              <span className="text-[var(--primary)]">Event 2026</span>
+              <span className="text-[var(--primary)]">Seminar 2026</span>
             </h1>
 
             {/* Date & Venue - Clean Row Layout */}
@@ -419,11 +490,11 @@ const ConferenceDetailsPage = () => {
               </h3>
               <ul className="text-xs md:text-sm lg:text-base space-y-3 lg:space-y-4">
                 {[
-                  "Providing expert roadmaps across Government, Corporate, and Research domains",
+                  "Providing expert career roadmaps across Government, Corporate, and Research domains",
                   "Facilitating direct one-to-one mentorship with bureaucrats and industry leaders",
-                  "Equipping students with strategies for competitive exams and global placements",
-                  "Enhancing employability through professional CV vetting and LinkedIn branding",
-                  "Fostering mental resilience, focus, and effective stress management techniques",
+                  "Equipping students with strategies for competitive exams and placements",
+                  "CV preparation and LinkedIn profile building",
+                  "Fostering mental resilience and focus for effective stress management",
                   "Building a diverse professional network for long-term career growth",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
@@ -448,10 +519,9 @@ const ConferenceDetailsPage = () => {
                   "Official Certificate of Participation for all attendees",
                   "Exclusive Delegate Kit & Resource Materials",
                   "Personalized Resume Review & Career Profiling",
-                  "Expert-led Masterclasses on AI and Emerging Technologies",
                   "Direct Q&A with IAS, IES officers, and Global Scientists",
                   "Complimentary Lunch & Refreshments for registered participants",
-                  "Full Access: 100% Free Entry (Priority for DU Students)",
+                  "Full Access: 100% Free Entry",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <span className="bg-white/20 p-1 rounded-full text-[10px] lg:text-xs">
@@ -467,196 +537,423 @@ const ConferenceDetailsPage = () => {
           </div>
         </section>
 
-        {/* 3. GUESTS OF HONOUR */}
+        {/* 3. GUESTS OF HONOUR & CHIEF GUEST */}
         <section
           id="guests"
-          className="py-8 lg:py-16 px-4 bg-[var(--bg-tertiary)]"
+          className="py-12 lg:py-20 px-4 bg-[var(--bg-tertiary)] border-y border-[var(--border-subtle)]"
         >
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-8 lg:mb-12">
-              {/* Reduced heading size from 2xl-4xl to xl-3xl */}
-              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[var(--text-main)] mb-3">
-                Guests of Honour
-              </h2>
-              <div className="w-16 h-1 bg-[var(--primary)] mx-auto rounded-full"></div>
-            </div>
+            {/* --- PROFESSIONAL CHIEF GUEST CARD --- */}
+            <div className="mb-20">
+              <div className="text-center mb-10">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-[var(--text-main)] mb-3">
+                  Speakers
+                </h2>
+                <div className="w-20 h-1.5 bg-[var(--primary)] mx-auto rounded-full"></div>
+              </div>
 
-            <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-              {[
-                {
-                  name: "Dr. Jubilee Purkayastha",
-                  role: "Joint Director, DRDO (INMAS)",
-                  sub: "Ministry of Defence, Govt. of India",
-                },
-                {
-                  name: "Dr. Pravakar Mohanty",
-                  role: "Scientist ‘E’ & Joint Director (R&D)",
-                  sub: "Ministry of Science & Tech, Govt. of India",
-                },
-                {
-                  name: "Rabindra Kumar Jena, IES",
-                  role: "Senior Economic Advisor",
-                  sub: "Ministry of Information & Broadcasting",
-                },
-              ].map((guest, i) => (
-                <div
-                  key={i}
-                  className="bg-[var(--bg-secondary)] p-6 lg:p-8 rounded-2xl shadow-lg border border-[var(--border-subtle)] hover:-translate-y-2 transition-transform duration-300 text-center"
-                >
-                  <div className="w-16 h-16 lg:w-20 lg:h-20 bg-[var(--bg-tertiary)] rounded-full mx-auto mb-5 flex items-center justify-center text-[var(--primary)]">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      className="w-7 h-7 lg:w-9 lg:h-9"
-                    >
-                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                      <circle cx="12" cy="7" r="4" />
-                    </svg>
+              <div className="flex justify-center">
+                <div className="group w-full max-w-4xl bg-[var(--bg-secondary)] rounded-3xl shadow-xl border border-[var(--border-subtle)] flex flex-col md:flex-row overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                  {/* Image Section */}
+                  <div className="w-full md:w-2/5 h-80 md:h-auto relative bg-[var(--color-neutral-200)]">
+                    <img
+                      src={ias_ishitaroy}
+                      alt="Ms. Ishita Roy"
+                      className="w-full h-full object-cover object-top"
+                    />
                   </div>
 
-                  {/* Reduced Name size: text-lg instead of text-xl/2xl */}
-                  <h3 className="text-base md:text-lg lg:text-xl font-bold text-[var(--text-main)] mb-1">
-                    {guest.name}
-                  </h3>
-
-                  {/* Reduced Role size: text-xs/sm instead of text-sm/base */}
-                  <p className="text-[var(--primary)] font-semibold text-xs md:text-sm lg:text-base mb-1">
-                    {guest.role}
-                  </p>
-
-                  {/* Reduced Subtext size: text-[10px]/xs instead of text-xs/sm */}
-                  <p className="text-[var(--text-muted)] text-[11px] md:text-xs lg:text-sm leading-relaxed">
-                    {guest.sub}
-                  </p>
+                  {/* Content Section */}
+                  <div className="w-full md:w-3/5 p-8 lg:p-12 flex flex-col justify-center items-center md:items-start text-center md:text-left">
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-[var(--text-main)] mb-4 leading-tight">
+                      Ms. Ishita Roy
+                    </h3>
+                    <div className="w-16 h-1 bg-[var(--border-subtle)] mb-6 mx-auto md:mx-0"></div>
+                    <p className="text-base lg:text-lg font-bold text-[var(--primary)]  leading-snug mb-2 max-w-sm md:max-w-none">
+                      Director, Centre of Continuing Education and Civil
+                      Services Academy
+                    </p>
+                    <p className="text-sm lg:text-base text-[var(--text-muted)] font-medium">
+                      Government of Kerala
+                    </p>
+                  </div>
                 </div>
-              ))}
+              </div>
+            </div>
+
+            {/* --- GUESTS OF HONOUR --- */}
+            <div className="mb-20">
+              <div className="text-center mb-10 lg:mb-12">
+                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[var(--text-main)] mb-3">
+                  Guests of Honour
+                </h2>
+                <div className="w-16 h-1 bg-[var(--primary)] mx-auto rounded-full opacity-60"></div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+                {guestsOfHonour.map((guest, i) => (
+                  <div
+                    key={i}
+                    className="bg-[var(--bg-secondary)] p-6 lg:p-8 rounded-2xl shadow-lg border border-[var(--border-subtle)] hover:-translate-y-2 transition-transform duration-300 text-center flex flex-col items-center h-full"
+                  >
+                    <div className="w-24 h-24 lg:w-32 lg:h-32 bg-[var(--bg-tertiary)] rounded-full mb-5 flex items-center justify-center overflow-hidden border-2 border-[var(--bg-tertiary)] shadow-sm">
+                      {guest.image ? (
+                        <img
+                          src={guest.image}
+                          alt={guest.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          className="w-10 h-10 text-[var(--primary)]"
+                        >
+                          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                          <circle cx="12" cy="7" r="4" />
+                        </svg>
+                      )}
+                    </div>
+
+                    <h3 className="text-base md:text-lg lg:text-xl font-bold text-[var(--text-main)] mb-2 leading-tight">
+                      {guest.name}
+                    </h3>
+                    <p className="text-[var(--primary)] font-semibold text-xs md:text-sm lg:text-base mb-3 leading-snug">
+                      {guest.role}
+                    </p>
+                    <div className="mt-auto w-full pt-3 border-t border-[var(--border-subtle)]">
+                      <p className="text-[var(--text-muted)] text-[11px] md:text-xs lg:text-sm leading-relaxed italic">
+                        {guest.sub}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        {/* 4. SCHEDULE (Target for ScrollSpy) */}
+        {/* 4. PROGRAMME SCHEDULE */}
         <section
           id="schedule"
-          className="py-12 lg:py-20 bg-[var(--bg-secondary)] border-t border-[var(--border-subtle)]"
+          className="py-16 lg:py-24 bg-[var(--bg-secondary)] border-t border-[var(--border-subtle)]"
         >
-          <div className="max-w-5xl mx-auto px-4">
-            <div className="text-center mb-10 lg:mb-16">
-              {/* Heading reduced for consistency */}
-              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[var(--text-main)] mb-3">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-5xl font-bold text-[var(--text-main)] mb-4 tracking-tight uppercase">
                 Programme Schedule
               </h2>
-              <p className="text-[var(--text-muted)] text-xs md:text-sm lg:text-base max-w-2xl mx-auto">
-                A packed day of learning, interaction, and growth designed to
-                accelerate your career.
+              <div className="w-24 h-1 bg-[var(--primary)] mx-auto mb-6 rounded-full"></div>
+              <p className="text-[var(--primary)] text-sm md:text-lg max-w-3xl mx-auto font-medium">
+                ASPIRE-A: Comprehensive Career Counselling Seminar • Tagore
+                Hall, University of Delhi • 20th February 2026
               </p>
             </div>
 
-            <div className="relative">
-              {/* Vertical line hidden on smallest screens or kept subtle */}
-              <div className="hidden md:block absolute left-[160px] top-2 bottom-2 w-[1px] bg-[var(--border-subtle)]"></div>
+            <div className="relative space-y-6">
+              {/* Decorative vertical line for desktop */}
+              <div className="hidden md:block absolute left-[160px] top-4 bottom-4 w-px bg-gradient-to-b from-transparent via-[var(--border-subtle)] to-transparent"></div>
 
-              <div className="space-y-4 md:space-y-0">
-                {[
-                  {
-                    time: "09:30 - 10:00",
-                    title: "Registration & Welcome",
-                    desc: "Kit distribution and seating arrangements.",
-                    type: "normal",
-                  },
-                  {
-                    time: "10:00 - 11:30",
-                    title: "Session I: Government Services",
-                    desc: "UPSC, SSC, Defence Services. Exam patterns and strategy.",
-                    type: "session",
-                  },
-                  {
-                    time: "11:30 - 11:45",
-                    title: "Tea Break",
-                    desc: "Networking & Refreshments.",
-                    type: "break",
-                  },
-                  {
-                    time: "11:45 - 13:00",
-                    title: "Session II: Commerce & Management",
-                    desc: "MBA (CAT/XAT), Finance, Marketing, HR, and Specialisations.",
-                    type: "session",
-                  },
-                  {
-                    time: "13:00 - 13:45",
-                    title: "Lunch Break",
-                    desc: "Lunch will be provided for all registered participants.",
-                    type: "break",
-                  },
-                  {
-                    time: "13:45 - 15:00",
-                    title: "Session III: Corporate & Employability",
-                    desc: "Internships, Resume Building, Interview Techniques, LinkedIn Branding.",
-                    type: "session",
-                  },
-                  {
-                    time: "15:00 - 16:00",
-                    title: "Session IV: Higher Education & Abroad",
-                    desc: "Study Abroad, Scholarships, GRE/GMAT/IELTS guidance.",
-                    type: "session",
-                  },
-                  {
-                    time: "16:00 - 16:30",
-                    title: "Open House & Q&A",
-                    desc: "One-on-one interaction with experts and closing remarks.",
-                    type: "normal",
-                  },
-                ].map((item, index) => (
-                  <div
-                    key={index}
-                    className="grid grid-cols-1 md:grid-cols-[160px_auto] gap-2 md:gap-10 group relative pb-6 md:pb-10 last:pb-0"
-                  >
-                    {/* Time Column */}
-                    <div className="md:text-right">
-                      <span className="inline-block text-[11px] md:text-sm font-bold uppercase tracking-wider text-[var(--primary)] bg-[var(--primary)]/5 md:bg-transparent px-2 py-0.5 rounded md:rounded-none">
-                        {item.time}
-                      </span>
-                    </div>
-
-                    {/* Content Column */}
-                    <div className="relative pl-6 md:pl-0">
-                      {/* Timeline Dot (Desktop only) */}
-                      <div
-                        className={`
-                        hidden md:block absolute -left-[45px] top-1.5 w-3 h-3 rounded-full border-2 z-10
-                        ${
-                          item.type === "break"
-                            ? "bg-[var(--bg-secondary)] border-[var(--text-muted)]"
-                            : "bg-[var(--primary)] border-[var(--primary)]"
-                        }
-                      `}
-                      ></div>
-
-                      <div
-                        className={`
-                        p-4 md:p-5 rounded-xl border transition-all duration-300
-                        ${
-                          item.type === "session"
-                            ? "bg-[var(--bg-main)] border-[var(--border-subtle)] shadow-sm border-l-4 border-l-[var(--primary)]"
-                            : item.type === "break"
-                              ? "bg-[var(--bg-tertiary)] border-dashed border-[var(--border-subtle)] opacity-90"
-                              : "bg-[var(--bg-secondary)] border-[var(--border-subtle)]"
-                        }
-                      `}
-                      >
-                        {/* Session Title - Reduced from text-lg/xl/2xl to text-sm/base/lg */}
-                        <h3 className="text-sm md:text-base lg:text-lg font-bold text-[var(--text-main)] mb-1">
-                          {item.title}
-                        </h3>
-                        {/* Description - Reduced from text-sm/base to text-xs/sm */}
-                        <p className="text-[var(--text-muted)] text-xs md:text-sm leading-relaxed">
-                          {item.desc}
-                        </p>
-                      </div>
-                    </div>
+              {[
+                {
+                  time: "09:00 AM – 10:00 AM",
+                  title: "Registration & Student Orientation",
+                  subsections: [
+                    {
+                      content:
+                        "Kit distribution and student orientation session",
+                    },
+                  ],
+                  type: "normal",
+                },
+                {
+                  time: "10:00 AM – 11:00 AM",
+                  title: "Inaugural Session",
+                  subsections: [
+                    {
+                      content:
+                        "Diya Prajjwalan and Theme song dedicated to young students",
+                    },
+                    {
+                      content:
+                        "Welcome Address: Mr. Prashant Das (The Convenor)",
+                    },
+                    {
+                      label: "Guest of Honour Speeches",
+                      content:
+                        "Mr. Surya Prakash Mohapatra (Global Talent Skilling Head, AI - WIPRO), Dr. Sutanu Chakraborti (Professor, CSE, IIT Madras), Dr. Deepak Bhardwaj (Associate Professor, Dept. of Botany, DU), Dr. Debojyoti Chakraborty (Senior Principal Scientist, CSIR-IGIB), Dr. Jubilee Purkayastha (Scientist 'F' & Joint Director, INMAS-DRDO), Ms. Ishita Roy (Director, Kerala State Civil Services Academy)",
+                    },
+                    { content: "Address by Chief Guest" },
+                    {
+                      content:
+                        "Vote of Thanks: Dr. Pravakar Mohanty (Scientist ‘E’ & Joint Director, Ministry of Science & Tech, Govt. of India)",
+                    },
+                  ],
+                  type: "session",
+                },
+                {
+                  time: "11:00 AM – 11:15 AM",
+                  title: "Tea Break",
+                  subsections: [{ content: "Networking & Refreshments" }],
+                  type: "break",
+                },
+                {
+                  time: "11:15 AM – 01:00 PM",
+                  title: "Career Counselling Sessions",
+                  subsections: [
+                    {
+                      label: "Dr. Sutanu Chakraborty (HoD, CSE, IIT Madras)",
+                      content:
+                        "Topic: 'Career Confusion & Clarity - Ideal-Centric Life Leads to Excellence'",
+                    },
+                    {
+                      label: "Ms. Ishita Roy (Director, KSCSA)",
+                      content:
+                        "Topic: 'Competition, Cooperation, Consistency - Nishtha & Ekagrata'",
+                    },
+                    {
+                      label:
+                        "Dr. Debojyoti Chakraborty (Sr. Scientist, CSIR-IGIB)",
+                      content:
+                        "Topic: 'Confluence of Music, Mind and Art shaping Science - Sitar Recital'",
+                    },
+                    {
+                      label: "Mr. Surya Prakash Mahapatra (Global Head, WIPRO)",
+                      content: "Topic: 'Career Pathways & Strategic Choices'",
+                    },
+                    { content: "Interactive Q&A Session" },
+                  ],
+                  type: "session",
+                },
+                {
+                  time: "01:00 PM – 02:00 PM",
+                  title: "Lunch Break",
+                  subsections: [
+                    {
+                      content:
+                        "Complimentary lunch provided for all registered participants",
+                    },
+                  ],
+                  type: "break",
+                },
+                {
+                  time: "02:00 PM – 02:20 PM",
+                  title: "Rhythm & Resonance",
+                  subsections: [
+                    {
+                      content:
+                        "'Celebrating Harmony in Life, Purpose and Career Path' - A Musical Reflection by Sandeep Mohanty (Hindustani Classical Vocalist, PhD Scholar, University of Delhi)",
+                    },
+                  ],
+                  type: "session",
+                },
+                {
+                  time: "02:20 PM – 03:50 PM",
+                  title: "Domain-Specific Plenary Sessions",
+                  isPlenary: true,
+                  sessions: [
+                    {
+                      id: "P1",
+                      name: "Civil, Staff & Defence Services",
+                      moderator:
+                        "Ms. Ishita Roy (Director, Kerala State Civil Services Academy)",
+                      speakers: [
+                        "Dr. Pravakar Mohanty (Scientist ‘E’ & Joint Director, Ministry of Science & Tech)",
+                        "Lt. Raj Kumar Thakur (UPSC CDS)",
+                        "Mr. Saptaraj Das, IES (Ministry of Home Affairs)",
+                        "Mr. Ashish Sutar (CRPF , Ministry of Home Affairs)",
+                      ],
+                    },
+                    {
+                      id: "P2",
+                      name: "Higher Ed & Research",
+                      moderator:
+                        "Dr. Sutanu Chakraborti (Professor, CSE, IIT Madras)",
+                      speakers: [
+                        "Dr. Atreyee Choudhury (Asst. Prof, National Institute of Public Finance and Policy)",
+                        "Dr. Md. SK Azharuddin (Economist, National Institute of Public Finance and Policy)",
+                        "Dr. Ujjwal Jana (Prof, Dept of English, DU)",
+                        "Dr. Indrakshi Dutta (Associate Prof, Mathematics, DU)",
+                        "Mr. Sourav Saha (Former Teaching Faculty of Ashoka University , Social Anthropologist)",
+                        "Mr. Sajal Sarkar (SRF, CSIR-IGIB)",
+                      ],
+                    },
+                    {
+                      id: "P3",
+                      name: "Management & Corporate",
+                      moderator:
+                        "Mr. Surya Prakash Mahapatra (Global Competency Head, Wipro Technologies)",
+                      speakers: [
+                        "Mr. Jagannath Sanyal (KEDGE Business School)",
+                        "Mr. Prashant Das (ESG & Sustainability Professional)",
+                        "Mr. Shubhrangshu Sinha (MBA , IIM Kashipur)",
+                        "Mr. Jishnu Jyoti Roy Chatterjee (JJR Industries Ltd.)",
+                        "Mr. Soumendra Nath Mukherjee (American Express)",
+                      ],
+                    },
+                    {
+                      id: "P4",
+                      name: "Fireside Chat: Roadmap 360°",
+                      moderator: "Shri Prashant Das (The Convenor)",
+                      speakers: [
+                        "Mr. Kriti Sundar Sahoo (CA)",
+                        "Mr. Karan Barman (PhD Scholar, IIT Delhi)",
+                        "Dr. Sutapa Das (Senior Resident, VMMC & Safdarjung Hospital)",
+                        "Mr. Gour Krishna Dey (MTech CSE, IIITDelhi)",
+                        "Mr. Tanay Mullick (Geoinformatics Analyst, TERI)",
+                      ],
+                    },
+                  ],
+                  type: "session",
+                },
+                {
+                  time: "03:50 PM – 04:00 PM",
+                  title: "Valedictory Session",
+                  subsections: [
+                    { content: "Certificate Distribution and Vote of Thanks" },
+                  ],
+                  type: "normal",
+                },
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col md:flex-row gap-4 md:gap-10 group transition-all duration-300"
+                >
+                  {/* Time Block */}
+                  <div className="md:w-[150px] shrink-0 md:text-right pt-1">
+                    <span
+                      className={`inline-block px-3 py-1 rounded-md text-[10px] font-bold tracking-wider uppercase border
+              ${
+                item.type === "break"
+                  ? "bg-gray-100 text-gray-400 border-gray-200"
+                  : "bg-[var(--bg-main)] text-[var(--primary)] border-[var(--primary)]/20"
+              }
+            `}
+                    >
+                      {item.time}
+                    </span>
                   </div>
-                ))}
+
+                  {/* Details Card */}
+                  <div
+                    className={`flex-1 p-5 md:p-6 rounded-2xl border transition-all duration-300 relative
+            ${
+              item.type === "session"
+                ? "bg-[var(--bg-main)] border-[var(--border-subtle)] shadow-sm border-l-4 border-l-[var(--primary)]"
+                : item.type === "break"
+                  ? "bg-transparent border-dashed border-gray-300 opacity-60"
+                  : "bg-[var(--bg-main)] border-[var(--border-subtle)]"
+            }
+          `}
+                  >
+                    <h3
+                      className={`text-base md:text-lg font-bold mb-4 ${item.type === "break" ? "text-[var(--text-muted)]" : "text-[var(--text-main)]"}`}
+                    >
+                      {item.title}
+                    </h3>
+
+                    {item.isPlenary ? (
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                        {item.sessions.map((plenary) => (
+                          <div
+                            key={plenary.id}
+                            className="bg-[var(--bg-secondary)] p-4 rounded-xl border border-[var(--border-subtle)]"
+                          >
+                            <div className="flex items-center gap-2 mb-3">
+                              <span className="bg-[var(--primary)] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">
+                                {plenary.id}
+                              </span>
+                              <h4 className="font-bold text-sm text-[var(--text-main)]">
+                                {plenary.name}
+                              </h4>
+                            </div>
+
+                            <div className="mb-3 p-2 bg-[var(--primary)]/5 border-l-2 border-[var(--primary)] rounded-r-md">
+                              <p className="text-[10px] uppercase font-bold text-[var(--primary)] mb-0.5">
+                                Moderator
+                              </p>
+                              <p className="text-xs font-semibold text-[var(--text-main)] leading-tight">
+                                {plenary.moderator}
+                              </p>
+                            </div>
+
+                            <ul className="space-y-1.5">
+                              {plenary.speakers.map((speaker, sIdx) => (
+                                <li
+                                  key={sIdx}
+                                  className="text-[11px] text-[var(--text-muted)] flex items-start gap-2 leading-tight"
+                                >
+                                  <span className="mt-1 w-1 h-1 rounded-full bg-[var(--primary)] shrink-0 opacity-40"></span>
+                                  <span>{speaker}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                        <div className="lg:col-span-2 text-center pt-2">
+                          <p className="text-xs font-bold text-[var(--primary)] italic tracking-wide">
+                            Interactive Q&A Sessions across all domains
+                          </p>
+                        </div>
+                      </div>
+                    ) : (
+                      <ul className="space-y-2.5">
+                        {item.subsections.map((sub, sIdx) => (
+                          <li
+                            key={sIdx}
+                            className="text-xs md:text-[13px] text-[var(--text-muted)] flex items-start gap-3 leading-relaxed"
+                          >
+                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--primary)] shrink-0 opacity-40"></span>
+                            <div>
+                              {sub.label && (
+                                <span className="font-bold text-[var(--text-main)] block mb-0.5">
+                                  {sub.label}
+                                </span>
+                              )}
+                              <span
+                                className={
+                                  sub.label ? "opacity-90" : "font-medium"
+                                }
+                              >
+                                {sub.content}
+                              </span>
+                            </div>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Parallel Session Footer */}
+            <div className="mt-12 p-6 rounded-2xl bg-gradient-to-br from-[var(--primary)]/5 via-transparent to-transparent border border-[var(--primary)]/10">
+              <div className="flex flex-col md:flex-row items-center gap-6">
+                <div className="px-4 py-2 bg-[var(--primary)] text-white rounded-lg font-bold text-sm tracking-widest uppercase">
+                  Parallel Session
+                </div>
+                <div className="text-center md:text-left">
+                  <h4 className="text-base font-bold text-[var(--text-main)]">
+                    One-to-One Career Counselling
+                  </h4>
+                  <p className="text-xs text-[var(--text-muted)]">
+                    Tables 1-4 • 11:15 AM – 04:00 PM • Resume Review & Profile
+                    Optimization
+                  </p>
+                </div>
+                <div className="md:ml-auto flex gap-1.5">
+                  {[1, 2, 3, 4].map((i) => (
+                    <div
+                      key={i}
+                      className="w-8 h-8 rounded-full bg-[var(--bg-main)] border border-[var(--primary)]/20 flex items-center justify-center text-[10px] font-bold text-[var(--primary)]"
+                    >
+                      T{i}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -718,8 +1015,55 @@ const ConferenceDetailsPage = () => {
                 </div>
               ))}
             </div>
+
+            {/* ORGANISING COMMITTEE: CLEAN PROFESSIONAL DESIGN */}
+            <div className="mt-24 mb-12">
+              <div className="relative max-w-5xl mx-auto">
+                {/* Header with subtle lines */}
+                <div className="flex items-center justify-center gap-4 mb-12">
+                  <div className="h-px w-12 bg-gradient-to-r from-transparent to-[var(--primary)]/30"></div>
+                  <h3 className="text-[18px] font-black uppercase tracking-[0.4em] text-[var(--primary)] whitespace-nowrap">
+                    Organising Committee
+                  </h3>
+                  <div className="h-px w-12 bg-gradient-to-l from-transparent to-[var(--primary)]/30"></div>
+                </div>
+
+                {/* Roles Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0">
+                  {[
+                    { role: "President", name: "Gopal Krushna Pattnayak" },
+                    { role: "Chairperson", name: "Soumendranath Mukherjee" },
+                    { role: "Secretary", name: "Prashant Das" },
+                  ].map((person, i) => (
+                    <div
+                      key={i}
+                      className={`px-8 py-4 text-center ${
+                        i !== 2
+                          ? "md:border-r border-[var(--border-subtle)]"
+                          : ""
+                      }`}
+                    >
+                      <p className="text-[9px] font-bold text-[var(--text-muted)] uppercase tracking-widest mb-2 opacity-70">
+                        {person.role}
+                      </p>
+                      <h4 className="text-lg md:text-xl font-bold text-[var(--text-main)] tracking-tight">
+                        {person.name}
+                      </h4>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Bottom Accent */}
+                <div className="mt-12 flex justify-center">
+                  <div className="w-24 h-1 bg-[var(--primary)]/10 rounded-full overflow-hidden">
+                    <div className="w-1/2 h-full bg-[var(--primary)] opacity-40"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
+
         {/* 6. BOTTOM CTA */}
         <section className="py-12 lg:py-20 bg-[var(--primary)] text-white text-center px-6">
           <div className="max-w-4xl mx-auto">
@@ -756,7 +1100,7 @@ const ConferenceDetailsPage = () => {
       <footer className="bg-[var(--color-neutral-900)] text-white py-10 lg:py-16">
         <div className="max-w-7xl mx-auto px-4 text-center">
           {/* Specific Education Quote - Preserving exact line breaks */}
-          <div className="mb-8 lg:mb-12">
+          <div className="mb-8">
             <p className="text-[13px] md:text-sm lg:text-base font-medium text-[var(--color-brand-200)] italic leading-relaxed">
               "To bring out and materialise <br />
               a congruity <br />
@@ -773,7 +1117,7 @@ const ConferenceDetailsPage = () => {
           </div>
 
           {/* Social Media Links */}
-          <div className="flex justify-center gap-6 md:gap-8 pt-8 border-t border-[var(--color-neutral-800)]">
+          <div className="flex justify-center gap-6 md:gap-8 pt-4 border-t border-[var(--color-neutral-800)]">
             <a
               href="https://www.facebook.com/SatsangViharDelhi"
               target="_blank"
@@ -821,7 +1165,7 @@ const ConferenceDetailsPage = () => {
             </a>
           </div>
 
-          <p className="text-[10px] md:text-xs text-[var(--color-neutral-500)] mt-8 tracking-widest uppercase">
+          <p className="text-[10px] md:text-xs text-[var(--color-neutral-500)] mt-4 tracking-widest uppercase">
             © 2026 Satsang Vihar New Delhi • All rights reserved.
           </p>
         </div>
