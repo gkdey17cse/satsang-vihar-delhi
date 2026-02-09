@@ -7,14 +7,17 @@ import Conference from "../assets/Photos/Conference.png";
 const Events = () => {
   const eventsList = [
     {
-      title: "Career Excellence Conference @ DU",
+      title: "Career Excellence Conference 2026",
       image: Conference,
-      date: "20 February 2026",
-      location: "University of Delhi",
-      quote: "Knowledge that does not know to apply is no knowledge at all.",
-      desc: "A national-level conference focusing on Government Services (UPSC/SSC), Corporate Internships, and Global Higher Education opportunities.",
-      buttonText: "View Full Agenda & Details",
-      link: "/conference-du-2026", // The separate page we will create
+      date: "20th February 2026 (Friday)",
+      time: "09:30 AM - 04:30 PM",
+      location: "Tagore Hall, University of Delhi (North Campus)",
+      quote:
+        "To bring out and materialise a congruity from among varieties and unify them meaningfully... is the essence of education.",
+      quoteSource: "The Message-8",
+      desc: "A national-level seminar featuring IAS/IES officers, DRDO scientists, and global experts. Includes 1:1 mentorship, CV vetting, and global career roadmaps.",
+      buttonText: "Register Now (Free)",
+      link: "/conference-du-2026",
       isFeatured: true,
     },
     {
@@ -22,6 +25,7 @@ const Events = () => {
       image: Utsav,
       date: "Seasonal",
       quote: "All the prophets are the new Advent of the same...",
+      quoteSource: "Satyanusaran",
       desc: "Celebrating the Advent of the Prophets and the Holy Family through communal harmony, spiritual joy, and collective prayer.",
       isFeatured: false,
     },
@@ -31,6 +35,7 @@ const Events = () => {
       date: "First Sunday / Monthly",
       quote:
         "When the Ideal is awake in man, he is active, agile, inquisitive...",
+      quoteSource: "Satyanusaran",
       desc: "Nourish the soul through collective prayer and spiritual discourse on the first Sunday of every month.",
       isFeatured: false,
     },
@@ -51,13 +56,13 @@ const Events = () => {
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-3">
           {eventsList.map((event, idx) => (
             <div
               key={idx}
               className={`relative bg-[var(--bg-main)] rounded-2xl shadow-md overflow-hidden border transition-all duration-300 ${
                 event.isFeatured
-                  ? "border-[var(--primary)] ring-1 ring-[var(--primary)]/20 shadow-lg"
+                  ? "border-[var(--primary)] ring-1 ring-[var(--primary)]/20 shadow-lg scale-[1.02]"
                   : "border-[var(--border-subtle)] hover:shadow-xl"
               }`}
             >
@@ -74,29 +79,39 @@ const Events = () => {
               </div>
 
               {/* Text Content */}
-              <div className="p-8 flex flex-col h-[calc(100%-13rem)]">
+              <div className="p-6 flex flex-col h-[calc(100%-13rem)]">
                 <h3 className="text-xl lg:text-2xl font-bold text-[var(--text-main)] mb-2">
                   {event.title}
                 </h3>
 
                 {event.location && (
-                  <p className="text-xs font-semibold text-[var(--text-muted)] mb-4 uppercase tracking-widest">
-                    📍 {event.location}
-                  </p>
+                  <div className="mb-4">
+                    <p className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-widest flex items-center gap-1 mb-1">
+                      📍 {event.location}
+                    </p>
+                    <p className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-widest flex items-center gap-1 mb-1">
+                      🗓️ {event.date}
+                    </p>
+                    {event.time && (
+                      <p className="text-[10px] font-bold uppercase tracking-widest ">
+                        ⏰ {event.time}
+                      </p>
+                    )}
+                  </div>
                 )}
 
-                <p className="text-sm text-[var(--primary)] italic mb-4 font-medium leading-relaxed">
+                <p className="text-sm text-[13px] text-[var(--primary)] italic mb-4 font-medium leading-relaxed">
                   "{event.quote}"
                   <span className="block mt-1 text-[10px] text-[var(--text-muted)] opacity-70">
-                    — Sree Sree Thakur Anukulchandra, Satyanusaran
+                    — Sree Sree Thakur Anukulchandra, {event.quoteSource}
                   </span>
                 </p>
 
-                <p className="text-[var(--text-muted)] text-sm leading-relaxed mb-6 flex-grow">
+                <p className="text-[var(--text-muted)] text-sm leading-relaxed mb-6 flex-grow text-justify">
                   {event.desc}
                 </p>
 
-                {/* Only show button if a link exists (DU Conference) */}
+                {/* Button Logic */}
                 {event.link ? (
                   <Link
                     to={event.link}

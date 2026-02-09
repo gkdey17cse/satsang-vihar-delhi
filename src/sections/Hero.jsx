@@ -95,7 +95,7 @@ const Hero = () => {
         </div>
 
         <div className="flex flex-col items-center gap-4 lg:gap-6">
-          <div className="border border-[var(--primary)] text-[var(--primary)] px-10 py-2.5 lg:py-4 rounded-full lg:text-lg font-semibold shadow-lg">
+          <div className="border border-[var(--primary)] text-[var(--primary)] px-10 py-2.5 lg:py-4 rounded-full lg:text-lg font-semibold shadow-sm">
             Install Him with Love
           </div>
           <p className="text-[var(--text-muted)] text-xs lg:text-sm tracking-wide uppercase">
