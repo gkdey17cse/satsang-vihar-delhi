@@ -1,8 +1,25 @@
 // src/pages/ConferenceDetailsPage.jsx
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Link as ScrollLink } from "react-scroll"; // Using alias for clarity
-// Import logos
+import { Link as ScrollLink } from "react-scroll";
+
+import {
+  ShieldCheck,
+  Briefcase,
+  Zap,
+  Shield,
+  GraduationCap,
+  Compass,
+  UserCheck,
+  Clock,
+  Building,
+  Microscope,
+  Award,
+  FileText,
+  Lightbulb,
+} from "lucide-react";
+
+// Import logos (Ensure these paths match your project structure)
 import logo_light from "../assets/Photos/logo_light.png";
 import logo_dark from "../assets/Photos/logo_dark.png";
 import ias_ishitaroy from "../assets/Photos/conference-du-2026/IAS_IshitaRoy.jpg";
@@ -13,56 +30,154 @@ import guest_pravakar from "../assets/Photos/conference-du-2026/Guest_ProvakarMo
 import guest_surya from "../assets/Photos/conference-du-2026/Guest_Surya.jpg";
 import guest_sutanu from "../assets/Photos/conference-du-2026/Guest_SutaniChakraborti.jpg";
 import guest_rabindra from "../assets/Photos/conference-du-2026/Guest_RabindraKumarJena.png";
+
 const ConferenceDetailsPage = () => {
-  // Scroll to top on mount
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const REGISTRATION_LINK = "#";
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Guests
+  // --- 1. GUESTS OF HONOUR ---
   const guestsOfHonour = [
     {
       name: "Dr. Jubilee Purkayastha",
       role: "Scientist 'F' & Joint Director, INMAS (DRDO)",
       sub: "Ministry of Defence, Government of India",
-      image: guest_jubilee, // Replace with: dr_jubilee
+      image: guest_jubilee,
     },
     {
       name: "Dr. Pravakar Mohanty",
       role: "Scientist ‘E’ and Joint Director (R&D)",
       sub: "Ministry of Science & Tech, Govt. of India",
-      image: guest_pravakar, // Replace with: dr_pravakar
+      image: guest_pravakar,
     },
     {
       name: "Dr. Debojyoti Chakraborty",
       role: "Senior Principal Scientist",
       sub: "CSIR - Institute of Genomics and Integrative Biology , New Delhi",
-      // image: guest_debo, // Replace with: rabindra_jena
+      image: guest_debo,
     },
     {
       name: "Surya Prakash Mohapatra",
       role: "Global Talent Skilling Head , AI (WIPRO)",
       sub: "Wipro Technologies",
-      image: guest_surya, // Replace with: surya_prakash
+      image: guest_surya,
     },
     {
-      name: "Sutanu Chakraborti",
+      name: "Dr. Sutanu Chakraborti",
       role: "Professor, Dept. of Computer Science & Engineering",
       sub: "IIT Madras",
-      image: guest_sutanu, // Replace with: sutanu_chakraborti
+      image: guest_sutanu,
     },
     {
       name: "Dr. Deepak Bhardwaj",
       role: "Associate Professor , Dept. of Botany",
       sub: "University of Delhi",
-      image: guest_deepak, // Replace with: rabindra_jena
+      image: guest_deepak,
     },
   ];
 
-  // Data for Speakers grouped by category
+  // --- 2. PARALLEL SESSIONS (TABLES) ---
+  const tableData = [
+    {
+      id: 1,
+      title: "Civil, Staff & Defence",
+      sub: "UPSC • STATE PCS • SSC • CDS",
+      icon: Shield,
+      experts: [
+        {
+          name: "Lt. Raj Kumar Thakur",
+          desc: "Officer, Combined Defence Services (CDS), Ministry of Defence",
+        },
+        {
+          name: "Mr. Saptaraj Das, IES",
+          desc: "Officer, Indian Engineering Services (IES), Govt. of India",
+        },
+        {
+          name: "Mr. Ashish Sutar",
+          desc: "Officer, CRPF, Ministry of Home Affairs",
+        },
+        {
+          name: "Dr. Pravakar Mohanty",
+          desc: "Scientist ‘E’ & Joint Director (R&D), Dept. of Science & Technology",
+        },
+      ],
+    },
+    {
+      id: 2,
+      title: "Management & Corporate",
+      sub: "MBA • Corporate Careers • ESG • HR",
+      icon: Briefcase,
+      experts: [
+        {
+          name: "Mr. Surya Prakash Mahapatra",
+          desc: "Global Head – Talent Transformation, Wipro Ltd.",
+        },
+        {
+          name: "Prof. Jagannath Sanyal",
+          desc: "Faculty Member, KEDGE Business School, France",
+        },
+        { name: "Mr. Prashant Das", desc: "ESG & Sustainability Professional" },
+        { name: "Mr. Raj Dutta", desc: "Talent Partner, Wipro Ltd." },
+        {
+          name: "Mr. Soumendra Nath Mukherjee",
+          desc: "Compliance Analyst, American Express",
+        },
+      ],
+    },
+    {
+      id: 3,
+      title: "Higher Education & Research",
+      sub: "MPhil • PhD • UGC-NET • Fellowships",
+      icon: GraduationCap,
+      experts: [
+        {
+          name: "Dr. Sutanu Chakraborty",
+          desc: "Professor, Dept. of CSE, IIT Madras",
+        },
+        {
+          name: "Dr. Ujjwal Jana",
+          desc: "Professor, Dept. of English, University of Delhi",
+        },
+        {
+          name: "Dr. Indrakshi Dutta",
+          desc: "Associate Professor, Dept. of Maths, Jesus & Mary College, DU",
+        },
+        {
+          name: "Dr. Atreyee Choudhury",
+          desc: "Assistant Professor, NIPFP, New Delhi",
+        },
+        {
+          name: "Mr. Sajal Sarkar",
+          desc: "PhD Research Fellow, CSIR–IGIB, New Delhi",
+        },
+      ],
+    },
+    {
+      id: 4,
+      title: "Career Roadmap 360°",
+      sub: "Holistic Mentorship • Strategy",
+      icon: Compass,
+      experts: [
+        {
+          name: "Dr. Dhiraj Sarkar",
+          desc: "Assistant Professor, Deshbandhu College, University of Delhi",
+        },
+        {
+          name: "Mr. Sandeep Kanyal",
+          desc: "Assistant Professor, ARSD College, University of Delhi",
+        },
+        { name: "Mr. Kriti Sundar Sahoo", desc: "Chartered Accountant" },
+        {
+          name: "Mr. Arnab K. Chakraborty",
+          desc: "Programme Officer, UN Global Compact Network India",
+        },
+        { name: "Mr. Karan Barman", desc: "PhD Scholar, IIT Delhi" },
+      ],
+    },
+  ];
+  // Speakers
   const speakerCategories = [
     {
       title: "UPSC, Civil Services & Defence",
@@ -270,13 +385,95 @@ const ConferenceDetailsPage = () => {
       ],
     },
   ];
+  // --- 3. COMMITTEES ---
+  const advisoryCommittee = [
+    {
+      name: "Prof. Ujjwal Jana",
+      role: "Professor, Department of English",
+      inst: "University of Delhi",
+    },
+    {
+      name: "Dr. Dhiraj Sarkar",
+      role: "Assistant Professor, Deshbandhu College",
+      inst: "University of Delhi",
+    },
+    {
+      name: "Dr. Indrakshi Dutta",
+      role: "Associate Professor, Jesus & Mary College",
+      inst: "University of Delhi",
+    },
+    {
+      name: "Mr. Sandeep Kanyal",
+      role: "Assistant Professor, ARSD",
+      inst: "University of Delhi",
+    },
+  ];
 
-  // Navigation Links Configuration
+  const leadership = [
+    {
+      name: "CA G.K. Patnaik",
+      role: "President",
+      designation: "Chartered Accountant",
+      icon: ShieldCheck,
+      desc: "Providing financial stewardship and strategic oversight.",
+    },
+    {
+      name: "Mr. S.K. Mukherjee",
+      role: "Working President",
+      designation: "Compliance Professional, American Express",
+      icon: Briefcase,
+      desc: "Driving operational excellence and organizational compliance.",
+    },
+    {
+      name: "Mr. Prashant Das",
+      role: "Organising Secretary",
+      designation: "ESG & Sustainability Professional",
+      icon: Zap,
+      desc: "Leading sustainability initiatives and coordinating conferences.",
+    },
+  ];
+
+  const convenorsAndMembers = [
+    {
+      name: "Mr. Aditya Das",
+      role: "Joint Convenor",
+      designation: "AGM, Powergrid Corporation of India",
+      icon: Building,
+    },
+    {
+      name: "Mr. Jayanta Bandopadhyay",
+      role: "Joint Convenor",
+      designation: "General Manager, GAIL (India) Pvt. Ltd.",
+      icon: Building,
+    },
+    {
+      name: "Mr. Gaurav Saha",
+      role: "Member",
+      designation: "Scientist ‘B’, Ministry of Telecommunications",
+      icon: Microscope,
+    },
+    {
+      name: "Mr. Saswata Sinha",
+      role: "Member",
+      designation: "Advance Associate, Pearson; IIT Roorkee Alumni",
+      icon: Award,
+    },
+    {
+      name: "Mr. R.K. Sarkar",
+      role: "Member",
+      designation: "Finance Consultant",
+      icon: FileText,
+    },
+  ];
+
+  // Navigation Links
   const navLinks = [
+    { name: "About", to: "hero" },
     { name: "Objectives", to: "objectives" },
     { name: "Guests", to: "guests" },
     { name: "Schedule", to: "schedule" },
     { name: "Speakers", to: "speakers" },
+    { name: "Committee", to: "committee" },
   ];
 
   return (
@@ -285,7 +482,6 @@ const ConferenceDetailsPage = () => {
       <nav className="sticky top-0 z-50 w-full bg-[var(--bg-secondary)]/90 backdrop-blur-md border-b border-[var(--border-subtle)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
           <div className="flex items-center justify-between h-16 lg:h-20">
-            {/* Logo */}
             <Link to="/" className="flex items-center gap-3 lg:gap-4 shrink-0">
               <div className="relative h-10 w-10 md:h-11 md:w-11 lg:h-14 lg:w-14">
                 <img
@@ -304,8 +500,7 @@ const ConferenceDetailsPage = () => {
               </span>
             </Link>
 
-            {/* --- Desktop ScrollSpy Navigation (Hidden on Mobile) --- */}
-            <div className="hidden lg:flex items-center gap-6 xl:gap-8">
+            <div className="hidden lg:flex items-center gap-6 xl:gap-4">
               {navLinks.map((link) => (
                 <ScrollLink
                   key={link.name}
@@ -323,15 +518,14 @@ const ConferenceDetailsPage = () => {
             </div>
 
             <div className="flex items-center gap-4">
-              {/* Official Website Button (Hidden on very small screens to save space, or kept) */}
-              <Link
-                to="/"
-                className="hidden sm:block shrink-0 font-semibold text-[var(--text-muted)] hover:text-[var(--primary)] transition-colors text-xs md:text-sm border border-[var(--border-subtle)] px-3 py-1.5 md:px-4 md:py-2 rounded-full hover:bg-[var(--bg-tertiary)]"
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeaRX9gnEe5JhTZdh4538XpxiB86_jdsGAi4_Rs_7uNOXpWrg/viewform"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden sm:block shrink-0 font-bold hover:text-[var(--text-muted)] text-[var(--primary)] transition-colors text-xs md:text-sm border border-[var(--border-subtle)] px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-[var(--bg-tertiary)]"
               >
-                Official Website ↗
-              </Link>
-
-              {/* --- THREE BARS MOBILE TOGGLE --- */}
+                Register Now ↗
+              </a>
               <div className="lg:hidden flex items-center">
                 <button
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -339,13 +533,13 @@ const ConferenceDetailsPage = () => {
                 >
                   <div className="flex flex-col justify-around w-6 h-5">
                     <span
-                      className={`h-0.5 w-full bg-current transform transition duration-300 ${isMenuOpen ? "rotate-45 translate-y-2" : ""}`}
+                      className={`h-0.5 w-full bg-current transition ${isMenuOpen ? "rotate-45 translate-y-2" : ""}`}
                     />
                     <span
-                      className={`h-0.5 w-full bg-current transition duration-300 ${isMenuOpen ? "opacity-0" : ""}`}
+                      className={`h-0.5 w-full bg-current transition ${isMenuOpen ? "opacity-0" : ""}`}
                     />
                     <span
-                      className={`h-0.5 w-full bg-current transform transition duration-300 ${isMenuOpen ? "-rotate-45 -translate-y-2" : ""}`}
+                      className={`h-0.5 w-full bg-current transition ${isMenuOpen ? "-rotate-45 -translate-y-2" : ""}`}
                     />
                   </div>
                 </button>
@@ -354,21 +548,15 @@ const ConferenceDetailsPage = () => {
           </div>
         </div>
 
-        {/* --- MOBILE OVERLAY MENU --- */}
+        {/* Mobile Menu */}
         <div
-          className={`
-      absolute top-full right-4 mt-2 w-52 rounded-2xl shadow-2xl border border-[var(--border-subtle)]
-      bg-[var(--bg-main)] transform transition-all duration-300 ease-in-out z-50
-      lg:hidden 
-      ${isMenuOpen ? "scale-100 opacity-100 translate-y-0" : "scale-95 opacity-0 -translate-y-4 pointer-events-none"}
-    `}
+          className={`absolute top-full right-4 mt-2 w-52 rounded-2xl shadow-2xl border border-[var(--border-subtle)] bg-[var(--bg-main)] transform transition-all duration-300 ease-in-out z-50 lg:hidden ${isMenuOpen ? "scale-100 opacity-100 translate-y-0" : "scale-95 opacity-0 -translate-y-4 pointer-events-none"}`}
         >
           <div className="flex flex-col p-4 space-y-3">
             {navLinks.map((link) => (
               <ScrollLink
                 key={link.name}
                 to={link.to}
-                spy={true}
                 smooth={true}
                 offset={-70}
                 onClick={() => setIsMenuOpen(false)}
@@ -377,17 +565,16 @@ const ConferenceDetailsPage = () => {
                 {link.name}
               </ScrollLink>
             ))}
-            <Link
-              to="/"
-              className="text-sm font-semibold text-[var(--primary)] pt-1"
-              onClick={() => setIsMenuOpen(false)}
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeaRX9gnEe5JhTZdh4538XpxiB86_jdsGAi4_Rs_7uNOXpWrg/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-bold text-[var(--primary)] pt-1"
             >
-              Official Website ↗
-            </Link>
+              Register Now ↗
+            </a>
           </div>
         </div>
-
-        {/* Click-out overlay to close menu */}
         {isMenuOpen && (
           <div
             className="fixed inset-0 h-screen w-screen lg:hidden z-40 bg-black/5"
@@ -395,81 +582,61 @@ const ConferenceDetailsPage = () => {
           />
         )}
       </nav>
+
       <main className="flex-grow">
-        {/* 1. HERO SECTION */}
+        {/* --- HERO SECTION --- */}
         <section
-          id="hero" // Added ID (Optional, for top scroll)
+          id="hero"
           className="relative w-full h-[75vh] min-h-[500px] flex items-center justify-center overflow-hidden"
         >
-          {/* Background Image & Gradient Overlay */}
           <div className="absolute inset-0 z-0">
             <img
               src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2070&auto=format&fit=crop"
-              alt="University of Delhi - North Campus"
+              alt="University of Delhi"
               className="w-full h-full object-cover"
             />
-            {/* Darker gradient at bottom for better text readability */}
             <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[var(--bg-main)]"></div>
           </div>
 
           <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-            {/* Organizer Badge */}
             <div className="inline-block px-4 py-1.5 mb-4 lg:mb-6 rounded-full border border-[var(--primary)] bg-black/40 backdrop-blur-md shadow-lg">
               <span className="text-[var(--primary)] font-bold text-xs md:text-sm uppercase tracking-widest">
                 Organised By Satsang Vihar, Delhi
               </span>
             </div>
-
-            {/* Main Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-3 lg:mb-4 leading-tight tracking-tight drop-shadow-xl">
-              Comprehensive <br className="hidden sm:block" />
+              ASPIRE <br className="hidden sm:block" />
               Career Counselling{" "}
               <span className="text-[var(--primary)]">Seminar 2026</span>
             </h1>
-
-            {/* Date & Venue - Clean Row Layout */}
-            <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-6 text-white/95 mb-6 font-medium">
-              <p className="flex items-center gap-2 text-sm md:text-lg lg:text-xl bg-black/20 md:bg-transparent px-3 py-1 rounded-lg backdrop-blur-sm md:backdrop-blur-none">
-                <span>📍</span> Tagore Hall, University of Delhi
+            <div className="flex flex-col items-center justify-center gap-2 text-white/95 mb-2 font-medium">
+              <p className="flex items-center gap-2 text-sm md:text-lg lg:text-xl bg-black/20 md:bg-transparent px-3 py-1 rounded-lg backdrop-blur-sm md:backdrop-blur-none ">
+                <span>📍</span> Tagore Hall, University of Delhi (Near
+                Vishwavidyalaya Metro)
               </p>
-              <span className="hidden md:inline text-[var(--primary)] opacity-80 text-xl">
-                •
-              </span>
               <p className="flex items-center gap-2 text-sm md:text-lg lg:text-xl bg-black/20 md:bg-transparent px-3 py-1 rounded-lg backdrop-blur-sm md:backdrop-blur-none text-[var(--primary)]">
                 <span>📅</span> 20th February 2026 (Friday)
               </p>
             </div>
-
-            {/* Description */}
             <p className="text-sm sm:text-base md:text-lg text-gray-200 mb-8 font-light max-w-2xl mx-auto leading-relaxed drop-shadow-md hidden sm:block">
               Guiding students toward informed, confident, and future-ready
-              career decisions through expert mentorship and global networking.
+              career decisions through expert mentorship.
             </p>
-
-            {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center w-full max-w-xs mx-auto sm:max-w-none">
               <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSeaRX9gnEe5JhTZdh4538XpxiB86_jdsGAi4_Rs_7uNOXpWrg/viewform?usp=header"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeaRX9gnEe5JhTZdh4538XpxiB86_jdsGAi4_Rs_7uNOXpWrg/viewform"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white 
-                px-6 py-3 md:px-8 md:py-3 rounded-full
-                text-sm md:text-base font-bold 
-                transition-all shadow-lg hover:shadow-[var(--primary)]/50 transform hover:-translate-y-1 text-center"
+                className="bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white px-6 py-3 md:px-8 md:py-3 rounded-full text-sm md:text-base font-bold transition-all shadow-lg transform hover:-translate-y-1 text-center"
               >
                 Register Now (Free)
               </a>
-
-              {/* ScrollSpy Button */}
               <ScrollLink
                 to="schedule"
                 smooth={true}
                 duration={800}
                 offset={-50}
-                className="cursor-pointer bg-white/10 backdrop-blur-md border border-white/30 text-white hover:bg-white/20 
-                px-6 py-3 md:px-8 md:py-3 rounded-full
-                text-sm md:text-base font-bold 
-                transition-all text-center"
+                className="cursor-pointer bg-white/10 backdrop-blur-md border border-white/30 text-white hover:bg-white/20 px-6 py-3 md:px-8 md:py-3 rounded-full text-sm md:text-base font-bold transition-all text-center"
               >
                 View Schedule ↓
               </ScrollLink>
@@ -477,13 +644,12 @@ const ConferenceDetailsPage = () => {
           </div>
         </section>
 
-        {/* 2. OBJECTIVES & PERKS */}
+        {/* --- OBJECTIVES & PERKS --- */}
         <section
-          id="objectives" // --- ADDED ID HERE ---
+          id="objectives"
           className="py-16 px-4 bg-[var(--bg-secondary)]"
         >
           <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 lg:gap-12">
-            {/* Objectives */}
             <div className="bg-[var(--bg-secondary)] p-6 md:p-8 rounded-2xl border border-[var(--border-subtle)]">
               <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-[var(--text-main)] mb-5">
                 Objectives of the Session
@@ -495,7 +661,6 @@ const ConferenceDetailsPage = () => {
                   "Equipping students with strategies for competitive exams and placements",
                   "CV preparation and LinkedIn profile building",
                   "Fostering mental resilience and focus for effective stress management",
-                  "Building a diverse professional network for long-term career growth",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <span className="text-[var(--primary)] font-bold text-base lg:text-lg">
@@ -508,8 +673,6 @@ const ConferenceDetailsPage = () => {
                 ))}
               </ul>
             </div>
-
-            {/* Perks */}
             <div className="bg-[var(--primary)] text-white p-6 md:p-8 rounded-2xl shadow-xl">
               <h3 className="text-lg md:text-xl lg:text-2xl font-bold mb-5 text-white">
                 Perks of Attending
@@ -537,24 +700,22 @@ const ConferenceDetailsPage = () => {
           </div>
         </section>
 
-        {/* 3. GUESTS OF HONOUR & CHIEF GUEST */}
+        {/* --- GUESTS OF HONOUR --- */}
         <section
           id="guests"
           className="py-12 lg:py-20 px-4 bg-[var(--bg-tertiary)] border-y border-[var(--border-subtle)]"
         >
           <div className="max-w-7xl mx-auto">
-            {/* --- PROFESSIONAL CHIEF GUEST CARD --- */}
+            {/* Chief Guest Card */}
             <div className="mb-20">
               <div className="text-center mb-10">
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-[var(--text-main)] mb-3">
-                  Speakers
+                  Keynote Speaker
                 </h2>
                 <div className="w-20 h-1.5 bg-[var(--primary)] mx-auto rounded-full"></div>
               </div>
-
               <div className="flex justify-center">
                 <div className="group w-full max-w-4xl bg-[var(--bg-secondary)] rounded-3xl shadow-xl border border-[var(--border-subtle)] flex flex-col md:flex-row overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-                  {/* Image Section */}
                   <div className="w-full md:w-2/5 h-80 md:h-auto relative bg-[var(--color-neutral-200)]">
                     <img
                       src={ias_ishitaroy}
@@ -562,16 +723,13 @@ const ConferenceDetailsPage = () => {
                       className="w-full h-full object-cover object-top"
                     />
                   </div>
-
-                  {/* Content Section */}
                   <div className="w-full md:w-3/5 p-8 lg:p-12 flex flex-col justify-center items-center md:items-start text-center md:text-left">
                     <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-[var(--text-main)] mb-4 leading-tight">
                       Ms. Ishita Roy
                     </h3>
                     <div className="w-16 h-1 bg-[var(--border-subtle)] mb-6 mx-auto md:mx-0"></div>
-                    <p className="text-base lg:text-lg font-bold text-[var(--primary)]  leading-snug mb-2 max-w-sm md:max-w-none">
-                      Director, Centre of Continuing Education and Civil
-                      Services Academy
+                    <p className="text-base lg:text-lg font-bold text-[var(--primary)] leading-snug mb-2">
+                      Director, Kerala State Civil Services Academy
                     </p>
                     <p className="text-sm lg:text-base text-[var(--text-muted)] font-medium">
                       Government of Kerala
@@ -581,15 +739,14 @@ const ConferenceDetailsPage = () => {
               </div>
             </div>
 
-            {/* --- GUESTS OF HONOUR --- */}
-            <div className="mb-20">
+            {/* Guests Grid */}
+            <div className="mb-10">
               <div className="text-center mb-10 lg:mb-12">
                 <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[var(--text-main)] mb-3">
                   Guests of Honour
                 </h2>
                 <div className="w-16 h-1 bg-[var(--primary)] mx-auto rounded-full opacity-60"></div>
               </div>
-
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
                 {guestsOfHonour.map((guest, i) => (
                   <div
@@ -604,19 +761,12 @@ const ConferenceDetailsPage = () => {
                           className="w-full h-full object-cover"
                         />
                       ) : (
-                        <svg
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          className="w-10 h-10 text-[var(--primary)]"
-                        >
-                          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                          <circle cx="12" cy="7" r="4" />
-                        </svg>
+                        <UserCheck
+                          size={40}
+                          className="text-[var(--primary)]"
+                        />
                       )}
                     </div>
-
                     <h3 className="text-base md:text-lg lg:text-xl font-bold text-[var(--text-main)] mb-2 leading-tight">
                       {guest.name}
                     </h3>
@@ -635,7 +785,7 @@ const ConferenceDetailsPage = () => {
           </div>
         </section>
 
-        {/* 4. PROGRAMME SCHEDULE */}
+        {/* --- PROGRAMME SCHEDULE --- */}
         <section
           id="schedule"
           className="py-16 lg:py-24 bg-[var(--bg-secondary)] border-t border-[var(--border-subtle)]"
@@ -646,14 +796,12 @@ const ConferenceDetailsPage = () => {
                 Programme Schedule
               </h2>
               <div className="w-24 h-1 bg-[var(--primary)] mx-auto mb-6 rounded-full"></div>
-              <p className="text-[var(--primary)] text-sm md:text-lg max-w-3xl mx-auto font-medium">
-                ASPIRE-A: Comprehensive Career Counselling Seminar • Tagore
-                Hall, University of Delhi • 20th February 2026
+              <p className="text-[var(--primary)] text-sm md:text-lg font-medium">
+                Tagore Hall, University of Delhi • 20th February 2026
               </p>
             </div>
 
             <div className="relative space-y-6">
-              {/* Decorative vertical line for desktop */}
               <div className="hidden md:block absolute left-[160px] top-4 bottom-4 w-px bg-gradient-to-b from-transparent via-[var(--border-subtle)] to-transparent"></div>
 
               {[
@@ -663,7 +811,7 @@ const ConferenceDetailsPage = () => {
                   subsections: [
                     {
                       content:
-                        "Kit distribution and student orientation session",
+                        "Kit distribution, welcome of students and seminar overview.",
                     },
                   ],
                   type: "normal",
@@ -674,68 +822,72 @@ const ConferenceDetailsPage = () => {
                   subsections: [
                     {
                       content:
-                        "Diya Prajjwalan and Theme song dedicated to young students",
+                        "Diya Prajjwalan & Theme song dedicated to young students",
                     },
                     {
+                      label: "Welcome Address:",
                       content:
-                        "Welcome Address: Mr. Prashant Das (The Convenor)",
+                        "Dr. Indrakashi Dutta (Advisor of OC, Asso. Prof, Jesus & Mary College, DU)",
                     },
                     {
-                      label: "Guest of Honour Speeches",
+                      label: "Theme Address:",
                       content:
-                        "Mr. Surya Prakash Mohapatra (Global Talent Skilling Head, AI - WIPRO), Dr. Sutanu Chakraborti (Professor, CSE, IIT Madras), Dr. Deepak Bhardwaj (Associate Professor, Dept. of Botany, DU), Dr. Debojyoti Chakraborty (Senior Principal Scientist, CSIR-IGIB), Dr. Jubilee Purkayastha (Scientist 'F' & Joint Director, INMAS-DRDO), Ms. Ishita Roy (Director, Kerala State Civil Services Academy)",
+                        "Dr. Dhiraj Sarkar (Asst. Prof, Deshbandhu College, DU)",
+                    },
+                    {
+                      label: "Guest of Honours Speech:",
+                      content:
+                        "Mr. Surya Prakash Mahapatra, Dr. Sutanu Chakraborty, Dr. Debojyoti Chakraborty, Ms. Ishita Roy, Dr. Jubilee Purkayastha, Dr. Deepak Bhardwaj",
                     },
                     { content: "Address by Chief Guest" },
                     {
+                      label: "Vote of Thanks:",
                       content:
-                        "Vote of Thanks: Dr. Pravakar Mohanty (Scientist ‘E’ & Joint Director, Ministry of Science & Tech, Govt. of India)",
+                        "Dr. Pravakar Mohanty (Scientist ‘E’ & Joint Director, DST)",
                     },
                   ],
                   type: "session",
                 },
                 {
                   time: "11:00 AM – 11:15 AM",
-                  title: "Tea Break",
+                  title: "TEA BREAK",
                   subsections: [{ content: "Networking & Refreshments" }],
                   type: "break",
                 },
                 {
                   time: "11:15 AM – 01:00 PM",
-                  title: "Career Counselling Sessions",
+                  title: "Career Counselling Sessions (Motivators Speech)",
                   subsections: [
                     {
-                      label: "Dr. Sutanu Chakraborty (HoD, CSE, IIT Madras)",
+                      label: "Dr. Sutanu Chakraborty",
                       content:
-                        "Topic: 'Career Confusion & Clarity - Ideal-Centric Life Leads to Excellence'",
+                        "Topic: 'Career Confusion and Clarity: Ideal-Centric Life Leads to Excellence'",
                     },
                     {
-                      label: "Ms. Ishita Roy (Director, KSCSA)",
+                      label: "Ms. Ishita Roy",
                       content:
-                        "Topic: 'Competition, Cooperation, Consistency - Nishtha & Ekagrata'",
+                        "Topic: 'From Ideals to IAS: Approaching the UPSC Journey through Self-Discipline, Cooperation, Consistency & Resilience'",
                     },
                     {
-                      label:
-                        "Dr. Debojyoti Chakraborty (Sr. Scientist, CSIR-IGIB)",
+                      label: "Dr. Debojyoti Chakraborty",
                       content:
-                        "Topic: 'Confluence of Music, Mind and Art shaping Science - Sitar Recital'",
+                        "Special Performance: 'The Confluence of Music, Mind and Art in Shaping Science, Innovation and Clarity' (Sitar Recital)",
                     },
                     {
-                      label: "Mr. Surya Prakash Mahapatra (Global Head, WIPRO)",
-                      content: "Topic: 'Career Pathways & Strategic Choices'",
+                      label: "Mr. Surya Prakash Mahapatra",
+                      content: "Topic: 'Career Pathways and Strategic Choices'",
                     },
-                    { content: "Interactive Q&A Session" },
+                    {
+                      content:
+                        "Interactive Q&A Session (Moderated discussion with all speakers)",
+                    },
                   ],
                   type: "session",
                 },
                 {
                   time: "01:00 PM – 02:00 PM",
-                  title: "Lunch Break",
-                  subsections: [
-                    {
-                      content:
-                        "Complimentary lunch provided for all registered participants",
-                    },
-                  ],
+                  title: "LUNCH BREAK",
+                  subsections: [{ content: "" }],
                   type: "break",
                 },
                 {
@@ -744,7 +896,7 @@ const ConferenceDetailsPage = () => {
                   subsections: [
                     {
                       content:
-                        "'Celebrating Harmony in Life, Purpose and Career Path' - A Musical Reflection by Sandeep Mohanty (Hindustani Classical Vocalist, PhD Scholar, University of Delhi)",
+                        "'Celebrating Harmony in Life, Purpose and Career Path: A Musical Reflection' by Sandeep Mohanty",
                     },
                   ],
                   type: "session",
@@ -757,52 +909,141 @@ const ConferenceDetailsPage = () => {
                     {
                       id: "P1",
                       name: "Civil, Staff & Defence Services",
-                      moderator:
-                        "Ms. Ishita Roy (Director, Kerala State Civil Services Academy)",
+                      theme:
+                        "From Aspirant to Officer: Strategy, Resilience & Ethical Leadership in Public Service",
+                      moderator: {
+                        name: "Ms. Ishita Roy",
+                        qual: "Director: Kerala State Civil Services Academy",
+                      },
                       speakers: [
-                        "Dr. Pravakar Mohanty (Scientist ‘E’ & Joint Director, Ministry of Science & Tech)",
-                        "Lt. Raj Kumar Thakur (UPSC CDS)",
-                        "Mr. Saptaraj Das, IES (Ministry of Home Affairs)",
-                        "Mr. Ashish Sutar (CRPF , Ministry of Home Affairs)",
+                        {
+                          name: "Dr. Pravakar Mohanty",
+                          qual: "Scientist E & Joint Director (R&D), DST, Govt. of India",
+                        },
+                        {
+                          name: "Lt. Raj Kumar Thakur",
+                          qual: "Officer, Combined Defence Services (CDS), Ministry of Defence",
+                        },
+                        {
+                          name: "Mr. Saptaraj Das, IES",
+                          qual: "Indian Engineering Services Officer, Government of India",
+                        },
+                        {
+                          name: "Mr. Ashish Sutar",
+                          qual: "Officer, Central Reserve Police Force (CRPF), Ministry of Home Affairs",
+                        },
                       ],
                     },
                     {
                       id: "P2",
-                      name: "Higher Ed & Research",
-                      moderator:
-                        "Dr. Sutanu Chakraborti (Professor, CSE, IIT Madras)",
+                      name: "Higher Education, Academia & Research",
+                      theme:
+                        "Knowledge with Character: Research, Reflection & Responsibility",
+                      moderator: {
+                        name: "Dr. Sutanu Chakraborty",
+                        qual: "Professor, Dept of Computer Science, IIT Madras",
+                      },
                       speakers: [
-                        "Dr. Atreyee Choudhury (Asst. Prof, National Institute of Public Finance and Policy)",
-                        "Dr. Md. SK Azharuddin (Economist, National Institute of Public Finance and Policy)",
-                        "Dr. Ujjwal Jana (Prof, Dept of English, DU)",
-                        "Dr. Indrakshi Dutta (Associate Prof, Mathematics, DU)",
-                        "Mr. Sourav Saha (Former Teaching Faculty of Ashoka University , Social Anthropologist)",
-                        "Mr. Sajal Sarkar (SRF, CSIR-IGIB)",
+                        {
+                          name: "Dr. Atreyee Choudhury",
+                          qual: "Assistant Professor, National Institute of Public Finance & Policy (NIPFP), New Delhi",
+                        },
+                        {
+                          name: "Dr. Md. SK Azharuddin",
+                          qual: "Economist, NIPFP, New Delhi",
+                        },
+                        {
+                          name: "Dr. Ujjwal Jana",
+                          qual: "Professor, Department of English, University of Delhi",
+                        },
+                        {
+                          name: "Dr. Indrakshi Dutta",
+                          qual: "Associate Professor, Department of Mathematics, Jesus & Mary College, University of Delhi",
+                        },
+                        {
+                          name: "Mr. Sourav Saha",
+                          qual: "Social Anthropologist | Former Faculty Ashoka University",
+                        },
+                        {
+                          name: "Mr. Sajal Sarkar",
+                          qual: "PhD Research Fellow, CSIR-IGIB, New Delhi",
+                        },
                       ],
                     },
                     {
                       id: "P3",
-                      name: "Management & Corporate",
-                      moderator:
-                        "Mr. Surya Prakash Mahapatra (Global Competency Head, Wipro Technologies)",
+                      name: "Management, Corporate & Business",
+                      theme:
+                        "Corporate Leadership with Conscience: Strategy, Sustainability & Long-Term Excellence",
+                      moderator: {
+                        name: "Mr. Surya Prakash Mahapatra",
+                        qual: "Global Head for AI, Wipro Ltd.",
+                      },
                       speakers: [
-                        "Mr. Jagannath Sanyal (KEDGE Business School)",
-                        "Mr. Prashant Das (ESG & Sustainability Professional)",
-                        "Mr. Shubhrangshu Sinha (MBA , IIM Kashipur)",
-                        "Mr. Jishnu Jyoti Roy Chatterjee (JJR Industries Ltd.)",
-                        "Mr. Soumendra Nath Mukherjee (American Express)",
+                        {
+                          name: "Prof. Jagannath Sanyal",
+                          qual: "Faculty, KEDGE Business School, France",
+                        },
+                        {
+                          name: "Mr. Prashant Das",
+                          qual: "ESG & Sustainability Professional",
+                        },
+                        {
+                          name: "Mr. Subhranghu Sinha",
+                          qual: "MBA, IIM Kashipur | Marketing Professional",
+                        },
+                        {
+                          name: "Mr. Jishnu Jyoti Roy Chatterjee",
+                          qual: "Founder & CEO, JJR Industries Ltd.",
+                        },
+                        {
+                          name: "Mr. Soumendra Nath Mukherjee",
+                          qual: "Compliance Analyst, American Express",
+                        },
+                        {
+                          name: "Mr. Raj Dutta",
+                          qual: "Talent Partner, Wipro Ltd.",
+                        },
                       ],
                     },
                     {
                       id: "P4",
-                      name: "Fireside Chat: Roadmap 360°",
-                      moderator: "Shri Prashant Das (The Convenor)",
+                      name: "Fire Side Chat: Career Roadmap 360°",
+                      theme:
+                        "From Classroom to Leadership: Skill, Character & Holistic Career Development",
+                      moderator: {
+                        name: "Dr. Dhiraj Sarkar",
+                        qual: "Assistant Professor, Deshbandhu College, University of Delhi",
+                      },
                       speakers: [
-                        "Mr. Kriti Sundar Sahoo (CA)",
-                        "Mr. Karan Barman (PhD Scholar, IIT Delhi)",
-                        "Dr. Sutapa Das (Senior Resident, VMMC & Safdarjung Hospital)",
-                        "Mr. Gour Krishna Dey (MTech CSE, IIITDelhi)",
-                        "Mr. Tanay Mullick (Geoinformatics Analyst, TERI)",
+                        {
+                          name: "Mr. Sandeep Kanyal",
+                          qual: "Assistant Professor, ARSD College, University of Delhi",
+                        },
+                        {
+                          name: "Mr. Kriti Sundar Sahoo",
+                          qual: "Chartered Accountant",
+                        },
+                        {
+                          name: "Mr. Karan Barman",
+                          qual: "PhD Scholar, IIT Delhi",
+                        },
+                        {
+                          name: "Dr. Sutapa Das",
+                          qual: "Senior Resident Doctor, VMMC & Safdarjung Hospital",
+                        },
+                        {
+                          name: "Mr. Arnab K. Chakraborty",
+                          qual: "Programme Officer, UN Global Compact Network India (UN-GCNI)",
+                        },
+                        {
+                          name: "Mr. Hadunga Narzary",
+                          qual: "PhD Scholar, University of Delhi",
+                        },
+                        {
+                          name: "Mr. Gour Krishna Dey",
+                          qual: "M.Tech, Computer Science Engineering, IIIT Delhi",
+                        },
                       ],
                     },
                   ],
@@ -821,47 +1062,29 @@ const ConferenceDetailsPage = () => {
                   key={index}
                   className="flex flex-col md:flex-row gap-4 md:gap-10 group transition-all duration-300"
                 >
-                  {/* Time Block */}
                   <div className="md:w-[150px] shrink-0 md:text-right pt-1">
                     <span
-                      className={`inline-block px-3 py-1 rounded-md text-[10px] font-bold tracking-wider uppercase border
-              ${
-                item.type === "break"
-                  ? "bg-gray-100 text-gray-400 border-gray-200"
-                  : "bg-[var(--bg-main)] text-[var(--primary)] border-[var(--primary)]/20"
-              }
-            `}
+                      className={`inline-block px-3 py-1 rounded-md text-[10px] font-bold tracking-wider uppercase border ${item.type === "break" ? "bg-gray-100 text-gray-400 border-gray-200" : "bg-[var(--bg-main)] text-[var(--primary)] border-[var(--primary)]/20"}`}
                     >
                       {item.time}
                     </span>
                   </div>
-
-                  {/* Details Card */}
                   <div
-                    className={`flex-1 p-5 md:p-6 rounded-2xl border transition-all duration-300 relative
-            ${
-              item.type === "session"
-                ? "bg-[var(--bg-main)] border-[var(--border-subtle)] shadow-sm border-l-4 border-l-[var(--primary)]"
-                : item.type === "break"
-                  ? "bg-transparent border-dashed border-gray-300 opacity-60"
-                  : "bg-[var(--bg-main)] border-[var(--border-subtle)]"
-            }
-          `}
+                    className={`flex-1 p-5 md:p-6 rounded-2xl border transition-all duration-300 relative ${item.type === "session" ? "bg-[var(--bg-main)] border-[var(--border-subtle)] shadow-sm border-l-4 border-l-[var(--primary)]" : item.type === "break" ? "bg-transparent border-dashed border-gray-300 opacity-60" : "bg-[var(--bg-main)] border-[var(--border-subtle)]"}`}
                   >
                     <h3
                       className={`text-base md:text-lg font-bold mb-4 ${item.type === "break" ? "text-[var(--text-muted)]" : "text-[var(--text-main)]"}`}
                     >
                       {item.title}
                     </h3>
-
                     {item.isPlenary ? (
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                         {item.sessions.map((plenary) => (
                           <div
                             key={plenary.id}
-                            className="bg-[var(--bg-secondary)] p-4 rounded-xl border border-[var(--border-subtle)]"
+                            className="bg-[var(--bg-secondary)] p-5 rounded-xl border border-[var(--border-subtle)] shadow-sm"
                           >
-                            <div className="flex items-center gap-2 mb-3">
+                            <div className="flex items-center gap-2 mb-2">
                               <span className="bg-[var(--primary)] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">
                                 {plenary.id}
                               </span>
@@ -869,34 +1092,42 @@ const ConferenceDetailsPage = () => {
                                 {plenary.name}
                               </h4>
                             </div>
+                            <p className="text-[11px] text-[var(--text-muted)] italic mb-4 font-medium leading-snug">
+                              "{plenary.theme}"
+                            </p>
 
-                            <div className="mb-3 p-2 bg-[var(--primary)]/5 border-l-2 border-[var(--primary)] rounded-r-md">
-                              <p className="text-[10px] uppercase font-bold text-[var(--primary)] mb-0.5">
+                            <div className="mb-4 p-3 bg-[var(--primary)]/5 border-l-2 border-[var(--primary)] rounded-r-md">
+                              <p className="text-[10px] uppercase font-bold text-[var(--primary)] mb-1 tracking-wider">
                                 Moderator
                               </p>
-                              <p className="text-xs font-semibold text-[var(--text-main)] leading-tight">
-                                {plenary.moderator}
+                              <p className="text-[13px] font-bold text-[var(--text-main)] leading-tight">
+                                {plenary.moderator.name}
+                              </p>
+                              <p className="text-[11px] font-medium text-[var(--text-muted)] mt-0.5 leading-snug">
+                                {plenary.moderator.qual}
                               </p>
                             </div>
 
-                            <ul className="space-y-1.5">
+                            <ul className="space-y-3 mt-4">
                               {plenary.speakers.map((speaker, sIdx) => (
                                 <li
                                   key={sIdx}
-                                  className="text-[11px] text-[var(--text-muted)] flex items-start gap-2 leading-tight"
+                                  className="flex items-start gap-2 leading-tight"
                                 >
-                                  <span className="mt-1 w-1 h-1 rounded-full bg-[var(--primary)] shrink-0 opacity-40"></span>
-                                  <span>{speaker}</span>
+                                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--primary)] shrink-0 opacity-50"></span>
+                                  <div className="flex flex-col">
+                                    <span className="font-bold text-[12px] text-[var(--text-main)]">
+                                      {speaker.name}
+                                    </span>
+                                    <span className="text-[11px] font-medium text-[var(--text-muted)] mt-0.5 leading-snug opacity-90">
+                                      {speaker.qual}
+                                    </span>
+                                  </div>
                                 </li>
                               ))}
                             </ul>
                           </div>
                         ))}
-                        <div className="lg:col-span-2 text-center pt-2">
-                          <p className="text-xs font-bold text-[var(--primary)] italic tracking-wide">
-                            Interactive Q&A Sessions across all domains
-                          </p>
-                        </div>
                       </div>
                     ) : (
                       <ul className="space-y-2.5">
@@ -905,7 +1136,9 @@ const ConferenceDetailsPage = () => {
                             key={sIdx}
                             className="text-xs md:text-[13px] text-[var(--text-muted)] flex items-start gap-3 leading-relaxed"
                           >
-                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--primary)] shrink-0 opacity-40"></span>
+                            {sub.content && (
+                              <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--primary)] shrink-0 opacity-40"></span>
+                            )}
                             <div>
                               {sub.label && (
                                 <span className="font-bold text-[var(--text-main)] block mb-0.5">
@@ -914,7 +1147,9 @@ const ConferenceDetailsPage = () => {
                               )}
                               <span
                                 className={
-                                  sub.label ? "opacity-90" : "font-medium"
+                                  sub.label
+                                    ? "opacity-90 italic text-[11px] md:text-xs"
+                                    : "font-medium"
                                 }
                               >
                                 {sub.content}
@@ -929,37 +1164,86 @@ const ConferenceDetailsPage = () => {
               ))}
             </div>
 
-            {/* Parallel Session Footer */}
-            <div className="mt-12 p-6 rounded-2xl bg-gradient-to-br from-[var(--primary)]/5 via-transparent to-transparent border border-[var(--primary)]/10">
-              <div className="flex flex-col md:flex-row items-center gap-6">
-                <div className="px-4 py-2 bg-[var(--primary)] text-white rounded-lg font-bold text-sm tracking-widest uppercase">
-                  Parallel Session
+            {/* Parallel Sessions Block (Inside Schedule) */}
+            <div className="mt-20 pt-16 border-t border-[var(--border-subtle)]">
+              <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+                <div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] text-[10px] font-bold uppercase tracking-widest mb-4">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--primary)] opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--primary)]"></span>
+                    </span>
+                    Parallel Session
+                  </div>
+                  <h2 className="text-2xl md:text-4xl font-bold text-[var(--text-main)]">
+                    One-To-One Career Counselling
+                  </h2>
                 </div>
-                <div className="text-center md:text-left">
-                  <h4 className="text-base font-bold text-[var(--text-main)]">
-                    One-to-One Career Counselling
-                  </h4>
-                  <p className="text-xs text-[var(--text-muted)]">
-                    Tables 1-4 • 11:15 AM – 04:00 PM • Resume Review & Profile
-                    Optimization
-                  </p>
+                <div className="flex items-center gap-3 bg-[var(--bg-main)] px-5 py-3 rounded-2xl border border-[var(--border-subtle)] shadow-sm">
+                  <Clock size={20} className="text-[var(--primary)]" />
+                  <div>
+                    <p className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-tighter">
+                      Available Timing
+                    </p>
+                    <p className="text-sm font-bold text-[var(--text-main)]">
+                      11:15 AM — 04:00 PM
+                    </p>
+                  </div>
                 </div>
-                <div className="md:ml-auto flex gap-1.5">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div
-                      key={i}
-                      className="w-8 h-8 rounded-full bg-[var(--bg-main)] border border-[var(--primary)]/20 flex items-center justify-center text-[10px] font-bold text-[var(--primary)]"
-                    >
-                      T{i}
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {tableData.map((table) => (
+                  <div
+                    key={table.id}
+                    className="bg-[var(--bg-main)] rounded-3xl border border-[var(--border-subtle)] overflow-hidden flex flex-col hover:shadow-xl transition-all duration-500 group"
+                  >
+                    <div className="p-6 border-b border-[var(--border-subtle)] bg-gradient-to-r from-[var(--bg-secondary)] to-transparent flex items-start justify-between">
+                      <div>
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="w-8 h-8 rounded-lg bg-[var(--primary)]/5 flex items-center justify-center text-[var(--primary)] font-bold text-xs border border-[var(--primary)]/10">
+                            T{table.id}
+                          </div>
+                          <h3 className="text-xl font-bold text-[var(--text-main)] group-hover:text-[var(--primary)] transition-colors">
+                            {table.title}
+                          </h3>
+                        </div>
+                        <p className="text-[11px] font-bold text-[var(--primary)] uppercase tracking-wider ml-11">
+                          {table.sub}
+                        </p>
+                      </div>
+                      <table.icon
+                        size={32}
+                        className="opacity-10 group-hover:opacity-30 transition-opacity text-[var(--text-main)]"
+                      />
                     </div>
-                  ))}
-                </div>
+                    <div className="p-6 space-y-5 flex-grow">
+                      {table.experts.map((expert, idx) => (
+                        <div key={idx} className="flex gap-4 group/item">
+                          <div className="mt-1">
+                            <div className="w-5 h-5 rounded-full bg-[var(--bg-secondary)] border border-[var(--border-subtle)] flex items-center justify-center text-[var(--text-muted)] group-hover/item:border-[var(--primary)] group-hover/item:text-[var(--primary)] transition-all">
+                              <UserCheck size={10} />
+                            </div>
+                          </div>
+                          <div>
+                            <h4 className="text-[15px] font-bold text-[var(--text-main)] leading-tight mb-1">
+                              {expert.name}
+                            </h4>
+                            <p className="text-[12px] text-[var(--text-muted)] leading-relaxed font-medium">
+                              {expert.desc}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </section>
 
-        {/* 5. KEY SPEAKERS & COUNSELLORS (Categorized) */}
+        {/* Key speakers */}
         <section
           id="speakers"
           className="py-12 lg:py-20 px-4 bg-[var(--bg-tertiary)] border-y border-[var(--border-subtle)]"
@@ -1015,108 +1299,157 @@ const ConferenceDetailsPage = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
 
-            {/* ORGANISING COMMITTEE: CLEAN PROFESSIONAL DESIGN */}
-            <div className="mt-24 mb-12">
-              <div className="relative max-w-5xl mx-auto">
-                {/* Header with subtle lines */}
-                <div className="flex items-center justify-center gap-4 mb-12">
-                  <div className="h-px w-12 bg-gradient-to-r from-transparent to-[var(--primary)]/30"></div>
-                  <h3 className="text-[18px] font-black uppercase tracking-[0.4em] text-[var(--primary)] whitespace-nowrap">
-                    Organising Committee
-                  </h3>
-                  <div className="h-px w-12 bg-gradient-to-l from-transparent to-[var(--primary)]/30"></div>
+        {/* --- COMMITTEES --- */}
+        <section id="committee" className="py-24 px-4 bg-[var(--bg-main)]">
+          <div className="max-w-6xl mx-auto">
+            {/* 1. Advisory Committee */}
+            <div className="mb-20">
+              <div className="text-center mb-12">
+                <div className="inline-flex items-center gap-3 mb-4">
+                  <span className="h-px w-10 bg-[var(--primary)]/30"></span>
+                  <span className="text-[12px] font-black uppercase tracking-[0.4em] text-[var(--primary)]">
+                    Guidance
+                  </span>
+                  <span className="h-px w-10 bg-[var(--primary)]/30"></span>
                 </div>
+                <h2 className="text-3xl md:text-4xl font-serif font-bold text-[var(--text-main)]">
+                  Advisory Committee
+                </h2>
+              </div>
 
-                {/* Roles Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0">
-                  {[
-                    { role: "President", name: "Gopal Krushna Pattnayak" },
-                    { role: "Chairperson", name: "Soumendranath Mukherjee" },
-                    { role: "Secretary", name: "Prashant Das" },
-                  ].map((person, i) => (
-                    <div
-                      key={i}
-                      className={`px-8 py-4 text-center ${
-                        i !== 2
-                          ? "md:border-r border-[var(--border-subtle)]"
-                          : ""
-                      }`}
-                    >
-                      <p className="text-[9px] font-bold text-[var(--text-muted)] uppercase tracking-widest mb-2 opacity-70">
-                        {person.role}
-                      </p>
-                      <h4 className="text-lg md:text-xl font-bold text-[var(--text-main)] tracking-tight">
-                        {person.name}
-                      </h4>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {advisoryCommittee.map((advisor, i) => (
+                  <div
+                    key={i}
+                    className="p-6 text-center bg-[var(--bg-secondary)] rounded-2xl border border-[var(--border-subtle)] hover:shadow-md transition-all"
+                  >
+                    <div className="mx-auto w-12 h-12 bg-[var(--primary)]/10 rounded-full flex items-center justify-center mb-4 text-[var(--primary)]">
+                      <Lightbulb size={24} />
                     </div>
-                  ))}
-                </div>
-
-                {/* Bottom Accent */}
-                <div className="mt-12 flex justify-center">
-                  <div className="w-24 h-1 bg-[var(--primary)]/10 rounded-full overflow-hidden">
-                    <div className="w-1/2 h-full bg-[var(--primary)] opacity-40"></div>
+                    <h3 className="text-lg font-bold text-[var(--text-main)] mb-1">
+                      {advisor.name}
+                    </h3>
+                    <p className="text-[11px] font-bold text-[var(--primary)] uppercase tracking-wide mb-2">
+                      {advisor.role}
+                    </p>
+                    <p className="text-xs text-[var(--text-muted)] italic">
+                      {advisor.inst}
+                    </p>
                   </div>
+                ))}
+              </div>
+            </div>
+
+            {/* 2. Organizing Committee */}
+            <div className="text-center mb-12 border-t border-[var(--border-subtle)] pt-20">
+              <div className="inline-flex items-center gap-3 mb-4">
+                <span className="h-px w-10 bg-[var(--primary)]/30"></span>
+                <span className="text-[12px] font-black uppercase tracking-[0.4em] text-[var(--primary)]">
+                  Leadership & Execution
+                </span>
+                <span className="h-px w-10 bg-[var(--primary)]/30"></span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-[var(--text-main)] mb-6">
+                Organising Committee
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+              {leadership.map((person, i) => (
+                <div
+                  key={i}
+                  className="group relative p-8 rounded-2xl bg-[var(--bg-secondary)] border border-[var(--border-subtle)] hover:border-[var(--primary)]/40 transition-all duration-300 shadow-sm"
+                >
+                  <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <person.icon size={48} />
+                  </div>
+                  <p className="text-[10px] font-bold text-[var(--primary)] uppercase tracking-widest mb-3">
+                    {person.role}
+                  </p>
+                  <h3 className="text-xl font-bold text-[var(--text-main)] mb-1">
+                    {person.name}
+                  </h3>
+                  <p className="text-[13px] font-medium text-[var(--text-muted)] mb-4">
+                    {person.designation}
+                  </p>
+                  <p className="text-[12px] leading-relaxed text-[var(--text-muted)] opacity-80">
+                    {person.desc}
+                  </p>
                 </div>
+              ))}
+            </div>
+
+            <div className="bg-[var(--bg-secondary)]/40 rounded-3xl p-6 md:p-10 border border-[var(--border-subtle)]">
+              <h4 className="text-center text-[11px] font-bold text-[var(--text-muted)] uppercase tracking-[0.3em] mb-12">
+                Convenors & Executive Members
+              </h4>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-10 gap-x-12">
+                {convenorsAndMembers.map((member, i) => (
+                  <div key={i} className="flex items-start gap-4 group">
+                    <div className="mt-1 p-2 rounded-lg bg-[var(--bg-main)] border border-[var(--border-subtle)] text-[var(--text-muted)] group-hover:text-[var(--primary)] transition-colors">
+                      <member.icon size={16} />
+                    </div>
+                    <div>
+                      <h5 className="text-[16px] font-bold text-[var(--text-main)] leading-tight">
+                        {member.name}
+                      </h5>
+                      <p className="text-[10px] font-bold text-[var(--primary)] uppercase mt-1 tracking-wide">
+                        {member.role}
+                      </p>
+                      <p className="text-[12px] text-[var(--text-muted)] mt-1.5 leading-snug font-medium">
+                        {member.designation}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </section>
 
-        {/* 6. BOTTOM CTA */}
+        {/* --- BOTTOM CTA --- */}
         <section className="py-12 lg:py-20 bg-[var(--primary)] text-white text-center px-6">
           <div className="max-w-4xl mx-auto">
-            {/* Reduced Title: text-xl on mobile, text-4xl on desktop */}
             <h2 className="text-xl md:text-3xl lg:text-4xl font-bold mb-4 lg:mb-6 leading-tight">
               Empowering students to shape meaningful careers.
             </h2>
-
-            {/* Reduced Description: text-xs on mobile, text-base on desktop */}
             <p className="text-xs md:text-base lg:text-lg text-white/90 mb-8 max-w-xl mx-auto leading-relaxed">
               Registration is now open. Seats are limited and will be filled on
               a first-come, first-served basis. Secure your spot today.
             </p>
-
             <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSeaRX9gnEe5JhTZdh4538XpxiB86_jdsGAi4_Rs_7uNOXpWrg/viewform?usp=header"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeaRX9gnEe5JhTZdh4538XpxiB86_jdsGAi4_Rs_7uNOXpWrg/viewform"
               target="_blank"
-              className="inline-block bg-white text-[var(--primary)] 
-              px-8 py-3 lg:px-10 lg:py-4
-              text-base md:text-lg lg:text-xl 
-              font-extrabold rounded-full hover:bg-[var(--bg-secondary)] hover:scale-105 transition-all shadow-xl active:scale-95"
+              rel="noopener noreferrer"
+              className="inline-block bg-white text-[var(--primary)] px-8 py-3 lg:px-10 lg:py-4 text-base md:text-lg lg:text-xl font-extrabold rounded-full hover:bg-[var(--bg-secondary)] hover:scale-105 transition-all shadow-xl active:scale-95"
             >
               Register for Conference
             </a>
-
-            {/* Sub-text: text-[10px] on mobile, text-sm on desktop */}
             <p className="mt-6 text-[10px] md:text-sm lg:text-base font-medium opacity-90 tracking-wide uppercase">
               Free for Delhi University Students • Certificate Provided
             </p>
           </div>
         </section>
       </main>
+
       {/* --- CUSTOM FOOTER --- */}
       <footer className="bg-[var(--color-neutral-900)] text-white py-10 lg:py-16">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          {/* Specific Education Quote - Preserving exact line breaks */}
           <div className="mb-8">
             <p className="text-[13px] md:text-sm lg:text-base font-medium text-[var(--color-brand-200)] italic leading-relaxed">
-              "To bring out and materialise <br />
-              a congruity <br />
-              from among varieties <br />
-              and unify them meaningfully <br />
-              discovering their relation <br />
-              to existence— <br />
-              is the essence of education."
+              "To bring out and materialise <br /> a congruity <br /> from among
+              varieties <br /> and unify them meaningfully <br /> discovering
+              their relation <br /> to existence— <br /> is the essence of
+              education."
             </p>
             <span className="block mt-4 text-[10px] md:text-xs lg:text-sm text-[var(--color-neutral-400)] uppercase tracking-wider">
               — Sree Sree Thakur Anukulchandra, <br className="md:hidden" />
               ESSENCE OF EDUCATION, The Message-8
             </span>
           </div>
-
-          {/* Social Media Links */}
           <div className="flex justify-center gap-6 md:gap-8 pt-4 border-t border-[var(--color-neutral-800)]">
             <a
               href="https://www.facebook.com/SatsangViharDelhi"
@@ -1164,7 +1497,6 @@ const ConferenceDetailsPage = () => {
               </svg>
             </a>
           </div>
-
           <p className="text-[10px] md:text-xs text-[var(--color-neutral-500)] mt-4 tracking-widest uppercase">
             © 2026 Satsang Vihar New Delhi • All rights reserved.
           </p>
