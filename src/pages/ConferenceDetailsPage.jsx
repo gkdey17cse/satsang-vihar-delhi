@@ -52,12 +52,12 @@ const ConferenceDetailsPage = () => {
       sub: "Ministry of Science & Tech, Govt. of India",
       image: guest_pravakar,
     },
-    {
-      name: "Dr. Debojyoti Chakraborty",
-      role: "Senior Principal Scientist",
-      sub: "CSIR - Institute of Genomics and Integrative Biology , New Delhi",
-      image: guest_debo,
-    },
+    // {
+    //   name: "Dr. Debojyoti Chakraborty",
+    //   role: "Senior Principal Scientist",
+    //   sub: "CSIR - Institute of Genomics and Integrative Biology , New Delhi",
+    //   image: guest_debo,
+    // },
     {
       name: "Surya Prakash Mohapatra",
       role: "Global Talent Skilling Head , AI (WIPRO)",
@@ -411,7 +411,7 @@ const ConferenceDetailsPage = () => {
 
   const leadership = [
     {
-      name: "CA G.K. Patnaik",
+      name: "G.K. Patnaik ",
       role: "President",
       designation: "Chartered Accountant",
       icon: ShieldCheck,
@@ -598,7 +598,7 @@ const ConferenceDetailsPage = () => {
             <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[var(--bg-main)]"></div>
           </div>
 
-          <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
+          <div className="relative z-10 text-center px-4 max-w-7xl mx-auto">
             <div className="inline-block px-4 py-1.5 mb-4 lg:mb-6 rounded-full border border-[var(--primary)] bg-black/40 backdrop-blur-md shadow-lg">
               <span className="text-[var(--primary)] font-bold text-xs md:text-sm uppercase tracking-widest">
                 Organised By Satsang Vihar, Delhi
@@ -610,10 +610,15 @@ const ConferenceDetailsPage = () => {
               <span className="text-[var(--primary)]">Seminar 2026</span>
             </h1>
             <div className="flex flex-col items-center justify-center gap-2 text-white/95 mb-2 font-medium">
-              <p className="flex items-center gap-2 text-sm md:text-lg lg:text-xl bg-black/20 md:bg-transparent px-3 py-1 rounded-lg backdrop-blur-sm md:backdrop-blur-none ">
-                <span>📍</span> Tagore Hall, University of Delhi (Near
-                Vishwavidyalaya Metro)
-              </p>
+              <a
+                target="_blank"
+                href="https://maps.app.goo.gl/FoGkbyy2k1XUqja78"
+                className="flex items-center gap-2 text-sm md:text-lg lg:text-xl bg-black/20 md:bg-transparent px-3 py-1 rounded-lg backdrop-blur-sm md:backdrop-blur-none "
+              >
+                <span>📍</span> Officer Transit Facility Hall, DRDO Residential
+                Complex, (DROMI) Timarpur (Neatest Metro Vishwavidyalaya Gate no
+                1)
+              </a>
               <p className="flex items-center gap-2 text-sm md:text-lg lg:text-xl bg-black/20 md:bg-transparent px-3 py-1 rounded-lg backdrop-blur-sm md:backdrop-blur-none text-[var(--primary)]">
                 <span>📅</span> 20th February 2026 (Friday)
               </p>
@@ -707,7 +712,7 @@ const ConferenceDetailsPage = () => {
         >
           <div className="max-w-7xl mx-auto">
             {/* Chief Guest Card */}
-            <div className="mb-20">
+            {/* <div className="mb-20">
               <div className="text-center mb-10">
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-[var(--text-main)] mb-3">
                   Keynote Speaker
@@ -737,10 +742,75 @@ const ConferenceDetailsPage = () => {
                   </div>
                 </div>
               </div>
+            </div> */}
+            <div className="text-center mb-10">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-[var(--text-main)] mb-3">
+                Keynote Speaker
+              </h2>
+              <div className="w-20 h-1.5 bg-[var(--primary)] mx-auto rounded-full"></div>
+            </div>
+
+            <div className="flex justify-center px-4">
+              <div className="group w-full max-w-6xl bg-[var(--bg-secondary)] rounded-3xl shadow-xl border border-[var(--border-subtle)] flex flex-col md:flex-row overflow-hidden hover:shadow-2xl transition-all duration-500">
+                {/* Left: Speaker Image (Fixed Width on Desktop) */}
+                <div className="w-full md:w-1/3 lg:w-1/4 h-72 md:h-auto relative overflow-hidden">
+                  <img
+                    src={ias_ishitaroy}
+                    alt="Ms. Ishita Roy"
+                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent md:hidden" />
+                </div>
+
+                {/* Right: Info & Video side-by-side */}
+                <div className="w-full md:w-2/3 lg:w-3/4 p-6 lg:p-10 flex flex-col justify-center">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    {/* Description Section */}
+                    <div className="text-center md:text-left">
+                      <span className="inline-block px-3 py-1 mb-4 text-[10px] font-bold tracking-widest uppercase bg-[var(--primary)]/10 text-[var(--primary)] rounded-md border border-[var(--primary)]/20">
+                        Guest of Honor
+                      </span>
+                      <h3 className="text-3xl lg:text-4xl font-black text-[var(--text-main)] mb-2 leading-tight">
+                        Ms. Ishita Roy
+                      </h3>
+                      <div className="w-12 h-1 bg-[var(--primary)] mb-6 mx-auto md:mx-0"></div>
+
+                      <div className="space-y-2">
+                        <p className="text-lg font-bold text-[var(--text-main)] leading-snug">
+                          Director, Kerala State Civil Services Academy
+                        </p>
+                        <p className="text-base text-[var(--text-muted)] font-medium">
+                          Government of Kerala
+                        </p>
+                      </div>
+
+                      <p className="mt-6 text-sm text-[var(--text-muted)] leading-relaxed italic border-l-2 border-[var(--border-subtle)] pl-4 hidden lg:block">
+                        Leading the transformation of civil service coaching and
+                        public administration excellence.
+                      </p>
+                    </div>
+
+                    {/* Video Section (Landscape/Compact ratio) */}
+                    <div className="relative">
+                      <div className="relative z-10 w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-white/5 bg-black">
+                        <iframe
+                          src="https://www.youtube.com/embed/Kh8FSySdm8g?autoplay=1&mute=1"
+                          title="Ms. Ishita Roy – Introduction"
+                          className="w-full h-full"
+                          allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        />
+                      </div>
+                      {/* Decorative background element */}
+                      <div className="absolute -inset-2 bg-[var(--primary)]/5 blur-2xl rounded-full -z-0"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Guests Grid */}
-            <div className="mb-10">
+            <div className="mt-16 mb-10">
               <div className="text-center mb-10 lg:mb-12">
                 <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[var(--text-main)] mb-3">
                   Guests of Honour
@@ -797,7 +867,8 @@ const ConferenceDetailsPage = () => {
               </h2>
               <div className="w-24 h-1 bg-[var(--primary)] mx-auto mb-6 rounded-full"></div>
               <p className="text-[var(--primary)] text-sm md:text-lg font-medium">
-                Tagore Hall, University of Delhi • 20th February 2026
+                Officer Transit Facility Hall, DRDO Residential Complex, (DROMI)
+                Timarpur • 20th February 2026
               </p>
             </div>
 
@@ -837,7 +908,7 @@ const ConferenceDetailsPage = () => {
                     {
                       label: "Guest of Honours Speech:",
                       content:
-                        "Mr. Surya Prakash Mahapatra, Dr. Sutanu Chakraborty, Dr. Debojyoti Chakraborty, Ms. Ishita Roy, Dr. Jubilee Purkayastha, Dr. Deepak Bhardwaj",
+                        "Mr. Surya Prakash Mahapatra (Global Head-Talent Transformation, WIPRO) , Dr. Sutanu Chakraborty (Prof, Dept of Computer Sci. & Eng, IIT Madras), Ms. Ishita Roy (Director: Kerala State Civil Services Academy), Dr. Jubilee Purkayastha (Scientist F & Joint Director, INMAS DRDO), Dr. Deepak Bhardwaj (Associate Prof. Dept of Botany, DU)",
                     },
                     { content: "Address by Chief Guest" },
                     {
@@ -868,11 +939,11 @@ const ConferenceDetailsPage = () => {
                       content:
                         "Topic: 'From Ideals to IAS: Approaching the UPSC Journey through Self-Discipline, Cooperation, Consistency & Resilience'",
                     },
-                    {
-                      label: "Dr. Debojyoti Chakraborty",
-                      content:
-                        "Special Performance: 'The Confluence of Music, Mind and Art in Shaping Science, Innovation and Clarity' (Sitar Recital)",
-                    },
+                    // {
+                    //   label: "Dr. Debojyoti Chakraborty",
+                    //   content:
+                    //     "Special Performance: 'The Confluence of Music, Mind and Art in Shaping Science, Innovation and Clarity' (Sitar Recital)",
+                    // },
                     {
                       label: "Mr. Surya Prakash Mahapatra",
                       content: "Topic: 'Career Pathways and Strategic Choices'",
