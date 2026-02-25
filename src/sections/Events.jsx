@@ -7,6 +7,19 @@ import Conference from "../assets/Photos/Conference.png";
 const Events = () => {
   const eventsList = [
     {
+      title: "37th Delhi-NCR Utsav & 138th Holy Birth Anniversary",
+      image: Utsav,
+      date: "28th & 29th March 2026",
+      time: "Two‑day celebration",
+      location: "Ramleela Maidan, Ashok Vihar, New Delhi",
+      quote: "Wisdom destroys confusion and gives discerning eyes to man",
+      quoteSource: "Sree Sree Thakur Anukulchandra",
+      desc: "Join us for the 37th Delhi-NCR Utsav celebrating the 138th Holy Birth Anniversary of Param Premamaya Sree Sree Thakur Anukulchandra. Experience devotional music, cultural programmes, Bhandara (Prasad‑Seva), free medical camp, and a special performance by The White Band.",
+      buttonText: "View Utsav Details",
+      link: "/utsav-delhi-2026",
+      isFeatured: true,
+    },
+    {
       title: "Career Excellence Conference 2026",
       image: Conference,
       date: "20th February 2026 (Friday)",
@@ -16,18 +29,9 @@ const Events = () => {
         "To bring out and materialise a congruity from among varieties and unify them meaningfully... is the essence of education.",
       quoteSource: "The Message-8",
       desc: "A national-level seminar featuring IAS/IES officers, DRDO scientists, and global experts. Includes 1:1 mentorship, CV vetting, and global career roadmaps.",
-      buttonText: "Register Now (Free)",
+      buttonText: "Explore Aspire 2026 @DU",
       link: "/conference-du-2026",
       isFeatured: true,
-    },
-    {
-      title: "Annual Utsavs",
-      image: Utsav,
-      date: "Seasonal",
-      quote: "All the prophets are the new Advent of the same...",
-      quoteSource: "Satyanusaran",
-      desc: "Celebrating the Advent of the Prophets and the Holy Family through communal harmony, spiritual joy, and collective prayer.",
-      isFeatured: false,
     },
     {
       title: "Monthly Satsang",
