@@ -17,19 +17,25 @@ import {
   Award,
   FileText,
   Lightbulb,
+  Download,
 } from "lucide-react";
 
+// Swiper for the Gallery Carousel
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
+
 // Import logos (Ensure these paths match your project structure)
-import logo_light from "../assets/Photos/logo_light.png";
-import logo_dark from "../assets/Photos/logo_dark.png";
-import ias_ishitaroy from "../assets/Photos/conference-du-2026/IAS_IshitaRoy.jpg";
-import guest_jubilee from "../assets/Photos/conference-du-2026/Guest_JubileePurakayastha.jpg";
-import guest_debo from "../assets/Photos/conference-du-2026/Guest_DebojyotiChakraborty.jpg";
-import guest_deepak from "../assets/Photos/conference-du-2026/Guest_DeepakBhardwaj.jpg";
-import guest_pravakar from "../assets/Photos/conference-du-2026/Guest_ProvakarMohanty.png";
-import guest_surya from "../assets/Photos/conference-du-2026/Guest_Surya.jpg";
-import guest_sutanu from "../assets/Photos/conference-du-2026/Guest_SutaniChakraborti.jpg";
-import guest_rabindra from "../assets/Photos/conference-du-2026/Guest_RabindraKumarJena.png";
+import logo_light from "../../assets/Photos/logo_light.png";
+import logo_dark from "../../assets/Photos/logo_dark.png";
+import ias_ishitaroy from "../../assets/Photos/conference-du-2026/IAS_IshitaRoy.jpg";
+import guest_jubilee from "../../assets/Photos/conference-du-2026/Guest_JubileePurakayastha.jpg";
+import guest_debo from "../../assets/Photos/conference-du-2026/Guest_DebojyotiChakraborty.jpg";
+import guest_deepak from "../../assets/Photos/conference-du-2026/Guest_DeepakBhardwaj.jpg";
+import guest_pravakar from "../../assets/Photos/conference-du-2026/Guest_ProvakarMohanty.png";
+import guest_surya from "../../assets/Photos/conference-du-2026/Guest_Surya.jpg";
+import guest_sutanu from "../../assets/Photos/conference-du-2026/Guest_SutaniChakraborti.jpg";
+import guest_rabindra from "../../assets/Photos/conference-du-2026/Guest_RabindraKumarJena.png";
 
 const ConferenceDetailsPage = () => {
   useEffect(() => {
@@ -37,6 +43,58 @@ const ConferenceDetailsPage = () => {
   }, []);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showAllGallery, setShowAllGallery] = useState(false);
+
+  // --- GALLERY IMAGES ---
+  const galleryImages = [
+    "v1772042292/1_bly4np.jpg", //1
+    "v1772042290/2_mnil5s.jpg",
+    "v1772042291/3_tfuqqn.jpg",
+    "v1772042289/4_tsbzcs.jpg",
+    "v1772042289/5_ik0hic.jpg", // 5
+    "v1772042291/6_nov3ys.jpg",
+    "v1772042295/7_nd4pmn.jpg",
+    "v1772042291/8_ksjauu.jpg",
+    "v1772042292/9_debonw.jpg",
+    "v1772042294/9_2_itn1ip.jpg", // 10
+    // Caraousel
+    "v1772042295/15_nrkwte.jpg",
+    "v1772042297/11_se5pxw.jpg",
+    "v1772042293/12_tgemxx.jpg",
+    "v1772042294/13_iboioz.jpg",
+    "v1772042297/18_j6e2ta.jpg",
+    // End of Caraousel
+    "v1772042295/14_hh5tl1.jpg",
+    "v1772042293/10_nyjr7b.jpg",
+    "v1772042295/16_wmnm5v.jpg",
+    "v1772042296/19_tpjucf.jpg",
+    "v1772042297/20_d1tmp4.jpg",
+    "v1772042319/21_ttdeht.jpg",
+    "v1772042298/22_bj1iq4.jpg",
+    "v1772042299/23_rkjeri.jpg",
+    "v1772042301/25_1_mx2joj.jpg",
+    "v1772042301/25_feil1v.jpg",
+    "v1772042302/26_kahz06.jpg",
+    "v1772042304/27_tmkkzn.jpg",
+    "v1772042304/28_pqvigt.jpg",
+    "v1772042306/29_yfzhpp.jpg",
+    "v1772042307/30_u3hzbh.jpg",
+  ].map(
+    (id) =>
+      // f_auto: best format (WebP/AVIF)
+      // q_auto: best compression balance
+      // w_1000: caps the resolution to 1000px width (fast but sharp)
+      `https://res.cloudinary.com/dk3sj0t4u/image/upload/f_auto,q_auto,w_1000/${id}`,
+  );
+
+  // Top 5 images for the featured carousel
+  const top5Images = galleryImages.slice(10, 15);
+
+  // Chunk remaining images into groups of 6 for the asymmetric grid
+  const chunkedGallery = [];
+  for (let i = 0; i < galleryImages.length; i += 6) {
+    chunkedGallery.push(galleryImages.slice(i, i + 6));
+  }
 
   // --- 1. GUESTS OF HONOUR ---
   const guestsOfHonour = [
@@ -52,12 +110,6 @@ const ConferenceDetailsPage = () => {
       sub: "Ministry of Science & Tech, Govt. of India",
       image: guest_pravakar,
     },
-    // {
-    //   name: "Dr. Debojyoti Chakraborty",
-    //   role: "Senior Principal Scientist",
-    //   sub: "CSIR - Institute of Genomics and Integrative Biology , New Delhi",
-    //   image: guest_debo,
-    // },
     {
       name: "Surya Prakash Mohapatra",
       role: "Global Talent Skilling Head , AI (WIPRO)",
@@ -469,6 +521,7 @@ const ConferenceDetailsPage = () => {
   // Navigation Links
   const navLinks = [
     { name: "About", to: "hero" },
+    { name: "Gallery", to: "gallery" }, // Added Gallery Link
     { name: "Objectives", to: "objectives" },
     { name: "Guests", to: "guests" },
     { name: "Schedule", to: "schedule" },
@@ -477,7 +530,7 @@ const ConferenceDetailsPage = () => {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-[var(--bg-main)]">
+    <div className="flex flex-col min-h-screen bg-[var(--bg-main)] overflow-x-hidden">
       {/* --- CUSTOM NAVBAR --- */}
       <nav className="sticky top-0 z-50 w-full bg-[var(--bg-secondary)]/90 backdrop-blur-md border-b border-[var(--border-subtle)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
@@ -500,7 +553,7 @@ const ConferenceDetailsPage = () => {
               </span>
             </Link>
 
-            <div className="hidden lg:flex items-center gap-6 xl:gap-4">
+            <div className="hidden lg:flex items-center gap-6 xl:gap-1">
               {navLinks.map((link) => (
                 <ScrollLink
                   key={link.name}
@@ -584,67 +637,261 @@ const ConferenceDetailsPage = () => {
       </nav>
 
       <main className="flex-grow">
-        {/* --- HERO SECTION --- */}
+        {/* --- HERO SECTION WITH BACKGROUND CAROUSEL --- */}
         <section
           id="hero"
-          className="relative w-full h-[75vh] min-h-[500px] flex items-center justify-center overflow-hidden"
+          className="relative w-full h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden"
         >
+          {/* Background Carousel Layer */}
           <div className="absolute inset-0 z-0">
-            <img
-              src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2070&auto=format&fit=crop"
-              alt="University of Delhi"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[var(--bg-main)]"></div>
+            <Swiper
+              modules={[Autoplay]}
+              spaceBetween={0}
+              slidesPerView={1}
+              loop={true}
+              speed={2000}
+              autoplay={{ delay: 4000, disableOnInteraction: false }}
+              className="w-full h-full"
+            >
+              {top5Images.map((src, index) => (
+                <SwiperSlide key={index}>
+                  <div className="w-full h-full relative">
+                    <img
+                      src={src}
+                      alt={`Background ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                    {/* Dark Overlay to ensure text readability */}
+                    <div className="absolute inset-0 bg-black/40"></div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+            {/* Additional Gradient for bottom blending */}
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[var(--bg-main)]"></div>
           </div>
 
+          {/* Foreground Text Content */}
           <div className="relative z-10 text-center px-4 max-w-7xl mx-auto">
-            <div className="inline-block px-4 py-1.5 mb-4 lg:mb-6 rounded-full border border-[var(--primary)] bg-black/40 backdrop-blur-md shadow-lg">
+            <div className="inline-block px-4 py-1.5 mb-6 rounded-full border border-[var(--primary)] bg-black/0 backdrop-blur-md shadow-lg">
               <span className="text-[var(--primary)] font-bold text-xs md:text-sm uppercase tracking-widest">
                 Organised By Satsang Vihar, Delhi
               </span>
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-3 lg:mb-4 leading-tight tracking-tight drop-shadow-xl">
+
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight tracking-tight drop-shadow-2xl">
               ASPIRE <br className="hidden sm:block" />
-              Career Counselling{" "}
-              <span className="text-[var(--primary)]">Seminar 2026</span>
+              Career <span className="text-[var(--primary)]">Seminar 2026</span>
             </h1>
-            <div className="flex flex-col items-center justify-center gap-2 text-white/95 mb-2 font-medium">
-              <a
-                target="_blank"
-                href="https://maps.app.goo.gl/FoGkbyy2k1XUqja78"
-                className="flex items-center gap-2 text-sm md:text-lg lg:text-xl bg-black/20 md:bg-transparent px-3 py-1 rounded-lg backdrop-blur-sm md:backdrop-blur-none "
-              >
-                <span>📍</span> Officer Transit Facility Hall, DRDO Residential
-                Complex, (DROMI) Timarpur (Neatest Metro Vishwavidyalaya Gate no
-                1)
-              </a>
-              <p className="flex items-center gap-2 text-sm md:text-lg lg:text-xl bg-black/20 md:bg-transparent px-3 py-1 rounded-lg backdrop-blur-sm md:backdrop-blur-none text-[var(--primary)]">
-                <span>📅</span> 20th February 2026 (Friday)
-              </p>
+
+            <div className="flex flex-col items-center justify-center gap-4 text-white/95 mb-10 font-medium">
+              <div className="flex items-center gap-3 text-sm md:text-lg lg:text-xl bg-white/10 px-6 py-2 rounded-full backdrop-blur-md border border-white/20">
+                <span className="text-xl">📍</span>
+                <span>
+                  DRDO Residential Complex, (DROMI) Timarpur (Neatest Metro
+                  Vishwavidyalaya Gate no 1)
+                </span>
+              </div>
+              <div className="flex items-center gap-3 text-sm md:text-lg lg:text-xl bg-[var(--primary)]/90 px-6 py-2 rounded-full shadow-lg">
+                <span className="text-xl">📅</span>
+                <span>20th February 2026 (Friday) • 09:30 AM</span>
+              </div>
             </div>
-            <p className="text-sm sm:text-base md:text-lg text-gray-200 mb-8 font-light max-w-2xl mx-auto leading-relaxed drop-shadow-md hidden sm:block">
+
+            <p className="hidden md:block text-lg text-gray-200 mb-10 font-light max-w-3xl mx-auto leading-relaxed drop-shadow-md">
               Guiding students toward informed, confident, and future-ready
-              career decisions through expert mentorship.
+              career decisions through expert mentorship from IAS officers, DRDO
+              scientists, and Global Industry Leaders.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center w-full max-w-xs mx-auto sm:max-w-none">
-              <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSeaRX9gnEe5JhTZdh4538XpxiB86_jdsGAi4_Rs_7uNOXpWrg/viewform"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white px-6 py-3 md:px-8 md:py-3 rounded-full text-sm md:text-base font-bold transition-all shadow-lg transform hover:-translate-y-1 text-center"
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center w-full max-w-xs mx-auto sm:max-w-none">
+              <ScrollLink
+                to="gallery"
+                smooth={true}
+                duration={800}
+                offset={-80}
+                className="bg-[var(--primary)] cursor-pointer hover:bg-[var(--primary-hover)] text-white px-10 py-4 rounded-full text-base font-bold transition-all shadow-[0_0_20px_rgba(var(--primary-rgb),0.4)] transform hover:-translate-y-1 text-center"
               >
-                Register Now (Free)
-              </a>
+                View Highlights
+              </ScrollLink>
               <ScrollLink
                 to="schedule"
                 smooth={true}
                 duration={800}
                 offset={-50}
-                className="cursor-pointer bg-white/10 backdrop-blur-md border border-white/30 text-white hover:bg-white/20 px-6 py-3 md:px-8 md:py-3 rounded-full text-sm md:text-base font-bold transition-all text-center"
+                className="cursor-pointer bg-white/10 backdrop-blur-md border border-white/30 text-white hover:bg-white/20 px-10 py-4 rounded-full text-base font-bold transition-all text-center"
               >
-                View Schedule ↓
+                Full Schedule ↓
               </ScrollLink>
+            </div>
+          </div>
+        </section>
+
+        {/* --- GALLERY SECTION --- */}
+        <section id="gallery" className="py-12 lg:py-20 bg-[var(--bg-main)]">
+          <div className="max-w-7xl mx-auto px-5">
+            {/* Gallery Header */}
+            <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-6 md:gap-8 mb-12 md:mb-16">
+              {/* Left Side: Title and Decorative Bar */}
+              <div className="w-full lg:w-1/2">
+                <h2 className="text-2xl md:text-4xl font-extrabold text-[var(--text-main)] mb-4 tracking-tight">
+                  Glimpses of{" "}
+                  <span className="text-[var(--primary)]">ASPIRE</span>
+                </h2>
+                {/* Decorative Bar: Slightly thinner on mobile for elegance */}
+                <div className="w-20 md:w-24 h-1.5 md:h-2 bg-[var(--primary)] rounded-full"></div>
+              </div>
+
+              {/* Right Side: Description */}
+              <p className="w-full lg:w-1/2 leading-relaxed text-[var(--text-muted)] text-sm lg:text-base text-justify md:text-left lg:text-justify">
+                Relive the memorable moments from our Comprehensive Career
+                Counselling Seminar. Explore highlights of keynote sessions, 1:1
+                mentorship circles, and interactive student engagements designed
+                to shape the leaders of tomorrow.
+              </p>
+            </div>
+
+            {/* Asymmetric Grid */}
+            <div className="flex flex-col gap-4 md:gap-6">
+              {/* Only show the first chunk (6 images) unless showAllGallery is true */}
+              {chunkedGallery
+                .slice(0, showAllGallery ? chunkedGallery.length : 1)
+                .map((chunk, chunkIdx) => (
+                  <div key={chunkIdx} className="flex flex-wrap md:-m-2 -m-1">
+                    {/* Left Half */}
+                    <div className="flex flex-wrap w-1/2">
+                      {chunk[0] && (
+                        <div className="md:p-2 p-1 w-1/2 relative group overflow-hidden">
+                          <img
+                            alt="gallery"
+                            className="w-full h-48 md:h-64 object-cover block rounded-xl md:rounded-2xl transition-transform duration-500 group-hover:scale-110"
+                            src={chunk[0]}
+                          />
+                          <a
+                            href={chunk[0]}
+                            download
+                            className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
+                          >
+                            <div className="bg-white/20 backdrop-blur-md p-3 rounded-full hover:bg-[var(--primary)] text-white">
+                              <Download size={24} />
+                            </div>
+                          </a>
+                        </div>
+                      )}
+                      {chunk[1] && (
+                        <div className="md:p-2 p-1 w-1/2 relative group overflow-hidden">
+                          <img
+                            alt="gallery"
+                            className="w-full h-48 md:h-64 object-cover block rounded-xl md:rounded-2xl transition-transform duration-500 group-hover:scale-110"
+                            src={chunk[1]}
+                          />
+                          <a
+                            href={chunk[1]}
+                            download
+                            className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
+                          >
+                            <div className="bg-white/20 backdrop-blur-md p-3 rounded-full hover:bg-[var(--primary)] text-white">
+                              <Download size={24} />
+                            </div>
+                          </a>
+                        </div>
+                      )}
+                      {chunk[2] && (
+                        <div className="md:p-2 p-1 w-full relative group overflow-hidden">
+                          <img
+                            alt="gallery"
+                            className="w-full h-64 md:h-96 object-cover block rounded-xl md:rounded-2xl transition-transform duration-500 group-hover:scale-110"
+                            src={chunk[2]}
+                          />
+                          <a
+                            href={chunk[2]}
+                            download
+                            className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
+                          >
+                            <div className="bg-white/20 backdrop-blur-md p-4 rounded-full hover:bg-[var(--primary)] text-white">
+                              <Download size={28} />
+                            </div>
+                          </a>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Right Half */}
+                    <div className="flex flex-wrap w-1/2">
+                      {chunk[3] && (
+                        <div className="md:p-2 p-1 w-full relative group overflow-hidden">
+                          <img
+                            alt="gallery"
+                            className="w-full h-64 md:h-96 object-cover block rounded-xl md:rounded-2xl transition-transform duration-500 group-hover:scale-110"
+                            src={chunk[3]}
+                          />
+                          <a
+                            href={chunk[3]}
+                            download
+                            className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
+                          >
+                            <div className="bg-white/20 backdrop-blur-md p-4 rounded-full hover:bg-[var(--primary)] text-white">
+                              <Download size={28} />
+                            </div>
+                          </a>
+                        </div>
+                      )}
+                      {chunk[4] && (
+                        <div className="md:p-2 p-1 w-1/2 relative group overflow-hidden">
+                          <img
+                            alt="gallery"
+                            className="w-full h-48 md:h-64 object-cover block rounded-xl md:rounded-2xl transition-transform duration-500 group-hover:scale-110"
+                            src={chunk[4]}
+                          />
+                          <a
+                            href={chunk[4]}
+                            download
+                            className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
+                          >
+                            <div className="bg-white/20 backdrop-blur-md p-3 rounded-full hover:bg-[var(--primary)] text-white">
+                              <Download size={24} />
+                            </div>
+                          </a>
+                        </div>
+                      )}
+                      {chunk[5] && (
+                        <div className="md:p-2 p-1 w-1/2 relative group overflow-hidden">
+                          <img
+                            alt="gallery"
+                            className="w-full h-48 md:h-64 object-cover block rounded-xl md:rounded-2xl transition-transform duration-500 group-hover:scale-110"
+                            src={chunk[5]}
+                          />
+                          <a
+                            href={chunk[5]}
+                            download
+                            className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
+                          >
+                            <div className="bg-white/20 backdrop-blur-md p-3 rounded-full hover:bg-[var(--primary)] text-white">
+                              <Download size={24} />
+                            </div>
+                          </a>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ))}
+            </div>
+
+            {/* See More / Show Less Button */}
+            <div className="mt-8 text-center">
+              <button
+                onClick={() => setShowAllGallery(!showAllGallery)}
+                className="group relative inline-flex items-center justify-center px-10 py-3 font-bold text-white transition-all duration-300 bg-[var(--primary)] rounded-full hover:bg-[var(--primary-hover)] shadow-xl hover:shadow-[0_0_20px_rgba(var(--primary-rgb),0.4)] active:scale-95"
+              >
+                <span className="mr-2">
+                  {showAllGallery ? "Show Less" : "See All Moments"}
+                </span>
+                <div
+                  className={`transition-transform duration-300 ${showAllGallery ? "rotate-180" : "group-hover:translate-y-1"}`}
+                >
+                  ↓
+                </div>
+              </button>
             </div>
           </div>
         </section>
@@ -652,7 +899,7 @@ const ConferenceDetailsPage = () => {
         {/* --- OBJECTIVES & PERKS --- */}
         <section
           id="objectives"
-          className="py-16 px-4 bg-[var(--bg-secondary)]"
+          className="py-16 px-4 bg-[var(--bg-secondary)] border-t border-[var(--border-subtle)]"
         >
           <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 lg:gap-12">
             <div className="bg-[var(--bg-secondary)] p-6 md:p-8 rounded-2xl border border-[var(--border-subtle)]">
@@ -711,38 +958,6 @@ const ConferenceDetailsPage = () => {
           className="py-12 lg:py-20 px-4 bg-[var(--bg-tertiary)] border-y border-[var(--border-subtle)]"
         >
           <div className="max-w-7xl mx-auto">
-            {/* Chief Guest Card */}
-            {/* <div className="mb-20">
-              <div className="text-center mb-10">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-[var(--text-main)] mb-3">
-                  Keynote Speaker
-                </h2>
-                <div className="w-20 h-1.5 bg-[var(--primary)] mx-auto rounded-full"></div>
-              </div>
-              <div className="flex justify-center">
-                <div className="group w-full max-w-4xl bg-[var(--bg-secondary)] rounded-3xl shadow-xl border border-[var(--border-subtle)] flex flex-col md:flex-row overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-                  <div className="w-full md:w-2/5 h-80 md:h-auto relative bg-[var(--color-neutral-200)]">
-                    <img
-                      src={ias_ishitaroy}
-                      alt="Ms. Ishita Roy"
-                      className="w-full h-full object-cover object-top"
-                    />
-                  </div>
-                  <div className="w-full md:w-3/5 p-8 lg:p-12 flex flex-col justify-center items-center md:items-start text-center md:text-left">
-                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-[var(--text-main)] mb-4 leading-tight">
-                      Ms. Ishita Roy
-                    </h3>
-                    <div className="w-16 h-1 bg-[var(--border-subtle)] mb-6 mx-auto md:mx-0"></div>
-                    <p className="text-base lg:text-lg font-bold text-[var(--primary)] leading-snug mb-2">
-                      Director, Kerala State Civil Services Academy
-                    </p>
-                    <p className="text-sm lg:text-base text-[var(--text-muted)] font-medium">
-                      Government of Kerala
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div> */}
             <div className="text-center mb-10">
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-[var(--text-main)] mb-3">
                 Keynote Speaker
@@ -939,11 +1154,6 @@ const ConferenceDetailsPage = () => {
                       content:
                         "Topic: 'From Ideals to IAS: Approaching the UPSC Journey through Self-Discipline, Cooperation, Consistency & Resilience'",
                     },
-                    // {
-                    //   label: "Dr. Debojyoti Chakraborty",
-                    //   content:
-                    //     "Special Performance: 'The Confluence of Music, Mind and Art in Shaping Science, Innovation and Clarity' (Sitar Recital)",
-                    // },
                     {
                       label: "Mr. Surya Prakash Mahapatra",
                       content: "Topic: 'Career Pathways and Strategic Choices'",
@@ -1478,30 +1688,6 @@ const ConferenceDetailsPage = () => {
                 ))}
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* --- BOTTOM CTA --- */}
-        <section className="py-12 lg:py-20 bg-[var(--primary)] text-white text-center px-6">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-xl md:text-3xl lg:text-4xl font-bold mb-4 lg:mb-6 leading-tight">
-              Empowering students to shape meaningful careers.
-            </h2>
-            <p className="text-xs md:text-base lg:text-lg text-white/90 mb-8 max-w-xl mx-auto leading-relaxed">
-              Registration is now open. Seats are limited and will be filled on
-              a first-come, first-served basis. Secure your spot today.
-            </p>
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSeaRX9gnEe5JhTZdh4538XpxiB86_jdsGAi4_Rs_7uNOXpWrg/viewform"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-white text-[var(--primary)] px-8 py-3 lg:px-10 lg:py-4 text-base md:text-lg lg:text-xl font-extrabold rounded-full hover:bg-[var(--bg-secondary)] hover:scale-105 transition-all shadow-xl active:scale-95"
-            >
-              Register for Conference
-            </a>
-            <p className="mt-6 text-[10px] md:text-sm lg:text-base font-medium opacity-90 tracking-wide uppercase">
-              Free for Delhi University Students • Certificate Provided
-            </p>
           </div>
         </section>
       </main>
