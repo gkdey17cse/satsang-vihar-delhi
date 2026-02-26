@@ -8,6 +8,7 @@ import {
   useLocation, // ADD THIS IMPORT
 } from "react-router-dom";
 import HomeSPA from "./pages/Home";
+import AllKendrasPage from "./pages/AllKendrasPage";
 import HistoryPage from "./pages/HistoryPage";
 import ConferenceDetailsPage from "./pages/conference/conference-du-2026";
 import UtsavDelhi2026 from "./pages/utsav/utsav-delhi-2026";
@@ -41,6 +42,7 @@ function App() {
       <HashRedirector />
       <Routes>
         <Route path="/" element={<HomeSPA />} />
+        <Route path="/upyojna" element={<AllKendrasPage />} />
         <Route path="/history" element={<HistoryPage />} />
         <Route path="/conference-du-2026" element={<ConferenceDetailsPage />} />
         <Route path="/conferencedu2026" element={<ConferenceDetailsPage />} />

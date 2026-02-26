@@ -5,12 +5,14 @@ import Events from "../components/Events";
 import Kendras from "../components/Kendras";
 import Contact from "../components/Contact";
 import Hero from "../components/Hero";
+import UtsavHighlightModal from "../components/UtsavHighlightModal";
 
 const HomeSPA = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <main className="grow">
+        <UtsavHighlightModal />
         <Hero />
         <Mission />
         <Events />
