@@ -1,16 +1,16 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import Hero from "../sections/Hero";
-import Mission from "../sections/Mission";
-import Events from "../sections/Events";
-import Kendras from "../sections/Kendras";
-import Contact from "../sections/Contact";
+import Mission from "../components/Mission";
+import Events from "../components/Events";
+import Kendras from "../components/Kendras";
+import Contact from "../components/Contact";
+import Hero from "../components/Hero";
 
 const HomeSPA = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-grow">
+      <main className="grow">
         <Hero />
         <Mission />
         <Events />

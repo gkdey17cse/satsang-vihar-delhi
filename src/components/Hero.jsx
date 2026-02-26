@@ -1,7 +1,7 @@
 // src/sections/Hero.jsx
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
-import NotificationMarquee from "../components/NotificationMarquee";
+import NotificationMarquee from "./NotificationMarquee";
 import "swiper/css";
 import "swiper/css/effect-fade";
 

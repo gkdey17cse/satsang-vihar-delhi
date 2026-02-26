@@ -7,7 +7,7 @@ import {
   useNavigate,
   useLocation, // ADD THIS IMPORT
 } from "react-router-dom";
-import HomeSPA from "./pages/HomeSPA";
+import HomeSPA from "./pages/Home";
 import HistoryPage from "./pages/HistoryPage";
 import ConferenceDetailsPage from "./pages/conference/conference-du-2026";
 import UtsavDelhi2026 from "./pages/utsav/utsav-delhi-2026";
