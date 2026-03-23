@@ -21,6 +21,7 @@ import {
   BookOpen,
   HelpCircle,
   Mic2,
+  ExternalLink,
 } from "lucide-react";
 
 // Import Swiper styles
@@ -40,9 +41,19 @@ const carouselImages = [
   "https://res.cloudinary.com/dk3sj0t4u/image/upload/v1771796681/5_vijdwq.jpg",
 ];
 
-// Placeholder for The White Band – replace with actual image
+// The White Band image
 const whiteBandImage =
   "https://res.cloudinary.com/dk3sj0t4u/image/upload/v1771797051/whiteband_jdijzp.jpg";
+
+// Placeholder images for highlights (replace with actual)
+const samarpanImage = "https://via.placeholder.com/600x400?text=SAMARPAN+Choir";
+const aspireImage = "https://via.placeholder.com/600x400?text=ASPIRE+Career";
+const medicalImage =
+  "https://via.placeholder.com/600x400?text=Free+Medical+Camp";
+const kirtanImage =
+  "https://via.placeholder.com/600x400?text=High+Spirit+Kirtan";
+const drawingImage = "https://via.placeholder.com/600x400?text=Drawing+Event";
+const sportsImage = "https://via.placeholder.com/600x400?text=Sports+Event";
 
 const UtsavDelhi2026 = () => {
   useEffect(() => {
@@ -53,11 +64,17 @@ const UtsavDelhi2026 = () => {
 
   const navLinks = [
     { name: "Home", to: "hero" },
+    { name: "Highlights", to: "highlights" },
     { name: "About", to: "about" },
     { name: "Schedule", to: "schedule" },
-    { name: "Highlights", to: "highlights" },
     { name: "Venue", to: "venue" },
     { name: "Contact", to: "contact" },
+    // Added entry with external property
+    {
+      name: "Get Directions",
+      href: "https://www.google.com/maps/dir/?api=1&destination=Ramleela+Maidan+Ashok+Vihar+Phase+IV+New+Delhi",
+      external: true,
+    },
   ];
 
   const contactNumbers = [
@@ -88,42 +105,47 @@ const UtsavDelhi2026 = () => {
       date: "28th March 2026 (Saturday)",
       items: [
         {
-          time: "07:00 – 09:00",
+          time: "07:00 – 10:00",
           title: "Registration & Morning Refreshments",
-          desc: "Welcome desk opens, kit distribution, tea/coffee",
+          desc: "Welcome desk opens, kit distribution, and tea/coffee",
         },
         {
-          time: "09:00 – 11:00",
-          title: "Sports & Drawing Competitions",
-          desc: "Open for all age groups – register on-site",
+          time: "10:00 – 11:30",
+          title: "Drawing & Sports Event",
+          desc: "Competitions for various age groups",
         },
         {
-          time: "11:00 – 13:00",
-          title: "Musical Performances",
-          desc: "Devotional songs by local artists and Satsangis",
+          time: "11:30 – 13:00",
+          title: "ASPIRE: Career Counselling Session",
+          desc: "Empowering students through guidance, awareness, and opportunities",
         },
         {
-          time: "13:00 – 14:00",
+          time: "13:00 – 14:30",
           title: "Bhandara (Prasad-Seva)",
           desc: "Lunch break – free meal for all",
         },
         {
-          time: "14:00 – 16:00",
-          title: "Cultural Programmes",
-          desc: "Dance, drama, and skits by children and youth",
+          time: "15:00 – 16:00",
+          title: "Nukkar Natak",
+          desc: "Performed by local youth",
         },
         {
-          time: "16:00 – 17:00",
-          title: "Kirtan by Satsang Upyojana Kendras",
-          desc: "Group kirtan from various Delhi-NCR Kendras",
+          time: "16:00 – 18:30",
+          title: "Musical Performances",
+          desc: "Presented by devotees of Delhi-NCR SUKs/SAKs and North Indian States",
         },
         {
-          time: "17:00 – 18:30",
+          time: "18:30 – 19:00",
           title: "Evening Congregational Prayer",
-          desc: "Special arati and prayer led by senior devotees",
+          desc: "Collective evening prayer and arati",
         },
         {
-          time: "18:30 onwards",
+          time: "19:00 onwards",
+          title: "Evening Session (TBD)",
+          desc: "Special programming to be announced",
+        },
+        {
+          time: "20:30 onwards",
           title: "Dinner Prasadam",
           desc: "Night bhandara",
         },
@@ -134,100 +156,119 @@ const UtsavDelhi2026 = () => {
       date: "29th March 2026 (Sunday)",
       items: [
         {
-          time: "05:30 – 06:30",
-          title: "Vedmangalik & Usha Kirtan",
-          desc: "Early morning vedic chants and kirtan",
+          time: "05:30 – 08:00",
+          title: "Usha Kirtan & Morning Prayer",
+          desc: "Early morning vedic chants and collective meditation",
         },
         {
-          time: "06:30 – 08:00",
-          title: "Morning Congregational Prayer",
-          desc: "Collective prayer and meditation",
-        },
-        {
-          time: "08:00 – 09:00",
+          time: "08:00 – 10:00",
           title: "Kallobrata (Breakfast)",
-          desc: "Simple breakfast served",
+          desc: "Simple breakfast served to all attendees",
         },
         {
-          time: "09:00 – 11:00",
-          title: "Satsangee Sammelan",
-          desc: "Devotees' gathering – sharing experiences",
+          time: "10:00 – 12:30",
+          title: "Sangitanjali",
+          desc: "Musical offerings and devotional gathering",
         },
         {
-          time: "11:00 – 13:00",
-          title: "Sangitanjali & Discourses",
-          desc: "Philosophical discourses on Sree Sree Thakur's teachings",
+          time: "12:30 – 13:30",
+          title: "Samarpan – Indian Music Choir",
+          desc: "A soulful experience presented by Samanvay, the musical society of IIT Delhi",
         },
         {
-          time: "13:00 – 14:00",
-          title: "Bhandara (Prasad-Seva)",
-          desc: "Afternoon meal",
+          time: "13:30 – 15:00",
+          title: "High Spirit Kirtan & Bhandara",
+          desc: "Kirtan by Satsang Upayojana Kendra followed by afternoon meal",
         },
         {
-          time: "14:00 – 16:00",
-          title: "Musical Concert by The White Band",
-          desc: "Special performance by the renowned White Band from Satsang Deoghar",
+          time: "15:00 – 18:30",
+          title: "Musical Concert by 'THE WHITE BAND'",
+          desc: "Special performance by the renowned band from Satsang, Deoghar",
         },
         {
-          time: "16:00 – 17:00",
+          time: "18:30 – 19:00",
+          title: "Evening Congregational Prayer",
+          desc: "Concluding group prayer",
+        },
+        {
+          time: "19:00 – 20:00",
+          title: "Evening Session (TBD)",
+          desc: "To be decided",
+        },
+        {
+          time: "20:00 – 21:00",
           title: "Prize Distribution",
           desc: "Awards for competition winners",
         },
         {
-          time: "17:00 – 18:30",
-          title: "Evening Congregational Prayer",
-          desc: "Concluding prayer",
-        },
-        {
-          time: "18:30 onwards",
-          title: "Valedictory & Dinner",
+          time: "21:00 onwards",
+          title: "Vote of Thanks & Conclusion",
           desc: "Closing ceremony and final bhandara",
         },
       ],
     },
   ];
 
-  const highlights = [
+  const highlightsData = [
     {
-      icon: <Coffee className="w-8 h-8" />,
-      title: "Bhandara (Prasad-Seva)",
-      desc: "Free meals on both days – afternoon & evening.",
+      id: 1,
+      title: "SAMARPAN – A Soulful Indian Music Choir Experience",
+      description:
+        "Samarpan is the much-awaited Indian Music Choir, presented this year by Samanvay, the music society of IIT Delhi. A beloved tradition for three years, it returns to blend the richness of Indian classical melodies with contemporary harmonies. Experience a powerful, soul-stirring tribute to the spirit of music and unity that perfectly complements the melodious evenings of Satsang.",
+      image:
+        "https://res.cloudinary.com/dk3sj0t4u/image/upload/v1772822745/Screenshot_2026-03-07_001436_zbmh1n.png",
+      link: null,
     },
     {
-      icon: <Stethoscope className="w-8 h-8" />,
+      id: 2,
+      title: "Rang O Rekha: Festival of Colors & Lines",
+      description:
+        "Unleash your inner artist at this premier drawing event! Learn from renowned artists, master color mixing, and explore live painting techniques. Open to all ages—from Nursery to adults. Winners will be awarded on Day 2. Sheets and topics provided on-spot; bring your own favorite colors!",
+      image:
+        "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=1000&auto=format&fit=crop",
+      link: "https://docs.google.com/forms/d/e/1FAIpQLSdC_taPc7yB3Szs4LhpfroowqaNSW2154dbrub6zY7iu4-Wew/viewform",
+    },
+    {
+      id: 3,
+      title: "Utsav Sports: Friendly Competitions",
+      description:
+        "Celebrate physical vigor with our multi-category sports event! From 'Toffee Races' for the little ones (Nursery-LKG) to 'Sankho Dhani' and 'Musical Chairs' for ladies, and 'Aloo Peel' for gents. Special features include 'Math Races' for students and 'Mind Game Equations' for couples. A day of joy, speed, and community spirit!",
+      image:
+        "https://weezevent.com/wp-content/uploads/2019/04/25124031/promouvoir-evenement-sportif-1000x640.jpg",
+      link: "https://docs.google.com/forms/d/e/1FAIpQLSe5h6STAbNNEEBWXsPSXEQO2SLFNVhACvRlFN5fkJWVUKfv-A/viewform",
+    },
+    {
+      id: 4,
+      title: "ASPIRE: Career Counselling & Academic Guidance",
+      description:
+        "Inspired by the vision of a holistic education, ASPIRE focuses on 'Becoming and Being.' This session helps students navigate their academic and professional journeys through expert guidance, awareness of emerging opportunities, and a focus on character-building. Empowering the youth to align their careers with higher life values.",
+      image:
+        "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1000&auto=format&fit=crop",
+      link: null,
+    },
+    {
+      id: 5,
       title: "Free Medical Camp",
-      desc: "Senior physicians available throughout the Utsav.",
+      description:
+        "In the spirit of 'Jajan, Yaajan, and Ishtabhriti,' our Free Medical Camp offers comprehensive health check-ups and consultations by senior physicians. Dedicated to the well-being of all, services are available throughout the Utsav for attendees seeking expert medical advice and preventive care.",
+      image:
+        "https://cdn.expresshealthcare.in/wp-content/uploads/2020/01/03174832/Medical-camp-750x409.jpg",
+      link: null,
     },
     {
-      icon: <Heart className="w-8 h-8" />,
-      title: "Holy Initiation",
-      desc: "Jaajan & initiation round the clock.",
-    },
-    {
-      icon: <Users className="w-8 h-8" />,
-      title: "Information Desk",
-      desc: "Volunteers to assist at all major points.",
-    },
-    {
-      icon: <Award className="w-8 h-8" />,
-      title: "Prizes & Recognition",
-      desc: "For sports, drawing, and cultural competitions.",
-    },
-    {
-      icon: <Sunrise className="w-8 h-8" />,
-      title: "Morning Prayers",
-      desc: "Vedmangalik, Usha Kirtan, and congregational prayer.",
-    },
-    {
-      icon: <BookOpen className="w-8 h-8" />,
-      title: "Spiritual Discourses",
-      desc: "Insights into Sree Sree Thakur's teachings.",
+      id: 6,
+      title: "High Spirit Kirtan",
+      description:
+        "Immerse yourself in devotional ecstasy. Our soulful kirtan sessions, led by experienced singers from various Satsang Kendras, create a divine atmosphere of joy and surrender. Let the rhythmic chants and melodies elevate your spiritual consciousness.",
+      image:
+        "https://res.cloudinary.com/dk3sj0t4u/image/upload/v1772822125/kirtan_imfskj.jpg",
+      link: null,
     },
   ];
 
   return (
     <div className="flex flex-col min-h-screen bg-[var(--bg-main)]">
-      {/* Navbar (unchanged) */}
+      {/* Navbar (unchanged except navLinks order) */}
       <nav className="sticky top-0 z-50 w-full bg-[var(--bg-secondary)]/90 backdrop-blur-md border-b border-[var(--border-subtle)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
           <div className="flex items-center justify-between h-16 lg:h-20">
@@ -249,20 +290,32 @@ const UtsavDelhi2026 = () => {
               </span>
             </Link>
             <div className="hidden lg:flex items-center gap-6 xl:gap-4">
-              {navLinks.map((link) => (
-                <ScrollLink
-                  key={link.name}
-                  to={link.to}
-                  spy
-                  smooth
-                  offset={-80}
-                  duration={800}
-                  activeClass="text-[var(--primary)] font-bold bg-[var(--bg-tertiary)]"
-                  className="cursor-pointer px-3 py-1.5 rounded-lg text-sm xl:text-base font-medium text-[var(--text-muted)] hover:text-[var(--primary)] transition-all"
-                >
-                  {link.name}
-                </ScrollLink>
-              ))}
+              {navLinks.map((link) =>
+                link.external ? (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-1.5 rounded-lg text-sm xl:text-base font-bold cursor-pointer bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white transition-all"
+                  >
+                    {link.name}
+                  </a>
+                ) : (
+                  <ScrollLink
+                    key={link.name}
+                    to={link.to}
+                    spy
+                    smooth
+                    offset={-80}
+                    duration={800}
+                    activeClass="text-[var(--primary)] font-bold bg-[var(--bg-tertiary)]"
+                    className="cursor-pointer px-3 py-1.5 rounded-lg text-sm xl:text-base font-medium text-[var(--text-muted)] hover:text-[var(--primary)] transition-all"
+                  >
+                    {link.name}
+                  </ScrollLink>
+                ),
+              )}
             </div>
             <div className="lg:hidden flex items-center">
               <button
@@ -286,21 +339,37 @@ const UtsavDelhi2026 = () => {
         </div>
         {/* Mobile Menu */}
         <div
-          className={`absolute top-full right-4 mt-2 w-52 rounded-2xl shadow-2xl border border-[var(--border-subtle)] bg-[var(--bg-main)] transform transition-all duration-300 ease-in-out z-50 lg:hidden ${isMenuOpen ? "scale-100 opacity-100 translate-y-0" : "scale-95 opacity-0 -translate-y-4 pointer-events-none"}`}
+          className={`absolute top-full right-4 mt-2 w-52 rounded-2xl shadow-2xl border border-[var(--border-subtle)] bg-[var(--bg-main)] transform transition-all duration-300 ease-in-out z-50 lg:hidden ${
+            isMenuOpen
+              ? "scale-100 opacity-100 translate-y-0"
+              : "scale-95 opacity-0 -translate-y-4 pointer-events-none"
+          }`}
         >
           <div className="flex flex-col p-4 space-y-3">
-            {navLinks.map((link) => (
-              <ScrollLink
-                key={link.name}
-                to={link.to}
-                smooth
-                offset={-70}
-                onClick={() => setIsMenuOpen(false)}
-                className="text-sm font-semibold cursor-pointer text-[var(--text-main)] hover:text-[var(--primary)] transition-colors border-b border-[var(--border-subtle)]/50 pb-2"
-              >
-                {link.name}
-              </ScrollLink>
-            ))}
+            {navLinks.map((link) =>
+              link.external ? (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-bold cursor-pointer text-[var(--primary)] hover:text-[var(--primary-hover)] transition-colors border-b border-[var(--border-subtle)]/50 pb-2 flex items-center gap-2"
+                >
+                  {link.name} <ExternalLink className="w-3 h-3" />
+                </a>
+              ) : (
+                <ScrollLink
+                  key={link.name}
+                  to={link.to}
+                  smooth
+                  offset={-70}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-sm font-semibold cursor-pointer text-[var(--text-main)] hover:text-[var(--primary)] transition-colors border-b border-[var(--border-subtle)]/50 pb-2"
+                >
+                  {link.name}
+                </ScrollLink>
+              ),
+            )}
           </div>
         </div>
         {isMenuOpen && (
@@ -312,7 +381,7 @@ const UtsavDelhi2026 = () => {
       </nav>
 
       <main className="flex-grow">
-        {/* --- HERO SECTION with balanced overlay for clarity --- */}
+        {/* --- HERO SECTION (unchanged) --- */}
         <section
           id="hero"
           className="relative w-full h-[100vh] lg:h-[85vh] flex items-center justify-center overflow-hidden"
@@ -340,41 +409,40 @@ const UtsavDelhi2026 = () => {
               </SwiperSlide>
             ))}
           </Swiper>
-          {/* Gradient overlay that makes text pop without blurring images */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-transparent z-10"></div>
 
-          <div className="relative z-20 text-center px-4 max-w-7xl mx-auto ">
-            <div className="inline-block mt-2 px-4 py-2.5 mb-4 rounded-full border border-[var(--primary)] bg-black/80 backdrop-blur-md shadow-lg">
+          <div className="relative z-20 text-center px-4 py-8 max-w-7xl mx-auto ">
+            <h1 className="text-xl md:text-2xl lg:text-3xl font-extrabold text-white mb-1.5 lg:mb-3 leading-tight drop-shadow-xl">
+              37th Delhi-NCR Utsav
+            </h1>
+
+            <div className="md:text-lg lg:text-xl font-bold text-[var(--primary)] mb-3 drop-shadow-lg">
+              138<sup>th</sup> Holy Birth Anniversary of
+            </div>
+
+            <h2 className="md:text-lg lg:text-xl xl:text-2xl font-black text-white mb-2 lg:mb-5 leading-tight drop-shadow-xl">
+              Param Premamaya <br className="hidden sm:block" />
+              Sree Sree Thakur Anukulchandra
+            </h2>
+
+            <div className="inline-block px-5 lg:px-8 py-2.5 rounded-full text-gray-200 border border-[var(--primary)] p-3 bg-black/80">
               <span className="text-[var(--primary)] font-bold text-xs uppercase tracking-widest">
                 In association with North Indian States
               </span>
             </div>
 
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white mb-1.5 lg:mb-3 leading-tight drop-shadow-xl">
-              37th Delhi-NCR Utsav
-            </h1>
-
-            <div className="text-lg md:text-xl lg:text-2xl font-bold text-[var(--primary)] mb-3 drop-shadow-lg">
-              138<sup>th</sup> Holy Birth Anniversary of
-            </div>
-
-            <h2 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-black text-white mb-2 lg:mb-5 leading-tight drop-shadow-xl">
-              Param Premamaya <br className="hidden sm:block" />
-              Sree Sree Thakur Anukulchandra
-            </h2>
-
             <div className="inline-block bg-black/80 backdrop-blur-md px-6 py-3 rounded-xl shadow-2xl border border-white/60 my-4 lg:my-6">
-              <p className="text-base md:text-lg font-semibold text-[var(--primary)] flex items-center gap-2">
-               28th & 29th March, 2026
+              <p className="text-sm md:text-lg font-semibold text-[var(--primary)] flex items-center gap-2">
+                28th & 29th March, 2026
               </p>
             </div>
 
-            <div className="max-w-2xl mx-auto mb-8">
-              <p className="text-cs md:text-sm italic text-gray-200 border-l-4 border-[var(--primary)] p-3 bg-black/40 rounded-r-lg">
+            <div className="hidden lg:block max-w-2xl mx-auto py-1.5 lg:mb-8">
+              <p className="text-xs md:text-sm italic text-gray-200 border-l-4 border-[var(--primary)] p-3 bg-black/40 rounded-r-lg">
                 "Wisdom destroys confusion and gives discerning eyes to man"
-                <p className="mt-2 text-xs text-gray-300 text-right">
+                <span className="block mt-2 text-xs text-gray-300 text-right">
                   — Sree Sree Thakur Anukulchandra
-                </p>
+                </span>
               </p>
             </div>
 
@@ -388,17 +456,18 @@ const UtsavDelhi2026 = () => {
               >
                 View Schedule
               </ScrollLink>
-              <ScrollLink
-                to="venue"
+              <Link
+                to="https://admin.satsangvihardelhi.org/dsv/www/"
                 smooth
                 offset={-50}
                 duration={800}
+                target="_blank"
                 className="cursor-pointer bg-black/40 backdrop-blur-md text-white hover:bg-black/60 hover:text-[var(--primary)] px-6 py-3 rounded-2xl text-sm md:text-base font-bold transition-all"
               >
-                Get Directions
-              </ScrollLink>
+                Register for Volunteers
+              </Link>
               <a
-                href="https://acco.satsangvihardelhi.org/utsav/visitor/register_visitor.html" // registration link
+                href="https://acco.satsangvihardelhi.org/utsav/visitor/register_visitor.html"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cursor-pointer bg-[var(--primary)]/80 hover:bg-[var(--primary)] text-white px-6 py-3 rounded-2xl text-sm md:text-base font-bold transition-all shadow-lg border-2 border-white/30 flex items-center gap-2"
@@ -417,143 +486,7 @@ const UtsavDelhi2026 = () => {
           </div>
         </section>
 
-        {/* About section (unchanged) */}
-        <section id="about" className="py-20 px-4 bg-[var(--bg-secondary)]">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-block px-4 py-1 mb-6 rounded-full bg-[var(--primary)]/10 border border-[var(--primary)]/30">
-              <span className="text-[var(--primary)] font-bold text-xs uppercase tracking-widest">
-                Welcome
-              </span>
-            </div>
-            <h2 className="text-3xl md:text-5xl font-bold text-[var(--text-main)] mb-8">
-              Join the Divine Celebrations
-            </h2>
-            <div className="prose prose-lg mx-auto text-[var(--text-muted)]">
-              <p className="text-lg md:text-xl leading-relaxed mb-8">
-                On this auspicious occasion, let us all, irrespective of caste,
-                creed, religion and nationality, gather to celebrate the 37th
-                Delhi-NCR & North India Annual Utsav and 138th Holy Birth
-                Anniversary of the all-loving and all-fulfilling Purushottam
-                Sree Sree Thakur Anukulchandra.
-              </p>
-              <p className="text-lg md:text-xl leading-relaxed mb-8">
-                Be enlivened, imbued with divine inspiration, and blessed with
-                the infinite grace of the benign Lord,
-                <span className="text-[var(--primary)] font-semibold">
-                  {" "}
-                  Param Pujyapad Sree Sree Acharyadev & Puj. Sree Sree Abin Da.
-                </span>
-              </p>
-              <div className="bg-[var(--bg-tertiary)] p-8 rounded-2xl my-10 border border-[var(--border-subtle)] relative">
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[var(--primary)] text-white px-4 py-1 rounded-full text-xs font-bold">
-                  Eternal Wisdom
-                </div>
-                <p className="text-2xl md:text-3xl font-serif italic text-[var(--primary)] mb-4">
-                  "Religions may be many, but the principle and realisation
-                  thereof are ever the same!"
-                </p>
-                <p className="text-sm text-[var(--text-muted)]">
-                  — Sree Sree Thakur Anukulchandra
-                </p>
-              </div>
-              <p className="text-3xl font-bold text-[var(--primary)] mt-8">
-                Vande Purushottamam!
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* --- SCHEDULE SECTION with two columns, no scroll, fully visible --- */}
-        <section id="schedule" className="py-20 px-4 bg-[var(--bg-main)]">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold text-[var(--text-main)] mb-4">
-                Programme Schedule
-              </h2>
-              <div className="w-24 h-1 bg-[var(--primary)] mx-auto mb-6 rounded-full"></div>
-              <p className="text-[var(--text-muted)] text-sm md:text-base">
-                * Programme subject to change under unavoidable circumstances
-              </p>
-            </div>
-
-            {/* Two columns on medium+ screens, stack on mobile */}
-            <div className="grid md:grid-cols-2 gap-8">
-              {scheduleDays.map((day, idx) => (
-                <div
-                  key={idx}
-                  className="bg-[var(--bg-secondary)] rounded-2xl shadow-xl border border-[var(--border-subtle)] overflow-hidden"
-                >
-                  <div className="bg-[var(--primary)] text-white p-4 text-center">
-                    <h3 className="text-2xl font-bold">{day.day}</h3>
-                    <p className="text-sm opacity-90">{day.date}</p>
-                  </div>
-                  <div className="p-4">
-                    <div className="space-y-3">
-                      {day.items.map((item, i) => (
-                        <div
-                          key={i}
-                          className="border-b border-[var(--border-subtle)] pb-3 last:border-0"
-                        >
-                          <span className="inline-block px-2 py-0.5 bg-[var(--primary)]/10 text-[var(--primary)] text-xs font-bold rounded-full mb-1">
-                            {item.time}
-                          </span>
-                          <h4 className="font-bold text-[var(--text-main)] text-base">
-                            {item.title}
-                          </h4>
-                          <p className="text-[var(--text-muted)] text-xs mt-0.5">
-                            {item.desc}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Highlights section (unchanged) */}
-        <section id="highlights" className="py-20 px-4 bg-[var(--bg-tertiary)]">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold text-[var(--text-main)] mb-4">
-                Key Highlights
-              </h2>
-              <div className="w-24 h-1 bg-[var(--primary)] mx-auto rounded-full"></div>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {highlights.map((item, i) => (
-                <div
-                  key={i}
-                  className="bg-[var(--bg-secondary)] p-6 rounded-2xl shadow-lg border border-[var(--border-subtle)] hover:shadow-xl transition-all group"
-                >
-                  <div className="text-[var(--primary)] mb-4 group-hover:scale-110 transition-transform">
-                    {item.icon}
-                  </div>
-                  <h3 className="text-xl font-bold text-[var(--text-main)] mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-[var(--text-muted)] text-sm">
-                    {item.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
-            <div className="mt-12 p-8 bg-[var(--bg-secondary)] rounded-2xl border border-[var(--border-subtle)] text-center">
-              <p className="text-lg text-[var(--text-muted)]">
-                <span className="font-bold text-[var(--primary)]">
-                  Throughout the programme:
-                </span>{" "}
-                Guests will be welcomed, introduced to Sree Sree Thakur and the
-                Mission of Satsang. Informative leaflets, books, and related
-                materials will be provided.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* White Band feature (unchanged) */}
+        {/* --- WHITE BAND SECTION (unchanged) --- */}
         <section className="py-20 px-4 bg-[var(--bg-main)] border-y border-[var(--border-subtle)]">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -565,9 +498,9 @@ const UtsavDelhi2026 = () => {
                 </div>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-main)] mb-6">
                   The White Band{" "}
-                  <span className="text-[var(--primary)]">Live in Concert</span>
+                  <span className="text-[var(--primary)]">Live Concert</span>
                 </h2>
-                <p className="text-lg text-[var(--text-muted)] mb-6 leading-relaxed">
+                <p className="text-lg text-[var(--text-muted)] mb-6 text-justify leading-relaxed">
                   The renowned devotional rock band from Satsang Deoghar will
                   mesmerize you with their soul‑stirring music. Known for
                   blending contemporary rock with timeless spiritual lyrics, The
@@ -615,7 +548,154 @@ const UtsavDelhi2026 = () => {
           </div>
         </section>
 
-        {/* Venue section (unchanged) */}
+        {/* --- NEW HIGHLIGHTS SECTION (now placed before About) --- */}
+        <section id="highlights" className="py-20 px-4 bg-[var(--bg-tertiary)]">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-5xl font-bold text-[var(--text-main)] mb-4">
+                Utsav Highlights
+              </h2>
+              <div className="w-24 h-1 bg-[var(--primary)] mx-auto rounded-full"></div>
+              <p className="text-[var(--text-muted)] text-sm md:text-base mt-4">
+                Experience the vibrant spirit of the Utsav through these special
+                attractions.
+              </p>
+            </div>
+
+            {/* Two-column grid on medium+ screens */}
+            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+              {highlightsData.map((item) => (
+                <div
+                  key={item.id}
+                  className="bg-[var(--bg-secondary)] rounded-2xl shadow-xl border border-[var(--border-subtle)] overflow-hidden hover:shadow-2xl transition-all duration-300"
+                >
+                  <div className="aspect-video overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl md:text-2xl font-bold text-[var(--text-main)] mb-3">
+                      {item.title}
+                    </h3>
+                    <p className="text-[var(--text-muted)] text-sm md:text-base leading-relaxed mb-4">
+                      {item.description}
+                    </p>
+                    {item.link && (
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white px-5 py-2 rounded-full text-sm font-semibold transition-all shadow-md"
+                      >
+                        Register Now <ExternalLink className="w-4 h-4" />
+                      </a>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* --- ABOUT SECTION (unchanged, now after highlights) --- */}
+        <section id="about" className="py-20 px-4 bg-[var(--bg-secondary)]">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-block px-4 py-1 mb-6 rounded-full bg-[var(--primary)]/10 border border-[var(--primary)]/30">
+              <span className="text-[var(--primary)] font-bold text-xs uppercase tracking-widest">
+                Welcome
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold text-[var(--text-main)] mb-8">
+              Join the Divine Celebrations
+            </h2>
+            <div className="prose prose-lg mx-auto text-[var(--text-muted)]">
+              <p className="text-lg md:text-xl leading-relaxed mb-8">
+                On this auspicious occasion, let us all, irrespective of caste,
+                creed, religion and nationality, gather to celebrate the 37th
+                Delhi-NCR & North India Annual Utsav and 138th Holy Birth
+                Anniversary of the all-loving and all-fulfilling Purushottam
+                Sree Sree Thakur Anukulchandra.
+              </p>
+              <p className="text-lg md:text-xl leading-relaxed mb-8">
+                Be enlivened, imbued with divine inspiration, and blessed with
+                the infinite grace of the benign Lord,
+                <span className="text-[var(--primary)] font-semibold">
+                  {" "}
+                  Param Pujyapad Sree Sree Acharyadev & Puj. Sree Sree Abin Da.
+                </span>
+              </p>
+              <div className="bg-[var(--bg-tertiary)] p-8 rounded-2xl my-10 border border-[var(--border-subtle)] relative">
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[var(--primary)] text-white px-4 py-1 rounded-full text-xs font-bold">
+                  Eternal Wisdom
+                </div>
+                <p className="text-2xl md:text-3xl font-serif italic text-[var(--primary)] mb-4">
+                  "Religions may be many, but the principle and realisation
+                  thereof are ever the same!"
+                </p>
+                <p className="text-sm text-[var(--text-muted)]">
+                  — Sree Sree Thakur Anukulchandra
+                </p>
+              </div>
+              <p className="text-3xl font-bold text-[var(--primary)] mt-8">
+                Vande Purushottamam!
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* --- SCHEDULE SECTION (unchanged) --- */}
+        <section id="schedule" className="py-20 px-4 bg-[var(--bg-main)]">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-5xl font-bold text-[var(--text-main)] mb-4">
+                Programme Schedule
+              </h2>
+              <div className="w-24 h-1 bg-[var(--primary)] mx-auto mb-6 rounded-full"></div>
+              <p className="text-[var(--text-muted)] text-sm md:text-base">
+                * Programme subject to change under unavoidable circumstances
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {scheduleDays.map((day, idx) => (
+                <div
+                  key={idx}
+                  className="bg-[var(--bg-secondary)] shadow-xl border border-[var(--border-subtle)] overflow-hidden"
+                >
+                  <div className="bg-[var(--primary)] text-white p-4 text-center">
+                    <h3 className="text-2xl font-bold">{day.day}</h3>
+                    <p className="text-sm opacity-90">{day.date}</p>
+                  </div>
+                  <div className="p-4">
+                    <div className="space-y-3">
+                      {day.items.map((item, i) => (
+                        <div
+                          key={i}
+                          className="border-b border-[var(--border-subtle)] pb-3 last:border-0"
+                        >
+                          <span className="inline-block px-2 py-0.5 bg-[var(--primary)]/10 text-[var(--primary)] text-xs font-bold rounded-full mb-1">
+                            {item.time}
+                          </span>
+                          <h4 className="font-bold text-[var(--text-main)] text-base">
+                            {item.title}
+                          </h4>
+                          <p className="text-[var(--text-muted)] text-xs mt-0.5">
+                            {item.desc}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* --- VENUE, DONATIONS, CONTACT sections --- */}
         <section id="venue" className="py-20 px-4 bg-[var(--bg-main)]">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
@@ -638,6 +718,7 @@ const UtsavDelhi2026 = () => {
                     New Delhi
                   </p>
                 </div>
+
                 <div className="bg-[var(--bg-secondary)] p-6 rounded-2xl shadow-lg border border-[var(--border-subtle)]">
                   <h3 className="text-xl font-bold text-[var(--primary)] mb-4 flex items-center gap-2">
                     <Navigation className="w-5 h-5" /> How to Reach
@@ -671,12 +752,30 @@ const UtsavDelhi2026 = () => {
                         </p>
                       </div>
                     </div>
+
+                    {/* --- ADDED GET DIRECTIONS BUTTON --- */}
+                    <div className="pt-6 border-t border-[var(--border-subtle)]">
+                      <a
+                        href="https://www.google.com/maps/dir/?api=1&destination=Ramleela+Maidan+Ashok+Vihar+Phase+IV+Delhi"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-auto flex items-center justify-center gap-3 bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white py-4 rounded-xl font-bold transition-all shadow-lg shadow-[var(--primary)]/20 transform active:scale-[0.98]"
+                      >
+                        <Navigation className="w-5 h-5 rotate-45" />
+                        Get Live Route from My Location
+                      </a>
+                      <p className="text-[10px] text-[var(--text-muted)] text-center mt-3 uppercase tracking-wider">
+                        * Click to open navigation in Google Maps
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
+
+              {/* Map Iframe */}
               <div className="h-[450px] rounded-2xl overflow-hidden shadow-2xl border border-[var(--border-subtle)]">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.185270450783!2d77.1691432!3d28.68410399999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03ebd016322d%3A0x67b49a89bb3c8f81!2sRamleela%20ground!5e0!3m2!1sen!2sin!4v1771878002347!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.139222302878!2d77.16636507601785!3d28.685481681673313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03ebd016322d%3A0x67b49a89bb3c8f81!2sRamleela%20ground!5e0!3m2!1sen!2sin!4v1773915926783!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -690,7 +789,6 @@ const UtsavDelhi2026 = () => {
           </div>
         </section>
 
-        {/* Donations section (unchanged) */}
         <section className="py-16 px-4 bg-[var(--bg-tertiary)]">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-[var(--text-main)] mb-6">
@@ -717,7 +815,6 @@ const UtsavDelhi2026 = () => {
           </div>
         </section>
 
-        {/* Contact section (unchanged) */}
         <section id="contact" className="py-20 px-4 bg-[var(--bg-main)]">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
@@ -845,7 +942,6 @@ const UtsavDelhi2026 = () => {
             </span>
           </div>
           <div className="flex justify-center gap-6 md:gap-8 pt-4 border-t border-[var(--color-neutral-800)]">
-            {/* social icons same as before */}
             <a
               href="https://www.facebook.com/SatsangViharDelhi"
               target="_blank"

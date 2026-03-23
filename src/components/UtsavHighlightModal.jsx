@@ -81,13 +81,13 @@ const UtsavHighlightModal = () => {
           <h2 className="text-3xl font-black text-[var(--secondary)] text-center leading-tight mb-2 tracking-tighter">
             37th Delhi-NCR <span className="text-[var(--primary)]">Utsav</span>
           </h2>
-
+          <p className="text-neutral-800 font-semibold font-sans text-xl mb-2 text-center">In association with<span className="text-[var(--primary)]"> North Indian States </span> </p>
           <div className="flex flex-col items-center gap-2 mb-6">
             <div className="flex items-center gap-2 text-[var(--text-main)] font-bold text-sm">
               <Calendar size={14} className="text-[var(--primary)]" /> 28-29 March, 2026
             </div>
             <div className="flex items-center gap-2 text-[var(--text-muted)] text-xs font-medium">
-              <MapPin size={14} className="text-[var(--primary)]" /> Ashok Vihar, New Delhi
+              <MapPin size={14} className="text-[var(--primary)]" /> Ramleela Maidan , Ashok Vihar, New Delhi
             </div>
           </div>
 

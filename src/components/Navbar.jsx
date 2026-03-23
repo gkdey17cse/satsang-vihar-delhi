@@ -34,6 +34,7 @@ const Navbar = () => {
     { name: "Home", route: "/", section: "hero" },
     { name: "Mission & Vision", route: "/", section: "mission" },
     { name: "Events", route: "/", section: "events" },
+    { name: "Utsav 2026", route: "/utsav", section: null },
     { name: "Upayojna Kendras", route: "/upyojna", section: null },
     { name: "Contact Us", route: "/", section: "contact" },
   ];
@@ -48,7 +49,7 @@ const Navbar = () => {
   return (
     <>
       <nav className="sticky top-0 z-50 w-full bg-[var(--bg-secondary)]/90 backdrop-blur-md border-b border-[var(--border-subtle)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-4 2xl:px-10">
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo Section */}
             <div className="flex-shrink-0">
@@ -61,7 +62,8 @@ const Navbar = () => {
                     onError={(e) => {
                       e.target.onerror = null;
                       const fallbackSrc = getFallbackImage(logo_light);
-                      if (fallbackSrc !== logo_light) e.target.src = fallbackSrc;
+                      if (fallbackSrc !== logo_light)
+                        e.target.src = fallbackSrc;
                     }}
                   />
                   <img
@@ -82,14 +84,25 @@ const Navbar = () => {
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-1 xl:gap-4">
+            <div className="hidden lg:flex items-center xl:gap-4">
               {navLinks.map((link) => {
                 if (link.route === "/upyojna") {
                   return (
                     <RouterLink
                       key={link.name}
                       to={link.route}
-                      className="cursor-pointer font-medium px-3 py-2 transition-all text-xs xl:text-sm 2xl:text-base text-[var(--text-muted)] hover:text-[var(--primary)]"
+                      className="cursor-pointer font-medium px-1.5 py-2 transition-all text-xs xl:text-sm 2xl:text-base text-[var(--text-muted)] hover:text-[var(--primary)]"
+                    >
+                      {link.name}
+                    </RouterLink>
+                  );
+                }
+                if (link.route === "/utsav") {
+                  return (
+                    <RouterLink
+                      key={link.name}
+                      to={"/utsav-delhi-2026"}
+                      className="cursor-pointer font-bold px-1.5 py-2 transition-all text-xs xl:text-sm 2xl:text-base text-[var(--text-muted)] hover:text-[var(--primary)]"
                     >
                       {link.name}
                     </RouterLink>
@@ -176,7 +189,19 @@ const Navbar = () => {
                     key={link.name}
                     to={link.route}
                     onClick={() => setIsOpen(false)}
-                    className="text-sm font-semibold cursor-pointer text-[var(--text-main)] hover:text-[var(--primary)] border-b border-[var(--border-subtle)]/50 pb-2"
+                    className="text-sm font-medium cursor-pointer text-[var(--text-main)] hover:text-[var(--primary)] border-b border-[var(--border-subtle)]/50 pb-2"
+                  >
+                    {link.name}
+                  </RouterLink>
+                );
+              }
+              if (link.route === "/utsav") {
+                return (
+                  <RouterLink
+                    key={link.name}
+                    to={"/utsav-delhi-2026"}
+                    onClick={() => setIsOpen(false)}
+                    className="text-sm font-bold cursor-pointer text-[var(--text-main)] hover:text-[var(--primary)] border-b border-[var(--border-subtle)]/50 pb-2"
                   >
                     {link.name}
                   </RouterLink>
@@ -192,7 +217,7 @@ const Navbar = () => {
                     smooth={true}
                     offset={-70}
                     onClick={() => setIsOpen(false)}
-                    className="text-sm font-semibold cursor-pointer text-[var(--text-main)] hover:text-[var(--primary)] border-b border-[var(--border-subtle)]/50 pb-2"
+                    className="text-sm font-medium cursor-pointer text-[var(--text-main)] hover:text-[var(--primary)] border-b border-[var(--border-subtle)]/50 pb-2"
                   >
                     {link.name}
                   </ScrollLink>
