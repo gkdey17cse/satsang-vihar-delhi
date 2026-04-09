@@ -23,11 +23,9 @@ import {
   Mic2,
   ExternalLink,
 } from "lucide-react";
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-fade";
-
 // Import logos
 import logo_light from "../../assets/Photos/logo_light.png";
 import logo_dark from "../../assets/Photos/logo_dark.png";
@@ -40,7 +38,6 @@ const carouselImages = [
   "https://res.cloudinary.com/dk3sj0t4u/image/upload/v1771796681/4_bzapca.jpg",
   "https://res.cloudinary.com/dk3sj0t4u/image/upload/v1771796681/5_vijdwq.jpg",
 ];
-
 // The White Band image
 const whiteBandImage =
   "https://res.cloudinary.com/dk3sj0t4u/image/upload/v1771797051/whiteband_jdijzp.jpg";
