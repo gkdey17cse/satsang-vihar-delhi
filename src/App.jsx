@@ -5,7 +5,8 @@ import {
   Routes,
   Route,
   useNavigate,
-  useLocation, // ADD THIS IMPORT
+  useLocation,
+  Navigate,
 } from "react-router-dom";
 import HomeSPA from "./pages/Home";
 import AllKendrasPage from "./pages/AllKendrasPage";
@@ -44,13 +45,20 @@ function App() {
         <Route path="/" element={<HomeSPA />} />
         <Route path="/upyojna" element={<AllKendrasPage />} />
         <Route path="/history" element={<HistoryPage />} />
+
+        {/* Primary Route */}
         <Route path="/conference-du-2026" element={<ConferenceDetailsPage />} />
-        <Route path="/conferencedu2026" element={<ConferenceDetailsPage />} />
+        {/* Redirect duplicate to primary */}
+        <Route
+          path="/conferencedu2026"
+          element={<Navigate to="/conference-du-2026" replace />}
+        />
+
         <Route path="/utsav-delhi-2026" element={<UtsavDelhi2026 />} />
+
         <Route path="*" element={<HomeSPA />} />
       </Routes>
     </Router>
   );
 }
-
 export default App;
