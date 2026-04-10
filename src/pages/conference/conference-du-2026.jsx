@@ -770,19 +770,14 @@ const ConferenceDetailsPageNew = () => {
   return (
     <>
       <Helmet>
-        <title>ASPIRE 2026 | Conference Details</title>
-        <meta property="og:title" content="ASPIRE Career Seminar 2026" />
+        <title>ASPIRE DU Conference | DRDO Complex 2026</title>
         <meta
-          property="og:description"
-          content="Join us at Tagore Hall, DU for a life-changing career seminar."
+          name="description"
+          content="A project of Satsang Vihar Delhi to unlock your future at ASPIRE 2026! Join us on February 20th for expert mentorship, career roadmaps, and domain-specific guidance. Empower your professional journey—register now for this free seminar!"
         />
-        <meta
-          property="og:image"
-          content="https://res.cloudinary.com/dk3sj0t4u/image/upload/f_auto,q_auto,w_720/v1772047133/thumbnail_aspire_du_2026_k5hwkm.png"
-        />
-        <meta
-          property="twitter:image"
-          content="https://res.cloudinary.com/dk3sj0t4u/image/upload/f_auto,q_auto,w_720/v1772047133/thumbnail_aspire_du_2026_k5hwkm.png"
+        <link
+          rel="canonical"
+          href="https://www.satsangvihardelhi.org/conference-du-2026"
         />
       </Helmet>
 

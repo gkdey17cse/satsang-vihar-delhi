@@ -14,6 +14,7 @@ import HistoryPage from "./pages/HistoryPage";
 import ConferenceDetailsPage from "./pages/conference/conference-du-2026";
 import UtsavDelhi2026 from "./pages/utsav/utsav-delhi-2026";
 
+
 function HashRedirector() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -48,11 +49,6 @@ function App() {
 
         {/* Primary Route */}
         <Route path="/conference-du-2026" element={<ConferenceDetailsPage />} />
-        {/* Redirect duplicate to primary */}
-        <Route
-          path="/conferencedu2026"
-          element={<Navigate to="/conference-du-2026" replace />}
-        />
 
         <Route path="/utsav-delhi-2026" element={<UtsavDelhi2026 />} />
 

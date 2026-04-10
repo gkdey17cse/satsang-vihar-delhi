@@ -1,6 +1,7 @@
 // src/pages/utsav/utsav-2026.jsx
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from 'react-helmet-async';
 import { Link as ScrollLink } from "react-scroll";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
@@ -266,10 +267,10 @@ const UtsavDelhi2026 = () => {
   return (
     <>
       <Helmet>
-        <title>Utsav Delhi 2026 | Satsang Vihar Delhi</title>
+        <title>Delhi Utsav 2026 | Satsang Vihar Delhi</title>
         <meta
           name="description"
-          content="Information and details regarding the upcoming Utsav Delhi 2026 at Satsang Vihar Delhi."
+          content="Holy 138th Janma Mahatsav of Parampremamaya Sree Sree Thakur Anukulchandra & the 37th DELHI NCR Utsav in association of North Indian States on 28th and 29th March 2026"
         />
         <link
           rel="canonical"

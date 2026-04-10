@@ -632,79 +632,93 @@ const AllKendrasPage = () => {
   }, {});
 
   return (
-    <div className="min-h-screen bg-[var(--bg-main)]">
-      <Navbar />
-      {/* Searching Section */}
-      <header className="text-center py-32 bg-[var(--bg-tertiary)] border-b border-[var(--border-subtle)]">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-[var(--text-main)] mb-4">
-          Upayojana Kendra Network
-        </h1>
-        <p className="text-[var(--text-muted)] max-w-2xl mx-auto mb-8">
-          Explore our 53 service centers across the Delhi-NCR region,
-          established for the fulfillment of the mission.
-        </p>
+    <>
+      <Helmet>
+        <title>Upayojna Kendras of SVDEL</title>
+        <meta
+          name="description"
+          content="Satsang Vihar Delhi coordinates its spiritual and social activities through numerous Upayojna Kendras across the Delhi-NCR region. These sub-centers serve as local hubs for Yajan, Yaajan, and Ishtabhriti, bringing the community together for regular prayers, discussions, and the shared practice of Sree Sree Thakur’s divine philosophy."
+        />
+        <link
+          rel="canonical"
+          href="https://www.satsangvihardelhi.org/upyojna"
+        />
+      </Helmet>
 
-        <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
-          <div className="relative w-full max-w-md">
-            <Search
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-muted)]"
-              size={20}
-            />
-            <input
-              type="text"
-              placeholder="Search by Area, Region or Pincode or turn on Location..."
-              className="w-full pl-12 pr-4 py-3 text-sm rounded-full border border-[var(--border-subtle)] bg-[var(--bg-secondary)] focus:ring-2 focus:ring-[var(--primary)] outline-none transition-all"
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-          </div>
-          <button
-            onClick={findNearest}
-            className="bg-[var(--primary)] text-white px-8 py-3 rounded-full flex items-center gap-2 hover:bg-[var(--primary-hover)] transition-all shadow-lg active:scale-95"
-          >
-            <Navigation size={18} />{" "}
-            {loading ? "Locating..." : "Find Nearest to Me"}
-          </button>
-        </div>
-      </header>
+      <div className="min-h-screen bg-[var(--bg-main)]">
+        <Navbar />
+        {/* Searching Section */}
+        <header className="text-center py-32 bg-[var(--bg-tertiary)] border-b border-[var(--border-subtle)]">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-[var(--text-main)] mb-4">
+            Upayojana Kendra Network
+          </h1>
+          <p className="text-[var(--text-muted)] max-w-2xl mx-auto mb-8">
+            Explore our 53 service centers across the Delhi-NCR region,
+            established for the fulfillment of the mission.
+          </p>
 
-      <div className="py-12 lg:py-20 max-w-7xl mx-auto px-4">
-        {/* Nearest Centers Section */}
-        {nearest.length > 0 && (
-          <div className="mb-16 animate-in fade-in slide-in-from-top-4 duration-700">
-            <h2 className="text-2xl font-bold text-[var(--primary)] mb-8 flex items-center gap-3">
-              <div className="h-8 w-1 bg-[var(--primary)] rounded-full"></div>
-              Closest Centers to Your Location
-            </h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              {nearest.map((k) => (
-                <KendraCard key={`near-${k.id}`} k={k} showDist={true} />
-              ))}
+          <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
+            <div className="relative w-full max-w-md">
+              <Search
+                className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-muted)]"
+                size={20}
+              />
+              <input
+                type="text"
+                placeholder="Search by Area, Region or Pincode or turn on Location..."
+                className="w-full pl-12 pr-4 py-3 text-sm rounded-full border border-[var(--border-subtle)] bg-[var(--bg-secondary)] focus:ring-2 focus:ring-[var(--primary)] outline-none transition-all"
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
             </div>
-            <hr className="mt-16 border-[var(--border-subtle)]" />
+            <button
+              onClick={findNearest}
+              className="bg-[var(--primary)] text-white px-8 py-3 rounded-full flex items-center gap-2 hover:bg-[var(--primary-hover)] transition-all shadow-lg active:scale-95"
+            >
+              <Navigation size={18} />{" "}
+              {loading ? "Locating..." : "Find Nearest to Me"}
+            </button>
           </div>
-        )}
+        </header>
 
-        {/* All Centers Grouped by Region */}
-        {REGION_ORDER.map(
-          (region) =>
-            groupedByRegion[region] &&
-            groupedByRegion[region].length > 0 && (
-              <div key={region} className="mb-16 last:mb-0">
-                <h2 className="text-2xl font-bold text-[var(--primary)] mb-8 flex items-center gap-3">
-                  <div className="h-8 w-1 bg-[var(--primary)] rounded-full"></div>
-                  {region} ({groupedByRegion[region].length})
-                </h2>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {groupedByRegion[region].map((k) => (
-                    <KendraCard key={k.id} k={k} />
-                  ))}
-                </div>
+        <div className="py-12 lg:py-20 max-w-7xl mx-auto px-4">
+          {/* Nearest Centers Section */}
+          {nearest.length > 0 && (
+            <div className="mb-16 animate-in fade-in slide-in-from-top-4 duration-700">
+              <h2 className="text-2xl font-bold text-[var(--primary)] mb-8 flex items-center gap-3">
+                <div className="h-8 w-1 bg-[var(--primary)] rounded-full"></div>
+                Closest Centers to Your Location
+              </h2>
+              <div className="grid md:grid-cols-3 gap-6">
+                {nearest.map((k) => (
+                  <KendraCard key={`near-${k.id}`} k={k} showDist={true} />
+                ))}
               </div>
-            ),
-        )}
+              <hr className="mt-16 border-[var(--border-subtle)]" />
+            </div>
+          )}
+
+          {/* All Centers Grouped by Region */}
+          {REGION_ORDER.map(
+            (region) =>
+              groupedByRegion[region] &&
+              groupedByRegion[region].length > 0 && (
+                <div key={region} className="mb-16 last:mb-0">
+                  <h2 className="text-2xl font-bold text-[var(--primary)] mb-8 flex items-center gap-3">
+                    <div className="h-8 w-1 bg-[var(--primary)] rounded-full"></div>
+                    {region} ({groupedByRegion[region].length})
+                  </h2>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {groupedByRegion[region].map((k) => (
+                      <KendraCard key={k.id} k={k} />
+                    ))}
+                  </div>
+                </div>
+              ),
+          )}
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </>
   );
 };
 
@@ -712,7 +726,7 @@ const KendraCard = ({ k, showDist }) => (
   <div className="group relative bg-white dark:bg-[var(--bg-secondary)] rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-[var(--border-subtle)] hover:border-[var(--primary)]">
     {/* Decorative top bar */}
     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[var(--primary)] to-transparent"></div>
-    
+
     <div className="p-6">
       {/* Header with region and optional distance */}
       <div className="flex justify-between items-start mb-4">
@@ -749,9 +763,7 @@ const KendraCard = ({ k, showDist }) => (
             <p className="text-xs text-[var(--text-muted)] uppercase font-bold tracking-wider">
               Center Owner
             </p>
-            <p className="text-[var(--text-main)] truncate">
-              {k.owner}
-            </p>
+            <p className="text-[var(--text-main)] truncate">{k.owner}</p>
           </div>
         </div>
 
@@ -763,9 +775,7 @@ const KendraCard = ({ k, showDist }) => (
             <p className="text-xs text-[var(--text-muted)] uppercase font-bold tracking-wider">
               Contact Number
             </p>
-            <p className="text-[var(--text-main)] truncate">
-              {k.mobile}
-            </p>
+            <p className="text-[var(--text-main)] truncate">{k.mobile}</p>
           </div>
         </div>
 
@@ -777,9 +787,7 @@ const KendraCard = ({ k, showDist }) => (
             <p className="text-xs text-[var(--text-muted)] uppercase font-bold tracking-wider">
               Pincode
             </p>
-            <p className="text-[var(--text-main)] truncate">
-              {k.pincode}
-            </p>
+            <p className="text-[var(--text-main)] truncate">{k.pincode}</p>
           </div>
         </div>
       </div>
@@ -791,7 +799,10 @@ const KendraCard = ({ k, showDist }) => (
         rel="noreferrer"
         className="flex items-center justify-center gap-2 w-full py-2.5 px-4 bg-[var(--bg-main)] text-[var(--text-main)] rounded-xl font-semibold border border-[var(--border-subtle)] hover:bg-[var(--primary)] hover:text-white hover:border-[var(--primary)] transition-all duration-300 group"
       >
-        <ExternalLink size={18} className="group-hover:scale-110 transition-transform" />
+        <ExternalLink
+          size={18}
+          className="group-hover:scale-110 transition-transform"
+        />
         <span>Get Directions</span>
       </a>
     </div>
