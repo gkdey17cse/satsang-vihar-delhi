@@ -11,7 +11,9 @@ const Image1 =
 const Image2 =
   "https://res.cloudinary.com/dk3sj0t4u/image/upload/w_1200,q_auto,f_auto/v1769624150/Caraousel_2_s7ht0n.png";
 const Image3 =
-  "https://res.cloudinary.com/dk3sj0t4u/image/upload/w_1200,q_auto,f_auto/v1769624143/Caraousel_3_iofohx.png";
+  "https://res.cloudinary.com/dk3sj0t4u/image/upload/w_1600,q_auto,f_auto/v1775853716/1_tigtbw.jpg";
+const Image4 =
+  "https://res.cloudinary.com/dk3sj0t4u/image/upload/w_1600,q_auto,f_auto/v1775853730/17_cra93u.jpg";
 
 // Local image fallbacks
 const localFallbacks = {
@@ -21,7 +23,7 @@ const localFallbacks = {
 };
 
 const Hero = () => {
-  const carouselImages = [Image1, Image2, Image3];
+  const carouselImages = [Image1, Image2, Image3, Image4];
 
   // Function to get fallback image URL
   const getFallbackImage = (cloudinaryUrl) => {

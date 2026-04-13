@@ -12,7 +12,7 @@ const HomeSPA = () => {
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <main className="grow">
-        <UtsavHighlightModal />
+        {/* <UtsavHighlightModal />  // MODAL THAT WILL SHOW ANY HIGHLIGHTED EVENT LIEK UTSAV */}
         <Hero />
         <Mission />
         <Events />

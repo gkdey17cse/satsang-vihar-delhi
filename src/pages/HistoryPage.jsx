@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
@@ -5,11 +6,12 @@ const HistoryPage = () => {
   return (
     <>
       <Helmet>
-        <title>History & Philosophy</title>
+        <title>History of Satsang Vihar New Delhi | Philosophy</title>
         <meta
           name="description"
-          content="Satsang Vihar Delhi serves as a spiritual lighthouse, spreading the life-transforming philosophy of Sree Sree Thakur Anukulchandra. From its humble beginnings to becoming a central hub for thousands, the center focuses on 'Being and Becoming,' fostering community through service, devotion, and the pursuit of existential upliftment across the region."
+          content="Discover the rich history of Satsang Vihar Delhi and the life-transforming philosophy of Sree Sree Thakur Anukulchandra. Learn about our foundation and mission."
         />
+        <meta name="keywords" content="Satsang Delhi History , Delhi Mandir History , Satsang Delhi Mandir , History of Satsang Delhi" />
         <link
           rel="canonical"
           href="https://www.satsangvihardelhi.org/history"
@@ -22,7 +24,7 @@ const HistoryPage = () => {
         <div className="flex-grow pt-24 pb-16 px-4">
           <article className="max-w-3xl mx-auto prose prose-lg prose-amber dark:prose-invert">
             <h1 className="text-3xl md:text-5xl  font-extrabold text-[var(--text-main)] mb-8 text-center">
-              History of Satsang
+              History of Satsang Vihar Delhi
             </h1>
 
             <div className="bg-[var(--bg-secondary)] p-8 rounded-2xl shadow-sm border border-[var(--border-subtle)] mb-10">

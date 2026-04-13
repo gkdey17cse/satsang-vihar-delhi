@@ -770,10 +770,14 @@ const ConferenceDetailsPageNew = () => {
   return (
     <>
       <Helmet>
-        <title>ASPIRE DU Conference | DRDO Complex 2026</title>
+        <title>ASPIRE Conference 2026 | Satsang Vihar Delhi Seminars</title>
         <meta
           name="description"
-          content="A project of Satsang Vihar Delhi to unlock your future at ASPIRE 2026! Join us on February 20th for expert mentorship, career roadmaps, and domain-specific guidance. Empower your professional journey—register now for this free seminar!"
+          content="Join ASPIRE 2026 by Satsang Vihar Delhi at the DRDO Complex. A free seminar offering expert mentorship, career roadmaps, and domain-specific guidance for students and professionals. Register today!"
+        />
+        <meta
+          name="keywords"
+          content="ASPIRE conference 2026, Satsang Vihar Delhi events, DRDO complex seminar Delhi, Satsang DU conference, student career counseling Delhi, Satsang youth seminar"
         />
         <link
           rel="canonical"

@@ -1,5 +1,6 @@
 // src/App.jsx
 import { useEffect } from "react";
+import { HelmetProvider } from "react-helmet-async";
 import {
   BrowserRouter as Router,
   Routes,
@@ -13,7 +14,6 @@ import AllKendrasPage from "./pages/AllKendrasPage";
 import HistoryPage from "./pages/HistoryPage";
 import ConferenceDetailsPage from "./pages/conference/conference-du-2026";
 import UtsavDelhi2026 from "./pages/utsav/utsav-delhi-2026";
-
 
 function HashRedirector() {
   const navigate = useNavigate();

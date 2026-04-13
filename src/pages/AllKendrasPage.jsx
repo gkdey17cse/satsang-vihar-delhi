@@ -1,5 +1,6 @@
 // src/pages/AllKendrasPage.jsx
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { MapPin, Phone, Navigation, Search, ExternalLink } from "lucide-react";
@@ -634,10 +635,14 @@ const AllKendrasPage = () => {
   return (
     <>
       <Helmet>
-        <title>Upayojna Kendras of SVDEL</title>
+        <title>Upyojna Kendras | Satsang Vihar Delhi Centers</title>
         <meta
           name="description"
-          content="Satsang Vihar Delhi coordinates its spiritual and social activities through numerous Upayojna Kendras across the Delhi-NCR region. These sub-centers serve as local hubs for Yajan, Yaajan, and Ishtabhriti, bringing the community together for regular prayers, discussions, and the shared practice of Sree Sree Thakur’s divine philosophy."
+          content="Find all Upayojana Kendras and Satsang centers across New Delhi. Get contact details, addresses, and directions for your nearest Satsang Vihar Delhi branch."
+        />
+        <meta
+          name="keywords"
+          content="Satsang Vihar Delhi centers, Upyojna Kendra Delhi, Satsang branches New Delhi, Anukulchandra ashram near me"
         />
         <link
           rel="canonical"
@@ -650,7 +655,7 @@ const AllKendrasPage = () => {
         {/* Searching Section */}
         <header className="text-center py-32 bg-[var(--bg-tertiary)] border-b border-[var(--border-subtle)]">
           <h1 className="text-4xl md:text-5xl font-extrabold text-[var(--text-main)] mb-4">
-            Upayojana Kendra Network
+            Upayojana Kendras of Satsang Vihar Delhi
           </h1>
           <p className="text-[var(--text-muted)] max-w-2xl mx-auto mb-8">
             Explore our 53 service centers across the Delhi-NCR region,
@@ -686,7 +691,7 @@ const AllKendrasPage = () => {
             <div className="mb-16 animate-in fade-in slide-in-from-top-4 duration-700">
               <h2 className="text-2xl font-bold text-[var(--primary)] mb-8 flex items-center gap-3">
                 <div className="h-8 w-1 bg-[var(--primary)] rounded-full"></div>
-                Closest Centers to Your Location
+                Closest Upayojna of Satsang Vihar Delhi to Your Location
               </h2>
               <div className="grid md:grid-cols-3 gap-6">
                 {nearest.map((k) => (
