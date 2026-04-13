@@ -1,0 +1,60 @@
+// src/pages/conference/components/ConferenceFooter.jsx
+const ConferenceFooter = () => {
+  return (
+    <footer className="bg-[var(--color-neutral-900)] text-white py-10 lg:py-16">
+      <div className="max-w-7xl mx-auto px-4 text-center">
+        <div className="mb-8">
+          <p className="text-[13px] md:text-sm lg:text-base font-medium text-[var(--color-brand-200)] italic leading-relaxed">
+            "To bring out and materialise <br /> a congruity <br /> from among
+            varieties <br /> and unify them meaningfully <br /> discovering their
+            relation <br /> to existence— <br /> is the essence of education."
+          </p>
+          <span className="block mt-4 text-[10px] md:text-xs lg:text-sm text-[var(--color-neutral-400)] uppercase tracking-wider">
+            — Sree Sree Thakur Anukulchandra, <br className="md:hidden" />
+            ESSENCE OF EDUCATION, The Message-8
+          </span>
+        </div>
+        <div className="flex justify-center gap-6 md:gap-8 pt-4 border-t border-[var(--color-neutral-800)]">
+          <a
+            href="https://www.facebook.com/SatsangViharDelhi"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[var(--color-neutral-400)] hover:text-[#1877F2] transition-colors transform hover:scale-110 duration-300"
+            aria-label="Facebook"
+          >
+            <svg fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5 lg:w-7 lg:h-7">
+              <path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036c-2.148 0-2.971.956-2.971 3.594v.376h5.36l-.729 3.667h-4.631v7.98h-4.843Z" />
+            </svg>
+          </a>
+          <a
+            href="https://www.youtube.com/@SatsangViharDelhi"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[var(--color-neutral-400)] hover:text-[#FF0000] transition-colors transform hover:scale-110 duration-300"
+            aria-label="YouTube"
+          >
+            <svg fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5 lg:w-7 lg:h-7">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+            </svg>
+          </a>
+          <a
+            href="https://wa.me/919811148043"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[var(--color-neutral-400)] hover:text-[#25D366] transition-colors transform hover:scale-110 duration-300"
+            aria-label="WhatsApp"
+          >
+            <svg fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5 lg:w-7 lg:h-7">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+            </svg>
+          </a>
+        </div>
+        <p className="text-[10px] md:text-xs text-[var(--color-neutral-500)] mt-4 tracking-widest uppercase">
+          © 2026 Satsang Vihar New Delhi • All rights reserved.
+        </p>
+      </div>
+    </footer>
+  );
+};
+
+export default ConferenceFooter;

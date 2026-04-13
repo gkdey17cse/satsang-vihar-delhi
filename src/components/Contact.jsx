@@ -41,7 +41,7 @@ const Contact = () => {
                 <br />
                 Delhi Satsang Vihar Marg,
                 <br />
-                Qutab Institutional Area, New Delhi.
+                Qutab Institutional Area, New Delhi. , Pin - 110016
               </p>
             </div>
 

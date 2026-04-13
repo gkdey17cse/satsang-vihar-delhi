@@ -2,8 +2,9 @@
 import { Link } from "react-router-dom";
 import Utsav from "../assets/Photos/Utsav.jpg";
 import Satsang from "../assets/Photos/Satsang.jpg";
-import Conference from "../assets/Photos/Conference.png";
+// import Conference from "../assets/Photos/Conference.png";
 
+const Conference = `https://res.cloudinary.com/dk3sj0t4u/image/upload/v1772042297/11_se5pxw.jpg`
 const Events = () => {
   const eventsList = [
     {
@@ -20,18 +21,18 @@ const Events = () => {
       isFeatured: true,
     },
     {
-      title: "Career Excellence Conference 2026",
+      title: "ASPIRE ~ Career Excellence Conference 2026",
       image: Conference,
       date: "20th February 2026 (Friday)",
       time: "09:30 AM - 04:30 PM",
-      location: "Tagore Hall, University of Delhi (North Campus)",
+      location: "DRDO Residential Complex, (DROMI)",
       quote:
         "To bring out and materialise a congruity from among varieties and unify them meaningfully... is the essence of education.",
       quoteSource: "The Message-8",
       desc: "A national-level seminar featuring IAS/IES officers, DRDO scientists, and global experts. Includes 1:1 mentorship, CV vetting, and global career roadmaps.",
       buttonText: "Explore Aspire 2026 @DU",
       link: "/conference-du-2026",
-      isFeatured: true,
+      isFeatured: false,
     },
     {
       title: "Monthly Satsang",
